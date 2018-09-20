@@ -12,6 +12,7 @@ require_once("../config.php");
 	$senha = $_POST['senha'];
 	$phash = md5($senha);
 	// cria admG - $tipo = 1;
+	$tipo = 4;
 	$estado = 1;
 
 	$sql = new sql();

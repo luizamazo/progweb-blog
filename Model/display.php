@@ -1,16 +1,6 @@
 <?php 
 
-session_start();
-    $host = 'localhost';
-	$user = 'root';
-	$pass ='';
-    $bd = 'mtDB';
-
-$link = mysqli_connect($host, $user, $pass, $bd);
-
-if(!$link){
-    die('Não Funcionou '.mysqli_connect_errno());
-}
+require_once("../config.php");
 
 if(isset($_SESSION['logado'])){
     include 'navbar.html';
