@@ -1,11 +1,22 @@
 <?php 
 
-class SQL extends PDO{
-    
-    public $conn;
-    //toda vez que eu instanciar, inicio conexao com o bd
+require_once("../config.php");
+
+class sql extends PDO{
+
+    private $conn;
+
+    public function createConn(){
+        try{
+             $this->conn = new PDO("mysql:host=localhost;dbname=blog", "root", "");
+             return $this->conn;
+        }catch(PDOException $e){
+            echo 'Conexão falhou: ' . $e->getMessage();
+        }     
+    }
+       //toda vez que eu instanciar, inicio conexao com o bd
     public function __construct(){
-        $this->conn = new PDO("mysql:host=localhost;dbname=blog", "root", "");
+        $this->createConn();
     }
 
     //quando quero setar só um paramaetro
@@ -21,6 +32,7 @@ class SQL extends PDO{
         }
     }
 
+    //query e bind
     //comando genérico pra query, $query é onde envio sql
     public function query($query, $params = array()){
         //faço prepare com o comando sql
@@ -33,6 +45,9 @@ class SQL extends PDO{
         return $stmt;
     }
 
+    ////////////////////////////////////////////////////////////////////////////////////////
+
+    //query e array assoc
     public function select($query, $params = array()):array{
         //coloco na variável a minha função query que tem o sql e os parametros ja com bind
         //query aqui já tá tratada
@@ -41,7 +56,21 @@ class SQL extends PDO{
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function insert($query, $params = array()){
+        $stmt = $this->query($query, $params); 
+    }
+
+    public function update($query, $params = array()){
+        $stmt = $this->query($query, $params);
+    }
+
+    public function delete($query, $params = array()){
+        $stmt = $this->query($query, $params);
+    }
+
 }
+
+
 
 
 
