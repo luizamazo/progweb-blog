@@ -1,6 +1,11 @@
 <?php 
-   
-    if(isset($_SESSION) && $_SESSION['tipo'] == 1){
+
+    require_once("../config.php");
+    require_once "../class/auth.php";
+  
+    
+    $aux = auth::checkUser();
+    if(isset($_SESSION['tipo']) && $aux == "admG"){
 ?>
 
 <!DOCTYPE html>

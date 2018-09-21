@@ -1,7 +1,8 @@
 <?php 
 
 require_once("../config.php");
-	include "sql.php";
+
+	include "auth.php";
 
 	$link = new sql();
 	$conn = $link->createConn();
@@ -21,7 +22,9 @@ require_once("../config.php");
 		if(count($result)  > 0){
 			$_SESSION['tipo'] = $result;
 			$_SESSION['logado'] = true;
-			header("location: auth.php");
+			$auth = new auth();
+			$auth->authIndex();
+			//header("location: auth.php");
 		}else{
 			echo "Email ou senha incorretos";
 		}

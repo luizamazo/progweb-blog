@@ -2,7 +2,7 @@
 
 require_once("../config.php");
 	
-	include "sql.php";
+	//include "sql.php";
 
 	$link = new sql();
 	$conn = $link->createConn();
@@ -26,27 +26,26 @@ require_once("../config.php");
 			":ESTADO"=>$estado
 		));
 		
-		if($tipo == 1){
+		if($tipo == 4){
 			header("Location: userIndex.php");
 		}
 		
 	}
 
-	insertUser($nome, $email, $phash, $tipo, $estado);
+	//insertUser($nome, $email, $phash, $tipo, $estado);
 
 
-	/*function selectUser(){
+	function selectUser($nome, $email, $tipo, $estado, $result){
 		$sql = new sql();
-			$result = $sql->select("SELECT * FROM Usuarios WHERE email = :EMAIL AND senha = :SENHA", array(
-				":EMAIL"=>$email,
-				":SENHA"=>$phash,
-			));
-			echo json_encode($result);
-			echo "select ok";
+		$result = $sql->select("SELECT nome, email, tipo, estado FROM pessoa", array());
+		return json_encode($result);
 	}
-	*/
+
+	$stmt = selectUser($nome, $email, $tipo, $estado, $result); 
+	print_r($stmt);
 	
-	/*function deleteUser(){
+	/*
+     function deleteUser(){
 		$sql = new sql();
 		$result = $sql->query("UPDATE Usuarios SET estado = :ESTADO WHERE id = :ID", array(
 			":ESTADO"=>$estado,
@@ -54,17 +53,8 @@ require_once("../config.php");
 		));
 		echo "deletado virtualmente ok";
 }
-*/
 
-	//model??
-
-	/*
-		
-
-
-	*/
-
-		/*function updateUser(){
+	function updateUser(){
 		
 		$sql = new sql();
 		$result = $sql->query("UPDATE Usuarios SET nome = :USUARIO, email = :EMAIL, 
