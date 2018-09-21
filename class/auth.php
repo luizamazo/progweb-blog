@@ -19,13 +19,13 @@ class auth{
                         header("location: /progweb-blog/View/admGindex.php");
                         break;
                     case "2":
-                        header("location: admIndex.php");
+                        header("location: /progweb-blog/View/admIndex.php");
                         break;
                     case "3": 
-                        header("location: redaIndex.php");
+                        header("location: /progweb-blog/View/redaIndex.php");
                         break;
                     case "4":
-                        header("location: userIndex.php");
+                        header("location: /progweb-blog/View/userIndex.php");
                         break;
                     default: 
                     

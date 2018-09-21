@@ -17,7 +17,7 @@
     
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     
-    <title>CRIAR POST</title>
+    <title>EDITAR POST</title>
 
 </head>
 
@@ -53,15 +53,15 @@
         
         <div class="centro1">
 
-            <div><h1> CRIAR NOVO POST </h1></div>
+            <div><h1> EDITAR POST </h1></div>
 
 
             <form action="/progweb-blog/class/postCRUD.php" method="post">
             
-            <input type="text" name="titulo" placeholder="Título"><br><br>
-            <textarea name="conteudo" id="conteudo" cols="30" rows="20" placeholder="Conteúdo"></textarea><br><br>
+            <input type="text" name="titulo" placeholder="Novo Título"><br><br>
+            <textarea name="conteudo" id="conteudo" cols="30" rows="20" placeholder="Novo Conteúdo"></textarea><br><br>
             
-            <input type="submit" name="submit" value="Criar Post"><br>
+            <input type="submit" name="submit" value="Salvar"><br>
             </form>
 
     

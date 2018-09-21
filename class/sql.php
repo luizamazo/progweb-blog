@@ -6,7 +6,7 @@ class sql extends PDO{
 
     public function createConn(){
         try{
-             $this->conn = new PDO("mysql:host=localhost;dbname=blog", "root", "");
+             $this->conn = new PDO("mysql:host=localhost;dbname=blog;charset=utf8", "root", "");
              return $this->conn;
         }catch(PDOException $e){
             echo 'Conexão falhou: ' . $e->getMessage();
