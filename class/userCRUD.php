@@ -2,18 +2,22 @@
 
 require_once("../config.php");
 	
-	//include "sql.php";
+	include_once "sql.php";
 
 	$link = new sql();
 	$conn = $link->createConn();
 	//pra mysqli $link = dbConn();
+
+	if(isset($_POST['submit'])){
+	
 	$nome = $_POST['nome'];
 	$email = $_POST['email'];
 	$senha = $_POST['senha'];
 	$phash = md5($senha);
 	$tipo = $_POST['tipo'];	
+	$cod = $_POST['cod'];
 	$estado = 1;
-
+}
 	
 	function insertUser($nome, $email, $phash, $tipo, $estado){
 		$sql = new sql();
@@ -35,39 +39,43 @@ require_once("../config.php");
 	//insertUser($nome, $email, $phash, $tipo, $estado);
 
 
-	function selectUser($nome, $email, $tipo, $estado, $result){
+	function selectUser(){
 		$sql = new sql();
-		$result = $sql->select("SELECT nome, email, tipo, estado FROM pessoa", array());
-		return json_encode($result);
+		$result = $sql->select("SELECT id, nome, email, tipo, estado FROM pessoa", array());
+		return $result;
 	}
 
-	$stmt = selectUser($nome, $email, $tipo, $estado, $result); 
-	print_r($stmt);
-	
-	/*
-     function deleteUser(){
-		$sql = new sql();
-		$result = $sql->query("UPDATE Usuarios SET estado = :ESTADO WHERE id = :ID", array(
-			":ESTADO"=>$estado,
-			":ID"=>$id,
-		));
-		echo "deletado virtualmente ok";
-}
-
-	function updateUser(){
+	function updateUser($nome, $email, $phash, $tipo, $cod){
 		
 		$sql = new sql();
-		$result = $sql->query("UPDATE Usuarios SET nome = :USUARIO, email = :EMAIL, 
-		senha = :SENHA WHERE id = :ID", array(
-				":USUARIO"=>$usuario,
+		$result = $sql->query("UPDATE pessoa SET nome = :NOME, email = :EMAIL, 
+		senha = :SENHA, tipo = :TIPO WHERE id = :ID", array(
+				":NOME"=>$nome,
 				":EMAIL"=>$email,
 				":SENHA"=>$phash,
-				":ID" => $id
+				":TIPO"=>$tipo,
+				":ID" => $cod
 			));
-		echo "alterado ok";
-
+			echo "alterado com sucesso";
 	}
-	*/
+
+	//updateUser($nome, $email, $phash, $tipo, $cod);
+
+
+     function deleteUser($cod, $email){
+		$sql = new sql();
+		$estado = 2;
+		$result = $sql->query("UPDATE pessoa SET estado = :ESTADO WHERE id = :ID AND email = :EMAIL", array(
+			":ESTADO"=>$estado,
+			":EMAIL"=>$email,
+			":ID"=>$id
+		));
+		$_SESSION['estado'] = 2;
+		echo "deletado virtualmente ok";
+	}
+	deleteUser($cod, $email);
+
+
    
 	
 
