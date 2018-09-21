@@ -174,4 +174,98 @@ hr{
 	height: 60%;
 	padding: 40px 40px 20px 40px;
 }
-			
+		
+
+
+/*TELA ADM GERAL*/
+
+#corpo_texto2{
+	background-color: #666666;
+	width: 60%;
+	height: 80%;
+	position: absolute;
+	left: 20%;
+}
+
+.centro3{
+	position: absolute;
+	top: 5%;
+	left: 5%;
+	background-color: white;
+	width: 80%;
+	height: 80%;
+	padding: 40px 40px 20px 40px;
+	color: black;
+
+	overflow:auto;  /*barra de rolagem automática*/
+}
+
+#donoconta{
+	font-size: 40px;
+	font-family: fantasy;
+	text-align: center;
+}
+
+
+th{
+	color: red;
+	font-family: cursive;
+	font-size: 20px;
+	padding: 10px 20px;
+	border-right: 2px dashed #A9F5E1;
+}
+
+td{
+	border-right: 2px dashed #A9F5E1;
+}
+
+#alinhar1{
+	padding: 5px 10px;
+	overflow: auto;
+}
+
+#menueditar{
+	position: absolute;
+	left: 5%;
+	background-color: #A9F5E1;
+	text-align: center;
+	padding: 10px 10px;
+}
+
+#menuexcluir{
+	position: absolute;
+	right: 5%;
+	background-color: #A9F5E1;
+	text-align: center;
+	width: 30%;
+	padding: 10px 10px;
+}
+
+#subtitulo{
+	font-family: fantasy;
+	font-size: 20px;
+}
+
+#botao1{
+	background-color: black;
+	text-align: center;
+	color: white;
+	border-radius: 5px;
+	border: none;
+	text-decoration: none;
+	padding: 10px 65px;
+	display: inline-block;
+}
+
+#botao2{
+	background-color: black;
+	text-align: center;
+	color: white;
+	border-radius: 5px;
+	border: none;
+	text-decoration: none;
+	padding: 10px 35px;
+	display: inline-block;
+}
+
+
