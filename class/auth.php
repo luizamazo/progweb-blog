@@ -15,7 +15,7 @@ require_once("../config.php");
             switch($value){
             
                 case "1":
-                    header("location: /progweb-blog/View/admGindex.html");
+                    header("location: /progweb-blog/View/admGindex.php");
                     break;
                 case "2":
                     header("location: admIndex.php");

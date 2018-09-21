@@ -11,23 +11,28 @@ require_once("../config.php");
 	$email = $_POST['email'];
 	$senha = $_POST['senha'];
 	$phash = md5($senha);
-	// cria admG - $tipo = 1;
-	$tipo = $_POST['tipo'];
-	var_dump($tipo);
-	//default $tipo = 4;
+	$tipo = $_POST['tipo'];	
 	$estado = 1;
 
+	
+	function insertUser($nome, $email, $phash, $tipo, $estado){
+		$sql = new sql();
+		$result = $sql->query("INSERT INTO pessoa(nome, email, senha, tipo, estado) 
+		VALUES(:NOME, :EMAIL, :SENHA, :TIPO, :ESTADO)", array(
+			":NOME"=>$nome,
+			":EMAIL"=>$email,
+			":SENHA"=>$phash,
+			":TIPO"=>$tipo,
+			":ESTADO"=>$estado
+		));
+		
+		if($tipo == 1){
+			header("Location: userIndex.php");
+		}
+		
+	}
 
-	$sql = new sql();
-			$result = $sql->query("INSERT INTO pessoa(nome, email, senha, tipo, estado) 
-			VALUES(:NOME, :EMAIL, :SENHA, :TIPO, :ESTADO)", array(
-				":NOME"=>$nome,
-				":EMAIL"=>$email,
-				":SENHA"=>$phash,
-				":TIPO"=>$tipo,
-				":ESTADO"=>$estado
-			));
-			echo "inserido ok";
+	insertUser($nome, $email, $phash, $tipo, $estado);
 
 
 	/*function selectUser(){
@@ -56,10 +61,6 @@ require_once("../config.php");
 	/*
 		
 
-		function insertUser(){
-			
-			
-		}
 
 	*/
 

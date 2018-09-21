@@ -1,3 +1,8 @@
+<?php 
+   
+    if(isset($_SESSION) && $_SESSION['tipo'] == 1){
+?>
+
 <!DOCTYPE html>
 <html>
 	
@@ -29,3 +34,11 @@
 
 	</body>
 </html>
+
+<?php 
+}else{
+    echo "Você não está autorizado a acessar essa página";
+}
+
+?>
+

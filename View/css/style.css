@@ -1,85 +1,3 @@
-html,body{
-    height:100%;
-   }
-   .centro {
-   position: relative;
-   width:100%;
-   height:100%;
-   background:#BABABA;
-   }
-   .box_centro {
-   left:50%;
-   top:50%;
-   margin-left:-250px; /* Metade do valor da Largura */
-   margin-top:-200px; /* Metade da valor da Altura */
-   position:absolute;
-   width:500px; /* Valor da Largura */
-   height:500px; /* Valor da Altura */
-   background:#fff;
-   color:#7b7b7b;
-   padding: 50px;
-   line-height: 50px;
-   }
-
-   #botao{
-       width:345px;
-       height: 45px;
-       background-color: #505050;
-       color: white;
-       text-decoration: bold;
-   }
-  
-   input{
-       width:320px;
-       height: 30px;
-   }
-   
-   p:first-of-type{/*posicionar o texto abaixo do menu*/
-               padding-top: 57px; 
-           }
-           ul{
-               list-style-type: none;/*para retirar o marcador de lista*/
-               margin: 0px;
-               padding: 0px;
-               width: 100%;
-               background-color: #8393AA;
-               overflow: hidden;/* define o comportamento de um elemento quando suas dimensões são excedidas pelo conteúdo. vide ->http://tableless.github.io/iniciantes/manual/css/overflow.html*/
-               position: fixed;
-           }
-           li{
-               float: left;
-               border-right: 1px solid #00000036;
-           }
-           li a{
-               display: inline-block;
-               color: black;
-               padding: 8px 8px;
-               text-decoration: none;/*retirar o underline dos links*/
-               text-align: center;
-               
-           }
-           li:last-child{/*ultimo elemento da lista*/
-               border-right: none;
-           }
-           li a:hover{/*mudar a cor dos links qdo passar o mouse*/
-               background-color: #6A7585;
-               color: #FFFFFF;
-   
-           }
-           .ativo{/*mostra em qual página o usuário está*/
-               background-color: #1069e678;
-           }
-           .ativo > a{
-               
-               color: #f3f2e678;
-           }
-           .content{
-               display: none;
-               position: fixed;
-               background-color: red;
-               min-width: 200px;
-           }
-
            /* nav bar */
    
            .topnav {
@@ -114,3 +32,5 @@ html,body{
              }
 
             /* end nav bar */
+
+            /* posta seu css aqui embaixo e comenta o que é o que pra ficar mais facil */
