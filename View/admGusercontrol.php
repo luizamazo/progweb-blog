@@ -32,7 +32,7 @@
         <ul>
             <li><a href="inicio.html">INÍCIO</a></li>
             <li><a href="inicio.html">POSTAGENS</a></li>
-            <li><a href="teste.html">SUA CONTA</a></li>
+            <li><a href="login.html">SUA CONTA</a></li>
         </ul>
 
         <hr id="traco">
