@@ -49,17 +49,16 @@
     <br>
 
 
-    <div id="corpo_texto1">
+    <div id="corpo_texto3">
         
-        <div class="centro1">
+        
+        <div class="centro2">          
 
-            <div><h1> CRIAR NOVO POST </h1></div>
-
-
+            <div id="criar_post"><h1> CRIAR NOVO POST </h1></div>
             <form action="/progweb-blog/class/postCRUD.php" method="post">
             
-            <input type="text" name="titulo" placeholder="Título"><br><br>
-            <textarea name="conteudo" id="conteudo" cols="30" rows="20" placeholder="Conteúdo"></textarea><br><br>
+            <input type="text" name="titulo" placeholder="Título" id="tpost"><br><br>
+            <textarea name="conteudo" id="conteudo" cols="30" rows="20" placeholder="Conteúdo" ></textarea><br><br>
             
             <input type="submit" name="submit" value="Criar Post"><br>
             </form>
