@@ -12,9 +12,11 @@ require_once("../config.php");
 	$senha = $_POST['senha'];
 	$phash = md5($senha);
 	// cria admG - $tipo = 1;
-	$tipo = 3;
+	$tipo = $_POST['tipo'];
+	var_dump($tipo);
 	//default $tipo = 4;
 	$estado = 1;
+
 
 	$sql = new sql();
 			$result = $sql->query("INSERT INTO pessoa(nome, email, senha, tipo, estado) 

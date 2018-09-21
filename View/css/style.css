@@ -79,6 +79,8 @@ html,body{
                background-color: red;
                min-width: 200px;
            }
+
+           /* nav bar */
    
            .topnav {
                background-color: white;
@@ -110,3 +112,5 @@ html,body{
            .topnav-right {
                float: right;
              }
+
+            /* end nav bar */

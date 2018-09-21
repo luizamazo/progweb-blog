@@ -1,9 +1,14 @@
+<?php 
+   
+    if(isset($_SESSION) && $_SESSION['tipo'] == 1){
+?>
+
 <!DOCTYPE html>
 <html>
 	
 	<head>
         <meta charset="UTF-8">
-		<title>Cadastro</title>
+		<title>ADMIN G - ADD</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 
@@ -11,23 +16,36 @@
 	<body>
     <div class="centro">
          <div class="box_centro" align="center">
-             <div><h1> Criar Nova Conta</h1></div>
-            <div><h5>Olá visitante preencha os campos abaixo para criar uma nova conta</h5></div>
+             <div><h1> ADM G - Criar Nova Conta</h1></div>
+
          <div>
          <form action="/progweb-blog/class/userCRUD.php" method="post">
             
-            <input type="text" name="nome" placeholder="Seu nome"><br>
+            <input type="text" name="nome" placeholder="Nome"><br>
             <input type="email" name="email" placeholder="Email"><br>
             <input type="password" name="senha" placeholder="Senha"><br>
-            <input type="hidden" name="tipo" value="1">
             
+            <select name="tipo" id="escolha">
+                <option value="0" selected="selected">Tipo de Acesso</option>
+                <option value="2">Administrador</option>
+                <option value="3">Redator</option>
+                <option value="4">Usuário</option>
+            </select>
             <input type="submit" name="submit" value="Criar" id="botao"><br>
-            <a href="login.html">Já possuo cadastro</a>
+
             
          </form>
          </div>
          </div>
+
     </div>
 
 	</body>
 </html>
+
+<?php 
+}else{
+    echo "Você não está autorizado a acessar essa página";
+}
+
+?>
