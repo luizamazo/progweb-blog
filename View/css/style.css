@@ -34,3 +34,135 @@
             /* end nav bar */
 
             /* posta seu css aqui embaixo e comenta o que é o que pra ficar mais facil */
+
+
+
+
+            			
+body{
+	background-color: black;
+	text-align: center;
+	color: white;
+	font-family: cursive;
+}
+
+#traco{
+	size: 2;
+	border: 1px dashed red;
+}
+
+
+
+
+/* TELA INICIO */
+#titulo {
+	color: red;
+	font-size: 80px;
+	font-family: fantasy;
+}
+
+
+#menu{
+	width: 60%;
+	height: 10%;
+	position: absolute;
+	left: 20%;
+}
+
+ul {
+    list-style-type: none;
+    overflow: hidden;
+    align-self: center;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 20px 70px;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: cursive;
+}
+
+a:hover {
+    background-color: #666666;
+}
+
+hr{
+	color: red;
+}
+			
+
+#corpo_texto{
+	background-color: #666666;
+	width: 60%;
+	height: 100%;
+	position: absolute;
+	left: 20%;
+}
+
+
+
+/* TELA LOGIN */
+
+#corpo_texto1{
+	background-color: #666666;
+	width: 60%;
+	height: 55%;
+	position: absolute;
+	left: 20%;
+}
+
+.centro{
+	position: absolute;
+	top: 10%;
+	left: 25%;
+	background-color: white;
+	width: 40%;
+	height: 55%;
+	padding: 40px 40px 20px 40px;
+}
+
+
+.text1{
+	font-family: cursive;
+	font-variant: none;
+	font-size: 30px;
+	color: red;
+}
+
+			
+#botao{
+	background-color: black;
+	text-align: center;
+	color: white;
+	border-radius: 5px;
+	border: none;
+	text-decoration: none;
+	padding: 10px 65px;
+	display: inline-block;
+}
+
+			
+#novaconta{
+	font-family: sans-serif;
+	font-variant: none;
+	text-decoration: none;
+	font-size: 15px;
+	text-align: center;
+	color: #ff3300;	
+}
+
+#novaconta:hover {
+	background-color: white;
+}
+
+
+
+
+			
