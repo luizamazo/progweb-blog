@@ -19,9 +19,9 @@ require_once("../config.php");
 		));
 
 		if(count($result)  > 0){
-			var_dump($_SESSION['tipo'] = $result);
+			$_SESSION['tipo'] = $result;
 			$_SESSION['logado'] = true;
-			//header("location: auth.php");
+			header("location: auth.php");
 		}else{
 			echo "Email ou senha incorretos";
 		}

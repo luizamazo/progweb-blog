@@ -46,7 +46,7 @@ class sql extends PDO{
     ////////////////////////////////////////////////////////////////////////////////////////
 
     //query e array assoc
-    public function select($query, $params = array()):array{
+    public function select($query, $params = array()){
         //coloco na variável a minha função query que tem o sql e os parametros ja com bind
         //query aqui já tá tratada
         $stmt = $this->query($query, $params);
