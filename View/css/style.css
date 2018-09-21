@@ -163,6 +163,15 @@ hr{
 }
 
 
+/* TELA CADASTRO */
 
-
+.centro1{
+	position: absolute;
+	top: 10%;
+	left: 25%;
+	background-color: white;
+	width: 40%;
+	height: 60%;
+	padding: 40px 40px 20px 40px;
+}
 			
