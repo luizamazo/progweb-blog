@@ -16,10 +16,11 @@ require_once("../config.php");
 	$phash = md5($senha);
 	$tipo = $_POST['tipo'];	
 	$cod = $_POST['cod'];
-	$estado = 1;
 }
 	
 	function insertUser($nome, $email, $phash, $tipo, $estado){
+		
+		$estado = 1;
 		$sql = new sql();
 		$result = $sql->query("INSERT INTO pessoa(nome, email, senha, tipo, estado) 
 		VALUES(:NOME, :EMAIL, :SENHA, :TIPO, :ESTADO)", array(
@@ -29,7 +30,7 @@ require_once("../config.php");
 			":TIPO"=>$tipo,
 			":ESTADO"=>$estado
 		));
-		
+
 		if($tipo == 4){
 			header("Location: userIndex.php");
 		}
@@ -63,18 +64,17 @@ require_once("../config.php");
 
 
      function deleteUser($cod, $email){
+		
 		$sql = new sql();
 		$estado = 2;
 		$result = $sql->query("UPDATE pessoa SET estado = :ESTADO WHERE id = :ID AND email = :EMAIL", array(
 			":ESTADO"=>$estado,
 			":EMAIL"=>$email,
-			":ID"=>$id
+			":ID"=>$cod
 		));
-		$_SESSION['estado'] = 2;
-		echo "deletado virtualmente ok";
 	}
+	
 	deleteUser($cod, $email);
-
 
    
 	

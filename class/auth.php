@@ -13,10 +13,7 @@ class auth{
 
        $auth = $_SESSION['tipo'];
 
-
-        foreach($auth as $tipo){
-            foreach($tipo as $value){
-                switch($value){
+                switch($auth){
                 
                     case "1":
                         header("location: /progweb-blog/View/admGindex.php");
@@ -35,10 +32,8 @@ class auth{
                         echo "deu ruim";    
                 }
             }
-         }
-    }
-
-        static public function checkUser(){
+        }
+/* function checkUser(){
             $aux = $_SESSION['tipo'];
             global $admG;
             global $adm;
@@ -64,13 +59,11 @@ class auth{
                 }
             }
         }
-}
-
-//$auth = new auth();
 
 
-   
 
+$auth = new auth();
 
+*/
 
 ?>

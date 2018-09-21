@@ -4,8 +4,9 @@
     require_once "../class/auth.php";
   
     
-    $aux = auth::checkUser();
-    if(isset($_SESSION['tipo']) && $aux == "admG"){
+    //$aux = auth::checkUser();
+    if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == 1){
+    //if(isset($_SESSION['tipo']) && $aux == "admG"){
 ?>
 
 <!DOCTYPE html>
