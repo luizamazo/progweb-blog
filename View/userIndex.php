@@ -29,7 +29,7 @@
             
             <ul>
                 <li><a href="/progweb-blog/View/inicial.html">Ver Posts do Blog</a></li>
-                <li><a href="/progweb-blog/View/admGusercontrol.php">Gerenciar Comentários</a></li>
+                <li><a href="/progweb-blog/View/userControl.php">Gerenciar Comentários</a></li>
             </ul>
 
          </div>

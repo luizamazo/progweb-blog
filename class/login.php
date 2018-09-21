@@ -14,7 +14,7 @@ require_once("../config.php");
 	function userLogin($email, $phash){
 		
 			$sql = new sql();
-			$result = $sql->select("SELECT tipo, estado FROM pessoa WHERE email = :EMAIL AND senha = :SENHA",
+			$result = $sql->select("SELECT tipo, nome, estado FROM pessoa WHERE email = :EMAIL AND senha = :SENHA",
 			array(
 				":EMAIL"=>$email,
 				":SENHA"=>$phash
@@ -27,6 +27,7 @@ require_once("../config.php");
 			$estado = $result[0]["estado"];
 			if($estado != 2){
 				$_SESSION['tipo'] = $result[0]["tipo"];
+				$_SESSION['nome'] = $result[0]["nome"];
 				$_SESSION['logado'] = true;
 				$auth = new auth();
 				$auth->authIndex();
