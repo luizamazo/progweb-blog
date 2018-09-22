@@ -28,7 +28,8 @@ class postCRUD{
 			":ESTADO"=>$estado,
 			":DATA_O"=>$data
 		));
-			echo "POST INSERIDO";
+			header("Location: /progweb-blog/view/inicio.php");
+			//echo "POST INSERIDO";
 	}
 
 	public function selectPost(){
