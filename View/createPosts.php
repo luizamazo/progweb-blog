@@ -4,7 +4,7 @@
    require_once "../class/auth.php";
      
      //$aux = auth::checkUser();
-     if(isset($_SESSION['tipo']) && $_SESSION['tipo'] != 2 && $_SESSION['tipo'] != 4){
+     if(isset($_SESSION['tipo']) && $_SESSION['tipo'] != 4){
      //if(isset($_SESSION['tipo']) && $aux == "admG"){
 ?>
 
@@ -33,10 +33,19 @@
     <br>
 
     <div id="menu">
-        <ul>
-            <li><a href="inicio.html">INÍCIO</a></li>
-            <li><a href="inicio.html">POSTAGENS</a></li>
-            <li><a href="login.html">SUA CONTA</a></li>
+    <ul>
+            <li>OLÁ, <?php echo strtoupper($_SESSION['nome']);?> !</li>
+            <li><a href="inicio.php">INÍCIO</a></li>
+       <?php 
+            if($_SESSION['tipo'] == 1){ 
+               echo '<li><a href="admGIndex.php">DASHBOARD</a></li>';
+             }else if($_SESSION['tipo'] == 2){ 
+                echo '<li><a href="admIndex.php">DASHBOARD</a></li>';
+             }else if($_SESSION['tipo'] == 3){
+                echo '<li><a href="redaIndex.php">DASHBOARD</a></li>';
+             }
+        ?>
+            <li><a href=/progweb-blog/class/logout.php>SAIR</a></li>
         </ul>
 
         <hr id="traco">
@@ -55,11 +64,11 @@
         <div class="centro_cposts">          
 
             <div id="criar_cposts"><h1> CRIAR NOVO POST </h1></div>
-            <form action="/progweb-blog/class/postCRUD.php" method="post">
+            <form action="/progweb-blog/controller/postCRUDController.php" method="post">
             
             <input type="text" name="titulo" placeholder="Insira aqui o título do post" id="titulo_cposts"><br><br>
             <textarea name="conteudo" id="conteudo_cposts" cols="30" rows="20" placeholder="Insira aqui o conteúdo do post!!!" ></textarea><br><br>
-            
+            <input type="hidden" name="cpt" value="true">
             <input type="submit" name="submit" value="Criar Post"><br>
             </form>
 

@@ -34,7 +34,7 @@ class postCRUD{
 	public function selectPost(){
 		
 		$sql = new sql();
-		$result = $sql->select("SELECT * FROM posts", array());
+		$result = $sql->select("SELECT * FROM posts ORDER BY data_original DESC", array());
 		
 		foreach($result as $key => $res){	
 			foreach($res as $chave => $re){
@@ -73,14 +73,16 @@ class postCRUD{
 		$data = date("Y-m-d H:i:s");
 		
 		$result = $sql->query("UPDATE posts SET autor_editado = :AUTOR_E, titulo = :TITULO, 
-		conteudo = :CONTEUDO, data_editado = :DATA_E WHERE id = :ID", array(
+		conteudo = :CONTEUDO, data_editado = now() WHERE id = :ID", array(
 				":AUTOR_E"=>$autor,
 				":TITULO"=>$titulo,
 				":CONTEUDO"=>$conteudo,
-				":DATA_E"=>$data,
+			 //	":DATA_E"=>$data,
 				":ID"=>$cod
 			));
 			echo "alterado com sucesso";
+	 
+			return $editado = $cod;
 	}
 
     public function deletePost($cod){

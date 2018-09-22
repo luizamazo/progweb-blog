@@ -81,7 +81,13 @@ include_once "../model/postCRUD.php";
             <h2><?php echo $post['titulo']; ?></h2>
             <p>
                 <h5>Postado por <?php echo ucfirst($post['autor_original']); ?>
-                | <?php echo $post['data_original']; ?>
+                | <?php echo $post['data_original']; 
+                if(isset($_SESSION['editado'])){
+                    if($_SESSION['editado'] == $post['id']){
+                        echo "<br>Editado por:" . $post['autor_editado'] . "| ". $post['data_editado'];
+                    }
+                }
+                ?>
             
             </h5>
             </p>

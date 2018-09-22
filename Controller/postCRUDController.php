@@ -10,6 +10,7 @@ class postCRUDController{
         $link = new sql();
         $conn = $link->createConn();
         
+    
 	    if(isset($_POST['submit'])){
             
             $autor = $_SESSION['nome'];
@@ -17,7 +18,7 @@ class postCRUDController{
             $conteudo = $_POST['conteudo'];
 
             $v = array("autor"=>$autor, "titulo"=>$titulo, "conteudo"=>$conteudo);
-
+            
             if(isset($_GET['id'])){
                 $v["id"] = $_GET['id'];
             }
@@ -44,10 +45,11 @@ class postCRUDController{
     }
     
 }
+ 
     $test = new postCRUDController();
     $stmt = new postCRUD();
     $v = $test->postInput();
- 
+    var_dump($v);
     if(isset($v["cptkn"])){
         $_SESSION['cptoken'] = $v["cptkn"];
         
