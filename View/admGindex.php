@@ -14,7 +14,7 @@
 	
 	<head>
         <meta charset="UTF-8">
-		<title>ADM - G</title>
+		<title>ADMINSTRADOR GERAL</title>
 		<link rel="stylesheet" type="text/css" href="./css/style.css">
 	</head>
 
@@ -28,12 +28,12 @@
     </div>
 
     <br>
-
+    <div><h2>OLÁ, <?php echo strtoupper($_SESSION['nome']);?> !</h2></div>
     <div id="menu">
         <ul>
-            <li>OLÁ, <?php echo strtoupper($_SESSION['nome']);?> !</li>
+           
             <li><a href="inicio.php">INÍCIO</a></li>
-            <li><a href="admGIndex.php">DASHBOARD</a></li>
+            <li><a href="admGIndex.php" id="atual">DASHBOARD</a></li>
             <li><a href=/progweb-blog/class/logout.php>SAIR</a></li>
         </ul>
 
@@ -50,8 +50,8 @@
     <div id="corpo_texto4">
         
       <div class="centro5">
-
-        <label id="donoconta">ADMIN G</label>
+        <br>
+        <label id="donoconta">ADMINISTRADOR GERAL</label>
         <br>
         <br>
 

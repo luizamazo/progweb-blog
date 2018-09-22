@@ -63,13 +63,15 @@
         
         <div class="centro_cposts">          
 
-            <div id="criar_cposts"><h1> CRIAR NOVO POST </h1></div>
+            <label class="text1">CRIAR NOVO POST</label>
+            <br> 
+            <br>
             <form action="/progweb-blog/controller/postCRUDController.php" method="post">
             
             <input type="text" name="titulo" placeholder="Insira aqui o título do post" id="titulo_cposts"><br><br>
             <textarea name="conteudo" id="conteudo_cposts" cols="30" rows="20" placeholder="Insira aqui o conteúdo do post!!!" ></textarea><br><br>
             <input type="hidden" name="cpt" value="true">
-            <input type="submit" name="submit" value="Criar Post"><br>
+            <input type="submit" name="submit" value="Criar Post" class="submit" id="link1"><br>
             </form>
 
     

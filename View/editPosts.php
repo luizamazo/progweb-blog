@@ -35,7 +35,7 @@
 
     <div id="menu">
         <ul>
-            <li>OLÁ, <?php echo strtoupper($_SESSION['nome']);?> !</li>
+            <li><a href="">OLÁ, <?php echo strtoupper($_SESSION['nome']);?> !</a></li>
             <li><a href="inicio.php">INÍCIO</a></li>
        <?php 
             if($_SESSION['tipo'] == 1){ 
@@ -57,20 +57,22 @@
     <br>
 
 
-    <div id="corpo_texto1">
+     <div id="corpo_cposts">
         
-        <div class="centro1">
+        
+        <div class="centro_cposts">
 
-            <div><h1> EDITAR POST </h1></div>
-
+           <label class="text1">EDITAR POST</label>
+           <br> 
+           <br>
 
            <?php  echo '<form action="/progweb-blog/controller/postCRUDController.php?id='. $cod . '" method="post">'; ?>
             
-            <input type="text" name="titulo" placeholder="Novo Título"><br><br>
-            <textarea name="conteudo" id="conteudo" cols="30" rows="20" placeholder="Novo Conteúdo"></textarea><br><br>
+            <input type="text" name="titulo" id="titulo_cposts" placeholder="Insira aqui o novo título"><br><br>
+            <textarea name="conteudo" id="conteudo_cposts" cols="30" rows="20" placeholder="Insira aqui o novo conteúdo"></textarea><br><br>
             <input type="hidden" name="id" value="<?php $cod; ?>">
             <input type="hidden" name="ept" value="true">
-            <input type="submit" name="submit" value="Salvar"><br>
+            <input type="submit" name="submit" value="Salvar" class="submit" id="link1"><br>
             </form>
                 
             <?php "chama o edit por objeto?" ?>
