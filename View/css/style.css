@@ -284,13 +284,34 @@ td{
 	text-decoration: none;
 	padding: 10px 35px;
 	display: inline-block;
-<<<<<<< HEAD
 }
-=======
+/*TELA CREATEPOSTS.PHP*/
+#corpo_cposts{
+	background-color: #666666;
+	width: 60%;
+	height: 100%;
+	position: absolute;
+	left: 20%;
 }
-
-
-
+.centro_cposts{
+	position: absolute;
+	top: 10%;
+	left: 15%;
+	background-color: white;
+	width: 65%;
+	height: 70%;
+	padding: 40px 40px 20px 40px;
+}
+#criar_cposts{
+	color: black;
+}
+#titulo_cposts{
+	width: 100%;
+}
+#conteudo_cposts{
+	width: 100%;
+	resize: none;
+}
 
 /* TELA ADM-INDEX */
 
@@ -348,4 +369,3 @@ td{
 	color: red;
 }
 
->>>>>>> f11a08062dc689520e0c0947c79a0f96f2b9a71d
