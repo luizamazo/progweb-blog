@@ -30,7 +30,7 @@
 
     <div id="menu">
         <ul>
-            <li>OLÁ, <?php echo strtoupper($_SESSION['nome']);?> !</li>
+            <li>OLÁ, <?php echo strtoupper($_SESSION['nome']);?>!</li>
             <li><a href="inicio.php">INÍCIO</a></li>
             <li><a href="userIndex.php">DASHBOARD</a></li>
             <li><a href="/progweb-blog/class/logout.php">SAIR</a></li>

@@ -31,22 +31,11 @@ require_once("../config.php");
 				$_SESSION['logado'] = true;
 				$auth = new auth();
 				$auth->authIndex();
-				//header("location: auth.php");
 			}else{
 				echo "Essa conta foi deletada!";
 			}
 	
 		}
-		
-			/*if(count($result)  > 0 ){
-				$_SESSION['tipo'] = $result[0]["tipo"];
-				$_SESSION['logado'] = true;
-				$auth = new auth();
-				$auth->authIndex();
-			}else{
-				echo "Email ou senha incorretos";
-			}
-			*/
 		
 	}
 

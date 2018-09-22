@@ -28,7 +28,7 @@
     </div>
 
     <br>
-    <div><h2>OLÁ, <?php echo strtoupper($_SESSION['nome']);?> !</h2></div>
+    <div><h2>OLÁ, <?php echo strtoupper($_SESSION['nome']);?>!</h2></div>
     <div id="menu">
         <ul>
            

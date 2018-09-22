@@ -30,7 +30,7 @@ include_once "../model/postCRUD.php";
               if(!isset($_SESSION['logado'])){
                     echo '<li><a href="">OLÁ, ANÔNIMO!</a></li>';
                 }else{
-                    echo '<li><a href="">OLÁ '. strtoupper($_SESSION['nome']) .' !</a></li>';
+                    echo '<li><a href="">OLÁ, '. strtoupper($_SESSION['nome']) .'!</a></li>';
                 } 
             ?>
             
