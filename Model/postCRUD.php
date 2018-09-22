@@ -17,25 +17,24 @@ class postCRUD{
 		$titulo = $v["titulo"];
 		$conteudo = $v["conteudo"];
 		$estado = 1;
-		date_default_timezone_set('America/Sao_Paulo');
-		$data = date("Y-m-d H:i:s");
-		
-		$result = $sql->query("INSERT INTO posts(autor_original, titulo, conteudo, estado, data_original) 
-		VALUES(:AUTOR_O, :TITULO, :CONTEUDO, :ESTADO, :DATA_O)", array(
+		//date_default_timezone_set('America/Sao_Paulo');
+
+		$result = $sql->query("INSERT INTO posts(autor_original, titulo, conteudo, estado) 
+		VALUES(:AUTOR_O, :TITULO, :CONTEUDO, :ESTADO)", array(
 			":AUTOR_O"=>$autor,
 			":TITULO"=>$titulo,
 			":CONTEUDO"=>$conteudo,
 			":ESTADO"=>$estado,
-			":DATA_O"=>$data
+	
 		));
 			header("Location: /progweb-blog/view/inicio.php");
 			//echo "POST INSERIDO";
 	}
 
-	public function selectPost(){
-		
+	public function selectPost($query, $param = array()){
+		//"SELECT * FROM posts ORDER BY data_original DESC"
 		$sql = new sql();
-		$result = $sql->select("SELECT * FROM posts ORDER BY data_original DESC", array());
+		$result = $sql->select($query, $param);
 		
 		foreach($result as $key => $res){	
 			foreach($res as $chave => $re){
@@ -64,41 +63,86 @@ class postCRUD{
 		$sql = new sql();
 		$pc = new postCRUDController();
 		$v = $pc->postInput();
-		var_dump($v);
+	
 		$autor = $v["autor"];
 		$titulo = $v["titulo"];
 		$conteudo = $v["conteudo"];
 		$cod = $v["id"];
-		$estado = 1;
-		date_default_timezone_set('America/Sao_Paulo');
-		$data = date("Y-m-d H:i:s");
 		
 		$result = $sql->query("UPDATE posts SET autor_editado = :AUTOR_E, titulo = :TITULO, 
-		conteudo = :CONTEUDO, data_editado = now() WHERE id = :ID", array(
+		conteudo = :CONTEUDO, editado = :EDITADO WHERE id = :ID", array(
 				":AUTOR_E"=>$autor,
 				":TITULO"=>$titulo,
 				":CONTEUDO"=>$conteudo,
-			 //	":DATA_E"=>$data,
-				":ID"=>$cod
+				":ID"=>$cod,
+				":EDITADO"=>1
 			));
-			echo "alterado com sucesso";
-	 
-			return $editado = $cod;
-	}
 
-    public function deletePost($cod){
-		$cod = 8;
-		$estado = 2;
+			header("Location: /progweb-blog/view/inicio.php");
+}
+
+    public function deletePost(){
 		$sql = new sql();
+		$pc = new postCRUDController();
+		$v = $pc->postInput();
+		$cod = $v["id"];
+		$estado = 2;
+
 		$result = $sql->query("UPDATE posts SET estado = :ESTADO WHERE id = :ID", array(
 			":ESTADO"=>$estado,
 			":ID"=>$cod
 		));
+
+		header("Location: /progweb-blog/view/inicio.php");
 	}
 
-	//deletePost($cod);
-}
+	public function checkDel($cod){
+		
+		$sql = new sql();
+		$pc = new postCRUDController();
+		$v = $pc->postInput();
+		$id = $cod;
+		
+		$t = $sql->select("SELECT estado FROM posts WHERE id = :ID", array(
+			":ID"=>$id
+		));
 
+		if($t[0]["estado"] == "2"){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	public function checkEdit($cod){
+
+		$sql = new sql();
+		$pc = new postCRUDController();
+		$v = $pc->postInput();
+		$id = $cod;
+		
+		$t = $sql->select("SELECT editado FROM posts WHERE id = :ID", array(
+			":ID"=>$id
+		));
+		//onde 1 é editado e 0 não editado
+		if($t[0]["editado"] == 1){
+			return true;
+		}else{
+			return false;
+		}
+
+	}
+
+	public function callSelectP(){
+		$v = $this->selectPost("SELECT * FROM posts ORDER BY data_original DESC");
+		return $v;
+	}
+}
+$edit = array("editado"=>true, "id"=> "41", "cuzinho"=>"ptnc");
+$stmt = new postCRUD();
+$cod = $edit["id"];
+$t = $stmt->checkEdit($cod);
+var_dump($t);
 
 
 ?>

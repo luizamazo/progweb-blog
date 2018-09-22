@@ -75,40 +75,45 @@ include_once "../model/postCRUD.php";
         
         <?php  
             $obj = new postCRUD();
-            $posts = $obj->selectPost();
-            foreach($posts as $post){
-            ?>
-            <h2><?php echo $post['titulo']; ?></h2>
-            <p>
-                <h5>Postado por <?php echo ucfirst($post['autor_original']); ?>
-                | <?php echo $post['data_original']; 
-                if(isset($_SESSION['editado'])){
-                    if($_SESSION['editado'] == $post['id']){
-                        echo "<br>Editado por:" . $post['autor_editado'] . "| ". $post['data_editado'];
+            $posts = $obj->callSelectP();
+                foreach($posts as $post){
+                 
+                    $cod = $post['id'];
+                    $check = $obj->checkDel($cod);
+                    $edit = $obj->checkEdit($cod);
+
+                    if($check == false){
+        ?>
+                        <h2><?php echo $post['titulo']; ?></h2>
+                        <p>
+                            <h5>Postado por <?php echo ucfirst($post['autor_original']); ?> | <?php echo $post['data_original']; 
+                            if($edit == true){
+                                    echo "<br>Editado por: " . ucfirst($post['autor_editado']) . " | ". $post['data_editado'];
+                                }
+                        ?> </h5>
+                        </p>
+                        
+                        <div><?php echo nl2br($post['conteudo']); ?></div>
+                    
+                    <?php 
+                    if(isset($_SESSION['tipo'])){
+                            if($_SESSION['tipo'] == 1 || $_SESSION['tipo'] == 2){
+                    ?>
+                    <menu>
+                        <ul>
+                            <li><a href='editPosts.php?id=<?php echo $post['id']; ?>' id="botao3"> Editar Post</a></li>
+                            <li><a href='delPosts.php?id=<?php echo $post['id'];?>&titulo=<?php echo $post['titulo'];?>' id="botao3"> Deletar Post</a></li>
+                        </ul>
+                    </menu>
+                    <?php   
+                            }  
+                        }
                     }
                 }
-                ?>
-            
-            </h5>
-            </p>
-            <div><?php echo nl2br($post['conteudo']); ?></div>
-            
-            <?php 
-            if(isset($_SESSION['tipo'])){
-                    if($_SESSION['tipo'] == 1 || $_SESSION['tipo'] == 2){
+           
+           
             ?>
-            <menu>
-                <ul>
-                    <li><a href='editPosts.php?id=<?php echo $post['id']; ?>' id="botao3"> Editar Post</a></li>
-                    <li><a href='delPosts.php?id=<?php echo $post['id']; ?>' id="botao3"> Deletar Post</a></li>
-                </ul>
-            </menu>
-            <?php   
-                    }  
-                }
-            }
-            ?>
-
+        
         <div class="posts">
             
             

@@ -12,12 +12,17 @@ class postCRUDController{
         
     
 	    if(isset($_POST['submit'])){
-            
-            $autor = $_SESSION['nome'];
-            $titulo = $_POST['titulo'];
-            $conteudo = $_POST['conteudo'];
+        
+            $v = array();
 
-            $v = array("autor"=>$autor, "titulo"=>$titulo, "conteudo"=>$conteudo);
+            if(isset($_POST['titulo']) && isset($_POST['conteudo'])){
+                $autor = $_SESSION['nome'];
+                $titulo = $_POST['titulo'];
+                $conteudo = $_POST['conteudo'];
+                $v["autor"] = $autor; 
+                $v["titulo"] = $titulo; 
+                $v["conteudo"] = $conteudo;
+            }
             
             if(isset($_GET['id'])){
                 $v["id"] = $_GET['id'];
@@ -49,12 +54,13 @@ class postCRUDController{
     $test = new postCRUDController();
     $stmt = new postCRUD();
     $v = $test->postInput();
-    var_dump($v);
+  
     if(isset($v["cptkn"])){
         $_SESSION['cptoken'] = $v["cptkn"];
         
         if($_SESSION['cptoken'] == true){
             $stmt->insertPost();
+            var_dump($GLOBALS['status']);
             $_SESSION['cptoken'] = false;
         }
     }else if(isset($v["eptkn"])){
@@ -65,7 +71,7 @@ class postCRUDController{
             $_SESSION['eptoken'] = false;
         }
     }else if(isset($v["dptkn"])){
-        $_SESSION['dptoken'] = $v["tptkn"];
+        $_SESSION['dptoken'] = $v["dptkn"];
        
         if($_SESSION['dptoken'] == true){
             $stmt->deletePost();
