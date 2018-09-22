@@ -96,7 +96,7 @@
                                   
                 <form action="/progweb-blog/class/userCRUD.php" method="post">
                        
-                  <table>  
+                  <table id="tabela">  
                     <tr>
                       <td>
                         <input type="text" name="cod" placeholder="Código Identificador"><br>

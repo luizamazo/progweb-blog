@@ -224,6 +224,9 @@ hr{
 	text-align: center;
 }
 
+#tabela{
+	color: black;
+}
 
 th{
 	color: red;
@@ -235,6 +238,7 @@ th{
 
 td{
 	border-right: 2px dashed #A9F5E1;
+	color: black;
 }
 
 #alinhar1{
@@ -344,4 +348,63 @@ td{
 	background-color: white;
 	color: red;
 }
+
+
+/* TELA ADM GERAL ADD */
+
+#corpo_texto5{
+	background-color: #666666;
+	width: 60%;
+	height: 50%;
+	position: absolute;
+	left: 20%;
+}
+
+.centro6{
+	position: absolute;
+	top: 5%;
+	left: 5%;
+	background-color: white;
+	width: 80%;
+	height: 65%;
+	padding: 40px 40px 20px 40px;
+	color: black;
+
+	overflow:auto;  /*barra de rolagem automática*/
+}
+
+
+#menu1{
+	position: absolute;
+	left: 23%;
+	background-color: #A9F5E1;
+	text-align: center;
+	width: 50%;
+	height: 30%;
+	padding: 10px 10px 20px;	
+	align-items: center;
+}
+
+#botao3{
+	background-color: black;
+	text-align: center;
+	color: white;
+	border-radius: 5px;
+	border: none;
+	text-decoration: none;
+	padding: 5px 40px 5px 40px;
+	display: inline-block;
+}
+
+
+#tabela1{
+	text-align: center;
+	vertical-align: middle;
+	border-color: none;
+	width: 100%;
+	line-height: 25px;
+}
+
+
+
 
