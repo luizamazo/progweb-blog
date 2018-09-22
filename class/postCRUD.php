@@ -12,6 +12,7 @@ require_once("../config.php");
 	$autor = $_SESSION['nome'];
 	$titulo = $_POST['titulo'];
 	$conteudo = $_POST['conteudo'];
+	$cod = $_GET['cod'];
 	
 }
 	
@@ -32,15 +33,24 @@ require_once("../config.php");
 	}
 
 	//insertPost($autor, $titulo, $conteudo);
-
+	
+	//$fdt = date("d/m/Y, H:i:s", strtotime($res[0]["data"]));
+	//$res[0]["data"] = $fdt;
 
 	function selectPost(){
 		$sql = new sql();
-		$result = $sql->select("SELECT id, autor, titulo, conteudo, data FROM posts ORDER BY data", array());
-		$fdt = date("d/m/Y, H:i:s", strtotime($result[0]["data"]));
-		$result[0]["data"] = $fdt;
-		return $result;
-	}
+		$result = $sql->select("SELECT id, autor, titulo, conteudo, data FROM posts", array());
+		
+		foreach($result as $key => $res){	
+			foreach($res as $chave => $re){
+			if($chave == "data"){
+				$fdt = date("d/m/Y, H:i:s", strtotime($res["data"]));
+				$result[$key][$chave] = $fdt;
+			}
+		}
+	}	
+	 return $result;
+}
 
 	//selectPost();
 
@@ -57,20 +67,21 @@ require_once("../config.php");
 			echo "alterado com sucesso";
 	}
 
-	updatePost($autor, $titulo, $conteudo, $cod);
+	//updatePost($autor, $titulo, $conteudo, $cod);
 
 
-     function deleteUser($cod, $email){
-		
-		$sql = new sql();
+     function deletePost($cod){
+		$cod = 8;
 		$estado = 2;
-		$result = $sql->query("UPDATE pessoa SET estado = :ESTADO WHERE id = :ID AND email = :EMAIL", array(
+		$sql = new sql();
+		$result = $sql->query("UPDATE posts SET estado = :ESTADO WHERE id = :ID", array(
 			":ESTADO"=>$estado,
-			":EMAIL"=>$email,
 			":ID"=>$cod
 		));
 	}
-	
+
+	//deletePost($cod);
+
 ?>
 
 

@@ -15,7 +15,7 @@
 	<head>
         <meta charset="UTF-8">
 		<title>ADMIN G - CONTROL</title>
-		<link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
 	</head>
 
 
