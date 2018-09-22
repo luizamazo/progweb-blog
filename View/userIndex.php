@@ -15,27 +15,55 @@
 	<head>
         <meta charset="UTF-8">
 		<title>USER - INDEX</title>
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="./css/style.css">
 	</head>
 
 
 	<body>
-    <div class="centro">
-         <div class="box_centro" align="center">
-             <div><h1> USER </h1></div>
-           
-         <div>
-      
-            
-            <ul>
-                <li><a href="/progweb-blog/View/inicial.html">Ver Posts do Blog</a></li>
-                <li><a href="/progweb-blog/View/userControl.php">Gerenciar Comentários</a></li>
-            </ul>
-
-         </div>
-   
+    <div>
+        <label id="titulo">12 Horas de Terror</label>
+        <br>
+        <label>Um blog para os amantes do dark side.</label>
     </div>
 
+    <br>
+
+    <div id="menu">
+        <ul>
+            <li>OLÁ, <?php echo strtoupper($_SESSION['nome']);?> !</li>
+            <li><a href="inicio.php">INÍCIO</a></li>
+            <li><a href="userIndex.php">DASHBOARD</a></li>
+            <li><a href="/progweb-blog/class/logout.php">SAIR</a></li>
+        </ul>
+
+        <hr id="traco">
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <div id="corpo_texto3">
+        
+      <div class="centro4">
+
+        <label id="donoconta">USER</label>
+        <br>
+        <br>
+
+        <div>
+          <ul id="gerencia1">
+            <li id="li1"><a href="/progweb-blog/View/inicio.php"id="link1">Ver Posts do Blog</a></li>
+            <li id="li1"><a href="/progweb-blog/View/userControl.php" id="link1">Gerenciar comentários</a></li>
+          </ul>  
+        </div>
+             
+      </div>
+
+    </div>  
 	</body>
 </html>
 

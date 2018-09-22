@@ -7,6 +7,7 @@
      if(isset($_SESSION['tipo']) && $_SESSION['tipo'] != 4){
      //if(isset($_SESSION['tipo']) && $aux == "admG"){
         $cod = $_GET['id'];
+        $titulo = $_GET['titulo'];
 ?>
 
 <!DOCTYPE html>
@@ -18,10 +19,11 @@
     
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     
-    <title>EDITAR POST</title>
+    <title>DELETAR POST</title>
 
 </head>
-
+    
+    <input type="hidden" name="dpt" value="true">
 
 <body>
 
@@ -37,13 +39,13 @@
         <ul>
             <li>OLÁ, <?php echo strtoupper($_SESSION['nome']);?> !</li>
             <li><a href="inicio.php">INÍCIO</a></li>
-       <?php 
-            if($_SESSION['tipo'] == 1){ 
-               echo '<li><a href="admGIndex.php">DASHBOARD</a></li>';
-             }else if($_SESSION['tipo'] == 2){ 
-                echo '<li><a href="admIndex.php">DASHBOARD</a></li>';
-             } 
-        ?>
+            <?php 
+                if($_SESSION['tipo'] == 1){ 
+                echo '<li><a href="admGIndex.php">DASHBOARD</a></li>';
+                }else if($_SESSION['tipo'] == 2){ 
+                    echo '<li><a href="admIndex.php">DASHBOARD</a></li>';
+                } 
+            ?>
             <li><a href=/progweb-blog/class/logout.php>SAIR</a></li>
         </ul>
 
@@ -61,19 +63,17 @@
         
         <div class="centro1">
 
-            <div><h1> EDITAR POST </h1></div>
+            <div><h1> DESEJA MESMO DELETAR "" </h1></div>
 
 
-           <?php  echo '<form action="/progweb-blog/controller/postCRUDController.php?id='. $cod . '" method="post">'; ?>
+            <form action="/progweb-blog/class/postCRUD.php" method="post">
             
             <input type="text" name="titulo" placeholder="Novo Título"><br><br>
             <textarea name="conteudo" id="conteudo" cols="30" rows="20" placeholder="Novo Conteúdo"></textarea><br><br>
             <input type="hidden" name="id" value="<?php $cod; ?>">
-            <input type="hidden" name="ept" value="true">
             <input type="submit" name="submit" value="Salvar"><br>
             </form>
-                
-            <?php "chama o edit por objeto?" ?>
+
     
     </div>
     </div>

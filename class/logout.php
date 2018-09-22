@@ -4,7 +4,7 @@ session_start();
 
 if(isset($_SESSION['logado'])){
     session_destroy();
-    header("Location: login.html");
+    header("Location: /progweb-blog/view/inicio.php");
    
     /* if(session_status() == 0){
         echo "session disabled";

@@ -15,28 +15,58 @@
 	<head>
         <meta charset="UTF-8">
 		<title>ADM - G</title>
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="./css/style.css">
 	</head>
 
 
 	<body>
-    <div class="centro">
-         <div class="box_centro" align="center">
-             <div><h1> ADMIN G</h1></div>
-           
-         <div>
-      
-            
-            <ul>
-                <li><a href="/progweb-blog/View/admGadd.php">Adicionar Usuários</a></li>
-                <li><a href="/progweb-blog/View/admGusercontrol.php">Gerenciar Usuários</a></li>
-                <li><a href="">Gerenciar Posts</a></li>
-                <li><a href="">Gerenciar comentários?</a></li>
-            </ul>
-
-         </div>
-   
+    
+    <div>
+        <label id="titulo">12 Horas de Terror</label>
+        <br>
+        <label>Um blog para os amantes do dark side.</label>
     </div>
+
+    <br>
+
+    <div id="menu">
+        <ul>
+            <li>OLÁ, <?php echo strtoupper($_SESSION['nome']);?> !</li>
+            <li><a href="inicio.php">INÍCIO</a></li>
+            <li><a href="admGIndex.php">DASHBOARD</a></li>
+            <li><a href=/progweb-blog/class/logout.php>SAIR</a></li>
+        </ul>
+
+        <hr id="traco">
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <div id="corpo_texto4">
+        
+      <div class="centro5">
+
+        <label id="donoconta">ADMIN G</label>
+        <br>
+        <br>
+
+        <div>
+          <ul id="gerencia1">
+            <li id="li1"><a href="/progweb-blog/View/admGadd.php" id="link1">Adicionar Usuários</a></li>
+            <li id="li1"><a href="/progweb-blog/View/createPosts.php" id="link1">Adicionar Novo Post</a></li>
+            <li id="li1"><a href="/progweb-blog/View/admGusercontrol.php" id="link1">Gerenciar Usuários</a></li>
+            <li id="li1"><a href="" id="link1">Gerenciar Comentários</a></li>
+          </ul>  
+        </div>
+             
+      </div>
+
+    </div>  
 
 	</body>
 </html>

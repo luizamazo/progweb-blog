@@ -15,7 +15,7 @@
 	<head>
         <meta charset="UTF-8">
 		<title>ADMIN G - CONTROL</title>
-		<link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
 	</head>
 
 
@@ -30,9 +30,10 @@
 
     <div id="menu">
         <ul>
-            <li><a href="inicio.html">INÍCIO</a></li>
-            <li><a href="inicio.html">POSTAGENS</a></li>
-            <li><a href="teste.html">SUA CONTA</a></li>
+            <li>OLÁ, <?php echo strtoupper($_SESSION['nome']);?> !</li>
+            <li><a href="inicio.php">INÍCIO</a></li>
+            <li><a href="admGIndex.php">DASHBOARD</a></li>
+            <li><a href=/progweb-blog/class/logout.php>SAIR</a></li>
         </ul>
 
         <hr id="traco">
@@ -50,6 +51,10 @@
       <div class="centro3">
 
         <label id="donoconta"> ADM G - User Control</label>
+        <h6>Tipos: ADM G (1) | ADM (2) | REDATOR (3) | USUÁRIO (4) <br><br>
+        Estados: ATIVADO (1) | DESATIVADO (2)
+        </h6>
+        
         <br>
         <br>  
              
@@ -96,7 +101,7 @@
                                   
                 <form action="/progweb-blog/class/userCRUD.php" method="post">
                        
-                  <table>  
+                  <table id="tabela">  
                     <tr>
                       <td>
                         <input type="text" name="cod" placeholder="Código Identificador"><br>
