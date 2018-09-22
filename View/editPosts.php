@@ -4,7 +4,7 @@
    require_once "../class/auth.php";
      
      //$aux = auth::checkUser();
-     if(isset($_SESSION['tipo']) && $_SESSION['tipo'] != 2 && $_SESSION['tipo'] != 4){
+     if(isset($_SESSION['tipo']) && $_SESSION['tipo'] != 4){
      //if(isset($_SESSION['tipo']) && $aux == "admG"){
         $cod = $_GET['id'];
 ?>
@@ -64,7 +64,7 @@
             <div><h1> EDITAR POST </h1></div>
 
 
-            <form action="/progweb-blog/class/postCRUD.php" method="post">
+           <?php  echo '<form action="/progweb-blog/controller/postCRUDController.php?id='. $cod . '" method="post">'; ?>
             
             <input type="text" name="titulo" placeholder="Novo Título"><br><br>
             <textarea name="conteudo" id="conteudo" cols="30" rows="20" placeholder="Novo Conteúdo"></textarea><br><br>

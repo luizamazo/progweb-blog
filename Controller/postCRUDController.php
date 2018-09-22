@@ -19,23 +19,19 @@ class postCRUDController{
             $v = array("autor"=>$autor, "titulo"=>$titulo, "conteudo"=>$conteudo);
 
             if(isset($_GET['id'])){
-                $cod = $_GET['id'];
-                $v["id"] = $cod;
+                $v["id"] = $_GET['id'];
             }
              
             if(isset($_POST['cpt'])){
-                $cptkn = $_POST['cpt'];
-                $v["cptkn"] = $cptkn;
+                $v["cptkn"] = $_POST['cpt'];
             }
 
             if(isset($_POST['ept'])){
-                $eptkn = $_POST['ept'];
-                $v["eptkn"] = $eptkn;
+                $v["eptkn"] = $_POST['ept'];
             }
 
             if(isset($_POST['dpt'])){
-                $dptkn = $_POST['dpt'];
-                $v["dptkn"] = $dptkn;
+                $v["dptkn"] = $_POST['dpt'];
             }
 
             return $v;
@@ -51,27 +47,34 @@ class postCRUDController{
     $test = new postCRUDController();
     $stmt = new postCRUD();
     $v = $test->postInput();
-
+ 
     if(isset($v["cptkn"])){
         $_SESSION['cptoken'] = $v["cptkn"];
+        
         if($_SESSION['cptoken'] == true){
             $stmt->insertPost();
             $_SESSION['cptoken'] = false;
+        }
     }else if(isset($v["eptkn"])){
         $_SESSION['eptoken'] = $v["eptkn"];
+       
+        if($_SESSION['eptoken'] == true){
+            $stmt->editPost();
+            $_SESSION['eptoken'] = false;
+        }
     }else if(isset($v["dptkn"])){
         $_SESSION['dptoken'] = $v["tptkn"];
+       
+        if($_SESSION['dptoken'] == true){
+            $stmt->deletePost();
+            $_SESSION['dptoken'] = false;
+        }
     }
-}
+
    
   /* 
-    }else if($_SESSION['eptoken'] == true){
-        $stmt->editPost();
-        $_SESSION['eptoken'] = false;
-    }else if($_SESSION['dptoken'] == true){
-        $stmt->deletePost();
-        $_SESSION['dptoken'] = false;
-    }
+   
+    }else 
 */
     
    /* public function callInsert(){

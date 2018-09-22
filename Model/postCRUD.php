@@ -17,13 +17,16 @@ class postCRUD{
 		$titulo = $v["titulo"];
 		$conteudo = $v["conteudo"];
 		$estado = 1;
+		date_default_timezone_set('America/Sao_Paulo');
+		$data = date("Y-m-d H:i:s");
 		
-		$result = $sql->query("INSERT INTO posts(autor, titulo, conteudo, estado) 
-		VALUES(:AUTOR, :TITULO, :CONTEUDO, :ESTADO)", array(
-			":AUTOR"=>$autor,
+		$result = $sql->query("INSERT INTO posts(autor_original, titulo, conteudo, estado, data_original) 
+		VALUES(:AUTOR_O, :TITULO, :CONTEUDO, :ESTADO, :DATA_O)", array(
+			":AUTOR_O"=>$autor,
 			":TITULO"=>$titulo,
 			":CONTEUDO"=>$conteudo,
-			":ESTADO"=>$estado
+			":ESTADO"=>$estado,
+			":DATA_O"=>$data
 		));
 			echo "POST INSERIDO";
 	}
@@ -31,44 +34,54 @@ class postCRUD{
 	public function selectPost(){
 		
 		$sql = new sql();
-		$result = $sql->select("SELECT id, autor, titulo, conteudo, data FROM posts ORDER BY data DESC", array());
+		$result = $sql->select("SELECT * FROM posts", array());
 		
 		foreach($result as $key => $res){	
 			foreach($res as $chave => $re){
-			if($chave == "data"){
-				$fdt = date("d/m/Y, H:i:s", strtotime($res["data"]));
+			if($chave == "data_original"){
+				$fdt = date("d/m/Y, H:i:s", strtotime($res["data_original"]));
 				$result[$key][$chave] = $fdt;
 			}
 		}
-	}	
-	 return $result;
-}
+	}
+
+		foreach($result as $key => $res){	
+			foreach($res as $chave => $re){
+			if($chave == "data_editado"){
+				$fdt = date("d/m/Y, H:i:s", strtotime($res["data_editado"]));
+				$result[$key][$chave] = $fdt;
+			}
+		}
+	}
+	return $result;
+}	
+
+
 
 	public function editPost(){
 		
 		$sql = new sql();
 		$pc = new postCRUDController();
-		//$v = $pc->postInput();
-
+		$v = $pc->postInput();
+		var_dump($v);
 		$autor = $v["autor"];
 		$titulo = $v["titulo"];
 		$conteudo = $v["conteudo"];
+		$cod = $v["id"];
 		$estado = 1;
+		date_default_timezone_set('America/Sao_Paulo');
+		$data = date("Y-m-d H:i:s");
 		
-		$cod = 7;
-		
-		$result = $sql->query("UPDATE posts SET autor = :AUTOR, titulo = :TITULO, 
-		conteudo = :CONTEUDO WHERE id = :ID", array(
-				":AUTOR"=>$autor,
+		$result = $sql->query("UPDATE posts SET autor_editado = :AUTOR_E, titulo = :TITULO, 
+		conteudo = :CONTEUDO, data_editado = :DATA_E WHERE id = :ID", array(
+				":AUTOR_E"=>$autor,
 				":TITULO"=>$titulo,
 				":CONTEUDO"=>$conteudo,
+				":DATA_E"=>$data,
 				":ID"=>$cod
 			));
 			echo "alterado com sucesso";
 	}
-
-	//updatePost($autor, $titulo, $conteudo, $cod);
-
 
     public function deletePost($cod){
 		$cod = 8;

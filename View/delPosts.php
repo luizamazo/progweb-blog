@@ -4,7 +4,7 @@
    require_once "../class/auth.php";
      
      //$aux = auth::checkUser();
-     if(isset($_SESSION['tipo']) && $_SESSION['tipo'] != 2 && $_SESSION['tipo'] != 4){
+     if(isset($_SESSION['tipo']) && $_SESSION['tipo'] != 4){
      //if(isset($_SESSION['tipo']) && $aux == "admG"){
         $cod = $_GET['id'];
         $titulo = $_GET['titulo'];

@@ -56,7 +56,7 @@
 
         <div>
           <ul id="gerencia1">
-          <li id="li1"><a href="" id="link1">Gerenciar Posts</a></li>
+          <li id="li1"><a href="/progweb-blog/view/createPosts.php" id="link1">Adicionar Novo Post</a></li>
           <li id="li1"><a href="" id="link1">Gerenciar comentários</a></li>
         </ul>  
       </div>
