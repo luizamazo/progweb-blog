@@ -27,13 +27,11 @@ include_once "../model/postCRUD.php";
     <div id="menu">
         <ul>   
             <?php 
-              if(isset($_SESSION['logado'])){
-                if($_SESSION['logado'] == false){
+              if(!isset($_SESSION['logado'])){
                     echo '<li>OLÁ, ANÔNIMO!</li>';
                 }else{
                     echo "<li>OLÁ ". strtoupper($_SESSION['nome']) ." !</li>";
                 } 
-            }
             ?>
             
             <li><a href="inicio.php" id="atual">INÍCIO</a></li>
