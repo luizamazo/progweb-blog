@@ -45,16 +45,22 @@ require_once("../class/postCRUD.php");
     <?php  $posts = selectPost();
      foreach($posts as $post){
       ?>
-     <h2><a href='index.php?id=<?php echo $post['post_id']; ?>' ><?php echo $post['titulo']; ?></a></h2>
+     <h2><?php echo $post['titulo']; ?></h2>
      <p>
-        Posted on <?php $post['data']; ?>
-        Por <?php echo $post['autor']; ?></a>
+        Postado <?php $post['data']; ?> por <?php echo $post['autor']; ?>
      </p>
      <div><?php echo nl2br($post['conteudo']); ?></div>
+     
+     <?php 
+        if($_SESSION['tipo'] == 1 ){
+
+        }
+
+     ?>
      <menu>
         <ul>
-            <li><a href='postCRUD.php?id=<?php echo $post['id']; ?>' >Delete This Post</a></li>
-            <li><a href='postCRUD.php?id=<?php echo $post['id']; ?>' >Edit This Post</a></li>
+            <li><a href='postCRUD.php?id=<?php echo $post['id']; ?>' >Editar Post</a></li>
+            <li><a href='postCRUD.php?id=<?php echo $post['id']; ?>' >Deletar Post</a></li>
         </ul>
      </menu>
      <?php   
