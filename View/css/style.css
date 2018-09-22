@@ -388,6 +388,7 @@ td{
 #botao3{
 	background-color: black;
 	text-align: center;
+	margin-left: 6px;
 	color: white;
 	border-radius: 5px;
 	border: none;

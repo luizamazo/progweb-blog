@@ -34,9 +34,13 @@
 
     <div id="menu">
         <ul>
-            <li><a href="inicio.html">INÍCIO</a></li>
-            <li><a href="inicio.html">POSTAGENS</a></li>
-            <li><a href="login.html">SUA CONTA</a></li>
+            <li><a href="inicio.php">INÍCIO</a></li>
+              <?php if($_SESSION['tipo'] == 1){ ?>
+                <li><a href="admGIndex.php">DASHBOARD</a></li>
+            <?php }else if($_SESSION['tipo'] == 2){ ?>
+                <li><a href="admIndex.php">DASHBOARD</a></li>
+            <?php } ?>
+            <li><a href=/progweb-blog/class/logout.php>SAIR</a></li>
         </ul>
 
         <hr id="traco">

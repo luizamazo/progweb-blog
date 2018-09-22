@@ -7,6 +7,7 @@
      if(isset($_SESSION['tipo']) && $_SESSION['tipo'] != 2 && $_SESSION['tipo'] != 4){
      //if(isset($_SESSION['tipo']) && $aux == "admG"){
         $cod = $_GET['id'];
+        $titulo = $_GET['titulo'];
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +19,7 @@
     
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     
-    <title>EDITAR POST</title>
+    <title>DELETAR POST</title>
 
 </head>
 
@@ -35,7 +36,7 @@
 
     <div id="menu">
         <ul>
-            <li><a href="inicio.php">INÍCIO</a></li>
+             <li><a href="inicio.php">INÍCIO</a></li>
               <?php if($_SESSION['tipo'] == 1){ ?>
                 <li><a href="admGIndex.php">DASHBOARD</a></li>
             <?php }else if($_SESSION['tipo'] == 2){ ?>
@@ -58,7 +59,7 @@
         
         <div class="centro1">
 
-            <div><h1> EDITAR POST </h1></div>
+            <div><h1> DESEJA MESMO DELETAR "" </h1></div>
 
 
             <form action="/progweb-blog/class/postCRUD.php" method="post">
@@ -68,8 +69,7 @@
             <input type="hidden" name="id" value="<?php $cod; ?>">
             <input type="submit" name="submit" value="Salvar"><br>
             </form>
-                
-            <?php "chama o edit por objeto?" ?>
+
     
     </div>
     </div>

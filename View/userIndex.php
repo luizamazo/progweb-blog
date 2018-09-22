@@ -15,7 +15,7 @@
 	<head>
         <meta charset="UTF-8">
 		<title>USER - INDEX</title>
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="./css/style.css">
 	</head>
 
 
@@ -30,9 +30,9 @@
 
     <div id="menu">
         <ul>
-            <li><a href="inicio.html">INÍCIO</a></li>
-            <li><a href="inicio.html">POSTAGENS</a></li>
-            <li><a href="login.html">SUA CONTA</a></li>
+            <li><a href="inicio.php">INÍCIO</a></li>
+            <li><a href="userIndex.php">DASHBOARD</a></li>
+            <li><a href="/progweb-blog/class/logout.php">SAIR</a></li>
         </ul>
 
         <hr id="traco">
@@ -55,7 +55,7 @@
 
         <div>
           <ul id="gerencia1">
-            <li id="li1"><a href="/progweb-blog/View/inicial.html"id="link1">Ver Posts do Blog</a></li>
+            <li id="li1"><a href="/progweb-blog/View/inicio.php"id="link1">Ver Posts do Blog</a></li>
             <li id="li1"><a href="/progweb-blog/View/userControl.php" id="link1">Gerenciar comentários</a></li>
           </ul>  
         </div>

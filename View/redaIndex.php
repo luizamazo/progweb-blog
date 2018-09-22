@@ -15,7 +15,7 @@
 	<head>
         <meta charset="UTF-8">
 		<title>REDATOR - INDEX</title>
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="./css/style.css">
 	</head>
 
 
@@ -31,9 +31,9 @@
 
     <div id="menu">
         <ul>
-            <li><a href="inicio.html">INÍCIO</a></li>
-            <li><a href="inicio.html">POSTAGENS</a></li>
-            <li><a href="login.html">SUA CONTA</a></li>
+            <li><a href="inicio.php">INÍCIO</a></li>
+            <li><a href="redaIndex.php">DASHBOARD</a></li>
+            <li><a href=/progweb-blog/class/logout.php>SAIR</a></li>
         </ul>
 
         <hr id="traco">

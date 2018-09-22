@@ -6,13 +6,14 @@ require_once("../config.php");
 
 	$link = new sql();
 	$conn = $link->createConn();
-
+	
 	if(isset($_POST['submit'])){
 	
 	$autor = $_SESSION['nome'];
 	$titulo = $_POST['titulo'];
 	$conteudo = $_POST['conteudo'];
-	$cod = $_GET['cod'];
+	$cod = $_GET['id'];
+
 	
 }
 	
@@ -33,9 +34,6 @@ require_once("../config.php");
 	}
 
 	//insertPost($autor, $titulo, $conteudo);
-	
-	//$fdt = date("d/m/Y, H:i:s", strtotime($res[0]["data"]));
-	//$res[0]["data"] = $fdt;
 
 	function selectPost(){
 		$sql = new sql();

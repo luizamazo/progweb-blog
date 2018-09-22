@@ -9,7 +9,7 @@ require_once("../class/postCRUD.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
 	<title>Início</title>
 
 </head>
@@ -26,9 +26,9 @@ require_once("../class/postCRUD.php");
     <br>
     <div id="menu">
         <ul>
-            <li><a href="inicio.html">INÍCIO</a></li>
-            <li><a href="inicio.html">POSTAGENS</a></li>
-            <li><a href="login.html">SUA CONTA</a></li>
+            <li><a href="inicio.php">INÍCIO</a></li>
+            <li><a href="login.html">ENTRAR</a></li>
+            <li><a href="cadastro.html">CADASTRAR-SE</a></li>
         </ul>
 
         <hr>
@@ -42,52 +42,40 @@ require_once("../class/postCRUD.php");
 
     POSTAGENS
 
-    <?php  $posts = selectPost();
-     foreach($posts as $post){
-      ?>
-     <h2><?php echo $post['titulo']; ?></h2>
-     <p>
-        Postado <?php $post['data']; ?> por <?php echo $post['autor']; ?>
-     </p>
-     <div><?php echo nl2br($post['conteudo']); ?></div>
-     
-     <?php 
-        if($_SESSION['tipo'] == 1 ){
-
-        }
-
-     ?>
-     <menu>
-        <ul>
-            <li><a href='postCRUD.php?id=<?php echo $post['id']; ?>' >Editar Post</a></li>
-            <li><a href='postCRUD.php?id=<?php echo $post['id']; ?>' >Deletar Post</a></li>
-        </ul>
-     </menu>
-     <?php   
-     }
-     ?>
-    </body>
-
-
-
     <div id="caixa_inicio">
         
-        <div class="posts">
+        <?php  $posts = selectPost();
+            foreach($posts as $post){
+            ?>
+            <h2><?php echo $post['titulo']; ?></h2>
+            <p>
+                <h5>Postado por <?php echo $post['autor']; ?>
+                | <?php echo $post['data']; ?>
+            
+            </h5>
+            </p>
+            <div><?php echo nl2br($post['conteudo']); ?></div>
             
             <?php 
-                /*
-                $posts = selectPost();
-                if(count($posts) > 0){
-                   foreach($posts as $post){
-                      foreach($post as $value){
-                        echo "<h1>" . $post["titulo"] . "</h1>";
-                        echo "<h6>". $post["autor"] . "</h6>";
-                        echo "<h4>". $post["conteudo"] . "</h4>";
-                    }
+            if(isset($_SESSION['tipo'])){
+                    if($_SESSION['tipo'] == 1 || $_SESSION['tipo'] == 2){
+            ?>
+            <menu>
+                <ul>
+                    <li><a href='editPosts.php?id=<?php echo $post['id']; ?>' id="botao3"> Editar Post</a></li>
+                    <li><a href='delPosts.php?id=<?php echo $post['id']; ?>' id="botao3"> Deletar Post</a></li>
+                </ul>
+            </menu>
+            <?php   
+                    }  
                 }
             }
-            */
             ?>
+
+        <div class="posts">
+            
+            
+           
 
         </div>
         <div class="msg"></div>
