@@ -30,7 +30,11 @@
            .topnav-right {
                float: right;
              }
-
+			#atual{
+				background-color: rgb(56, 56, 56);
+				color: rgb(255, 0, 0);
+				font-weight: bold;
+			}
             /* end nav bar */
 
             /* posta seu css aqui embaixo e comenta o que é o que pra ficar mais facil */
@@ -43,7 +47,7 @@ body{
 	background-color: black;
 	text-align: center;
 	color: white;
-	font-family: cursive;
+	font-family: Courier New, monospace;
 }
 
 #traco{
@@ -58,7 +62,7 @@ body{
 #titulo {
 	color: red;
 	font-size: 80px;
-	font-family: fantasy;
+	
 }
 
 
@@ -86,7 +90,7 @@ li a {
     padding: 20px 70px;
     text-decoration: none;
     font-size: 20px;
-    font-family: cursive;
+    /*font-family: cursive;*/
 }
 
 a:hover {
@@ -148,7 +152,7 @@ hr{
 
 
 .text1{
-	font-family: cursive;
+	/*font-family: cursive;*/
 	font-variant: none;
 	font-size: 30px;
 	color: red;
@@ -168,7 +172,7 @@ hr{
 
 			
 #novaconta{
-	font-family: sans-serif;
+	/*font-family: sans-serif;*/
 	font-variant: none;
 	text-decoration: none;
 	font-size: 15px;
@@ -220,7 +224,7 @@ hr{
 
 #donoconta{
 	font-size: 40px;
-	font-family: fantasy;
+	/*font-family: fantasy;*/
 	text-align: center;
 }
 
@@ -230,7 +234,7 @@ hr{
 
 th{
 	color: red;
-	font-family: cursive;
+	/*font-family: cursive;*/
 	font-size: 20px;
 	padding: 10px 20px;
 	border-right: 2px dashed #A9F5E1;
@@ -264,7 +268,7 @@ td{
 }
 
 #subtitulo{
-	font-family: fantasy;
+	/*font-family: fantasy;*/
 	font-size: 20px;
 }
 
@@ -364,7 +368,7 @@ td{
 	text-align: center;
     text-decoration: none;
     font-size: 20px;
-    font-family: fantasy;
+    /*font-family: fantasy;*/
     padding: 10px 20px;
 }
 
