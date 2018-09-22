@@ -10,12 +10,12 @@ require_once("../config.php");
 
 	if(isset($_POST['submit'])){
 	
-	$nome = $_POST['nome'];
-	$email = $_POST['email'];
-	$senha = $_POST['senha'];
-	$phash = md5($senha);
-	$tipo = $_POST['tipo'];	
-	$cod = $_POST['cod'];
+		$nome = $_POST['nome'];
+		$email = $_POST['email'];
+		$senha = $_POST['senha'];
+		$phash = md5($senha);
+		$tipo = $_POST['tipo'];	
+		$cod = $_POST['cod'];
 }
 	
 	function insertUser($nome, $email, $phash, $tipo, $estado){

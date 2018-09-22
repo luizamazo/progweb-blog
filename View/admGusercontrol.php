@@ -30,6 +30,7 @@
 
     <div id="menu">
         <ul>
+            <li>OLÁ, <?php echo strtoupper($_SESSION['nome']);?> !</li>
             <li><a href="inicio.php">INÍCIO</a></li>
             <li><a href="admGIndex.php">DASHBOARD</a></li>
             <li><a href=/progweb-blog/class/logout.php>SAIR</a></li>
@@ -50,6 +51,10 @@
       <div class="centro3">
 
         <label id="donoconta"> ADM G - User Control</label>
+        <h6>Tipos: ADM G (1) | ADM (2) | REDATOR (3) | USUÁRIO (4) <br><br>
+        Estados: ATIVADO (1) | DESATIVADO (2)
+        </h6>
+        
         <br>
         <br>  
              

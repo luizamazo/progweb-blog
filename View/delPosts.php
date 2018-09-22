@@ -22,7 +22,8 @@
     <title>DELETAR POST</title>
 
 </head>
-
+    
+    <input type="hidden" name="dpt" value="true">
 
 <body>
 
@@ -36,12 +37,15 @@
 
     <div id="menu">
         <ul>
-             <li><a href="inicio.php">INÍCIO</a></li>
-              <?php if($_SESSION['tipo'] == 1){ ?>
-                <li><a href="admGIndex.php">DASHBOARD</a></li>
-            <?php }else if($_SESSION['tipo'] == 2){ ?>
-                <li><a href="admIndex.php">DASHBOARD</a></li>
-            <?php } ?>
+            <li>OLÁ, <?php echo strtoupper($_SESSION['nome']);?> !</li>
+            <li><a href="inicio.php">INÍCIO</a></li>
+            <?php 
+                if($_SESSION['tipo'] == 1){ 
+                echo '<li><a href="admGIndex.php">DASHBOARD</a></li>';
+                }else if($_SESSION['tipo'] == 2){ 
+                    echo '<li><a href="admIndex.php">DASHBOARD</a></li>';
+                } 
+            ?>
             <li><a href=/progweb-blog/class/logout.php>SAIR</a></li>
         </ul>
 

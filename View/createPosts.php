@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     
     <title>CRIAR POST</title>
@@ -34,6 +34,7 @@
 
     <div id="menu">
         <ul>
+            <li>OLÁ, <?php echo strtoupper($_SESSION['nome']);?> !</li>
             <li><a href="inicio.php">INÍCIO</a></li>
               <?php if($_SESSION['tipo'] == 1){ ?>
                 <li><a href="admGIndex.php">DASHBOARD</a></li>
@@ -60,14 +61,15 @@
             <div><h1> CRIAR NOVO POST </h1></div>
 
 
-            <form action="/progweb-blog/class/postCRUD.php" method="post">
+            <form action="/progweb-blog/controller/postCRUDController.php" method="post">
             
             <input type="text" name="titulo" placeholder="Título"><br><br>
             <textarea name="conteudo" id="conteudo" cols="30" rows="20" placeholder="Conteúdo"></textarea><br><br>
+            <input type="hidden" name="cpt" value="true">
+            <input type="submit" name="submit" value="Criar Post"><br> 
             
-            <input type="submit" name="submit" value="Criar Post"><br>
             </form>
-
+           
     
     </div>
     </div>

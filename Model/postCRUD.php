@@ -2,42 +2,36 @@
 
 require_once("../config.php");
 	
-	include_once "sql.php";
-
-	$link = new sql();
-	$conn = $link->createConn();
+include_once "../class/sql.php";
+include_once "../controller/postCRUDController.php";
 	
-	if(isset($_POST['submit'])){
+class postCRUD{
 	
-	$autor = $_SESSION['nome'];
-	$titulo = $_POST['titulo'];
-	$conteudo = $_POST['conteudo'];
-	$cod = $_GET['id'];
-
-	
-}
-	
-	function insertPost($autor, $titulo, $conteudo){
-
+	public function insertPost(){
+		
 		$sql = new sql();
-		$result = $sql->query("INSERT INTO posts(autor, titulo, conteudo) 
-		VALUES(:AUTOR, :TITULO, :CONTEUDO)", array(
+		$pc = new postCRUDController();
+		$v = $pc->postInput();
+
+		$autor = $v["autor"];
+		$titulo = $v["titulo"];
+		$conteudo = $v["conteudo"];
+		$estado = 1;
+		
+		$result = $sql->query("INSERT INTO posts(autor, titulo, conteudo, estado) 
+		VALUES(:AUTOR, :TITULO, :CONTEUDO, :ESTADO)", array(
 			":AUTOR"=>$autor,
 			":TITULO"=>$titulo,
-			":CONTEUDO"=>$conteudo
+			":CONTEUDO"=>$conteudo,
+			":ESTADO"=>$estado
 		));
-			//	setlocale(LC_ALL, "pt_BR", "pt_BR.utf-8", "portuguese" );			
-			echo "post inserido";
-			//header("Location: inicio.html");
-		
-		
+			echo "POST INSERIDO";
 	}
 
-	//insertPost($autor, $titulo, $conteudo);
-
-	function selectPost(){
+	public function selectPost(){
+		
 		$sql = new sql();
-		$result = $sql->select("SELECT id, autor, titulo, conteudo, data FROM posts", array());
+		$result = $sql->select("SELECT id, autor, titulo, conteudo, data FROM posts ORDER BY data DESC", array());
 		
 		foreach($result as $key => $res){	
 			foreach($res as $chave => $re){
@@ -50,11 +44,19 @@ require_once("../config.php");
 	 return $result;
 }
 
-	//selectPost();
-
-	function updatePost($autor, $titulo, $conteudo, $cod){
-		$cod = 7;
+	public function editPost(){
+		
 		$sql = new sql();
+		$pc = new postCRUDController();
+		//$v = $pc->postInput();
+
+		$autor = $v["autor"];
+		$titulo = $v["titulo"];
+		$conteudo = $v["conteudo"];
+		$estado = 1;
+		
+		$cod = 7;
+		
 		$result = $sql->query("UPDATE posts SET autor = :AUTOR, titulo = :TITULO, 
 		conteudo = :CONTEUDO WHERE id = :ID", array(
 				":AUTOR"=>$autor,
@@ -68,7 +70,7 @@ require_once("../config.php");
 	//updatePost($autor, $titulo, $conteudo, $cod);
 
 
-     function deletePost($cod){
+    public function deletePost($cod){
 		$cod = 8;
 		$estado = 2;
 		$sql = new sql();
@@ -79,6 +81,9 @@ require_once("../config.php");
 	}
 
 	//deletePost($cod);
+}
+
+
 
 ?>
 

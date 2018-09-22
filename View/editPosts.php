@@ -35,12 +35,15 @@
 
     <div id="menu">
         <ul>
+            <li>OLÁ, <?php echo strtoupper($_SESSION['nome']);?> !</li>
             <li><a href="inicio.php">INÍCIO</a></li>
-              <?php if($_SESSION['tipo'] == 1){ ?>
-                <li><a href="admGIndex.php">DASHBOARD</a></li>
-            <?php }else if($_SESSION['tipo'] == 2){ ?>
-                <li><a href="admIndex.php">DASHBOARD</a></li>
-            <?php } ?>
+       <?php 
+            if($_SESSION['tipo'] == 1){ 
+               echo '<li><a href="admGIndex.php">DASHBOARD</a></li>';
+             }else if($_SESSION['tipo'] == 2){ 
+                echo '<li><a href="admIndex.php">DASHBOARD</a></li>';
+             } 
+        ?>
             <li><a href=/progweb-blog/class/logout.php>SAIR</a></li>
         </ul>
 
@@ -66,6 +69,7 @@
             <input type="text" name="titulo" placeholder="Novo Título"><br><br>
             <textarea name="conteudo" id="conteudo" cols="30" rows="20" placeholder="Novo Conteúdo"></textarea><br><br>
             <input type="hidden" name="id" value="<?php $cod; ?>">
+            <input type="hidden" name="ept" value="true">
             <input type="submit" name="submit" value="Salvar"><br>
             </form>
                 

@@ -31,6 +31,7 @@
 
     <div id="menu">
         <ul>
+            <li>OLÁ, <?php echo strtoupper($_SESSION['nome']);?> !</li>
             <li><a href="inicio.php">INÍCIO</a></li>
             <li><a href="redaIndex.php">DASHBOARD</a></li>
             <li><a href=/progweb-blog/class/logout.php>SAIR</a></li>
@@ -56,7 +57,7 @@
 
         <div>
           <ul id="gerencia1">
-            <li id="li1"><a href="/progweb-blog/View/createPosts.php" id="link1">Criar Posts</a></li>
+            <li id="li1"><a href="/progweb-blog/View/createPosts.php" id="link1">Adicionar Novo Post</a></li>
             <li id="li1"><a href="" id="link1">Gerenciar Comentários</a></li>
         </ul>  
       </div>

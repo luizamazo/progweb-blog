@@ -29,6 +29,7 @@
 
     <div id="menu">
         <ul>
+            <li>OLÁ, <?php echo strtoupper($_SESSION['nome']);?> !</li>
             <li><a href="inicio.php">INÍCIO</a></li>
             <li><a href="admGIndex.php">DASHBOARD</a></li>
             <li><a href=/progweb-blog/class/logout.php>SAIR</a></li>
@@ -48,7 +49,7 @@
         
       <div class="centro6">
 
-        <label id="donoconta"> ADMIN G - Criar Nova Conta</label>
+        <label id="donoconta"> ADMIN G - Criar Novo Usuário</label>
         <br>
         <br>  
 

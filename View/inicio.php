@@ -1,5 +1,5 @@
 <?php 
-require_once("../class/postCRUD.php");
+include_once "../model/postCRUD.php";
 
 ?>
 <!DOCTYPE html>
@@ -25,10 +25,41 @@ require_once("../class/postCRUD.php");
 
     <br>
     <div id="menu">
-        <ul>
+        <ul>   
+            <?php 
+              if(isset($_SESSION['logado'])){
+                if($_SESSION['logado'] == false){
+                    echo '<li>OLÁ, ANÔNIMO!</li>';
+                }else{
+                    echo "<li>OLÁ ". strtoupper($_SESSION['nome']) ." !</li>";
+                } 
+            }
+            ?>
+            
             <li><a href="inicio.php">INÍCIO</a></li>
-            <li><a href="login.html">ENTRAR</a></li>
-            <li><a href="cadastro.html">CADASTRAR-SE</a></li>
+            <?php 
+               if(!isset($_SESSION['logado'])){
+                    echo '<li><a href="login.html">ENTRAR</a></li>';
+               } 
+
+              if(isset($_SESSION['logado'])){
+                if($_SESSION['logado'] == true){
+                    if($_SESSION['tipo'] == 1){
+                        echo  '<li><a href="admGIndex.php">DASHBOARD</a></li>';
+                    }else if($_SESSION['tipo'] == 2){
+                        echo  '<li><a href="admIndex.php">DASHBOARD</a></li>';
+                    }else if($_SESSION['tipo'] == 3){
+                        echo  '<li><a href="redaIndex.php">DASHBOARD</a></li>';
+                    }else if($_SESSION['tipo'] == 4){
+                        echo  '<li><a href="userIndex.php">DASHBOARD</a></li>';
+                    }
+                    echo '<li><a href="../class/logout.php">SAIR</a></li>';
+                }
+              }
+              if(!isset($_SESSION['tipo'])){
+                echo '<li><a href="cadastro.html">CADASTRAR-SE</a></li>';
+              }
+            ?>
         </ul>
 
         <hr>
@@ -44,12 +75,14 @@ require_once("../class/postCRUD.php");
 
     <div id="caixa_inicio">
         
-        <?php  $posts = selectPost();
+        <?php  
+            $obj = new postCRUD();
+            $posts = $obj->selectPost();
             foreach($posts as $post){
             ?>
             <h2><?php echo $post['titulo']; ?></h2>
             <p>
-                <h5>Postado por <?php echo $post['autor']; ?>
+                <h5>Postado por <?php echo ucfirst($post['autor']); ?>
                 | <?php echo $post['data']; ?>
             
             </h5>
