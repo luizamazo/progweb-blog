@@ -28,9 +28,9 @@ include_once "../model/postCRUD.php";
         <ul>   
             <?php 
               if(!isset($_SESSION['logado'])){
-                    echo '<li>OLÁ, ANÔNIMO!</li>';
+                    echo '<li><a href="">OLÁ, ANÔNIMO!</a></li>';
                 }else{
-                    echo "<li>OLÁ ". strtoupper($_SESSION['nome']) ." !</li>";
+                    echo '<li><a href="">OLÁ '. strtoupper($_SESSION['nome']) .' !</a></li>';
                 } 
             ?>
             

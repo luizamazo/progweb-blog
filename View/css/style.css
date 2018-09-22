@@ -29,20 +29,20 @@
           
            .topnav-right {
                float: right;
-             }
-			#atual{
-				background-color: rgb(56, 56, 56);
-				color: rgb(255, 0, 0);
-				font-weight: bold;
-			}
+			 }
+			
+			
             /* end nav bar */
 
             /* posta seu css aqui embaixo e comenta o que é o que pra ficar mais facil */
 
+/*Marca o link que a página se refere*/
+#atual{
+	background-color: rgb(56, 56, 56);
+	color: rgb(255, 0, 0);
+	font-weight: bold;
+}
 
-
-
-            			
 body{
 	background-color: black;
 	text-align: center;
@@ -67,10 +67,10 @@ body{
 
 
 #menu{
-	width: 60%;
+	width: 70%;
 	height: 10%;
 	position: absolute;
-	left: 20%;
+	left: 15%;
 }
 
 ul {
@@ -156,6 +156,7 @@ hr{
 	font-variant: none;
 	font-size: 30px;
 	color: red;
+	
 }
 
 			
@@ -304,7 +305,7 @@ td{
 .centro_cposts{
 	position: absolute;
 	top: 10%;
-	left: 15%;
+	left: 13%;
 	background-color: white;
 	width: 65%;
 	height: 70%;
@@ -319,6 +320,14 @@ td{
 #conteudo_cposts{
 	width: 100%;
 	resize: none;
+}
+.submit{
+	width: 45%;
+	height: 40px;
+	color: black;
+	background-color:  #A9F5E1;
+	font-family: Courier New, monospace; 
+	font-weight: bold;
 }
 
 /* TELA ADM-INDEX */
@@ -369,7 +378,8 @@ td{
     text-decoration: none;
     font-size: 20px;
     /*font-family: fantasy;*/
-    padding: 10px 20px;
+	padding: 10px 20px;
+	font-weight: bold;
 }
 
 #link1:hover{
