@@ -34,7 +34,7 @@ include_once "../model/postCRUD.php";
                 } 
             ?>
             
-            <li><a href="inicio.php">INÍCIO</a></li>
+            <li><a href="inicio.php" id="atual">INÍCIO</a></li>
             <?php 
                if(!isset($_SESSION['logado'])){
                     echo '<li><a href="login.html">ENTRAR</a></li>';
@@ -69,8 +69,8 @@ include_once "../model/postCRUD.php";
     <br>
     <br>
 
-    POSTAGENS
-
+    
+    <div><h2>POSTAGENS</h2></div>
     <div id="caixa_inicio">
         
         <?php  
