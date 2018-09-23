@@ -1,8 +1,7 @@
 <?php 
 
 require_once("../config.php");
-
-	include "auth.php";
+include_once "../class/auth.php";
 
 	$link = new sql();
 	$conn = $link->createConn();

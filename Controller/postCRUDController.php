@@ -51,9 +51,9 @@ class postCRUDController{
     
 }
  
-    $test = new postCRUDController();
+    $obj = new postCRUDController();
     $stmt = new postCRUD();
-    $v = $test->postInput();
+    $v = $obj->postInput();
   
     if(isset($v["cptkn"])){
         $_SESSION['cptoken'] = $v["cptkn"];
@@ -77,16 +77,9 @@ class postCRUDController{
             $_SESSION['dptoken'] = false;
         }
     }
-
-   
-  /* 
-   
-    }else 
-*/
-    
+ 
    /* public function callInsert(){
-    
-        
+
         if(method_exists($this, 'insertPost')){
             $this->insertPost($autor, $titulo, $conteudo);
         }
@@ -94,7 +87,6 @@ class postCRUDController{
         if($_SESSION['edit'] == true){
             $postC->editPost();
         }
-
      } 
 
     public function checkAction(){

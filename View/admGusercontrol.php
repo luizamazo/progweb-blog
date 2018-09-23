@@ -124,8 +124,8 @@
                     
                     <tr>
                       <td>
+                           Alterar Permissão<br>
                         <select name="tipo" id="permissao">
-                          <option value="0" selected="selected">Alterar Permissão</option>
                           <option value="1">Adm Geral</option>
                           <option value="2">Adm</option>
                           <option value="3">Redator</option>
@@ -134,6 +134,7 @@
                       </td>
 
                       <td>
+                        <input type="hidden" name="eut" value="true">
                         <input type="submit" name="submit" value="Salvar" id="botao2"><br>
                       </td>
                     </tr> 
@@ -151,7 +152,7 @@
             <label id="subtitulo">Excluir Usuário</label>
             <br>
                  
-            <form action="/progweb-blog/class/userCRUD.php" method="post">
+            <form action="/progweb-blog/controller/userCRUDController.php" method="post">
              
                 <table align="center">
                   
@@ -167,7 +168,12 @@
                     </tr>
                     <tr>
                       <td>  
+<<<<<<< HEAD
                         <input type="submit" name="submit" value="Salvar" id="botao1" id="link1"><br>
+=======
+                        <input type="hidden" name="dut" value="true">
+                        <input type="submit" name="submit" value="Salvar" id="botao1"><br>
+>>>>>>> 4671d8b38d09726fe92556b2110bfb7302c1e72d
                       </td>                     
                     </tr>
                  
