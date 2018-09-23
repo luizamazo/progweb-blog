@@ -1,44 +1,40 @@
 <?php
 
 require_once("../config.php");
-	
-	include_once "sql.php";
+include_once "../class/sql.php";
+include_once "../controller/userCRUDController.php";
 
-	$link = new sql();
-	$conn = $link->createConn();
-	//pra mysqli $link = dbConn();
+class userCRUD{
 
-	if(isset($_POST['submit'])){
-	
-		$nome = $_POST['nome'];
-		$email = $_POST['email'];
-		$senha = $_POST['senha'];
-		$phash = md5($senha);
-		$tipo = $_POST['tipo'];	
-		$cod = $_POST['cod'];
-}
-	
-	function insertUser($nome, $email, $phash, $tipo, $estado){
+	function insertUser(){
 		
-		$estado = 1;
 		$sql = new sql();
+		$uc = new userCRUDController();
+		$v = $uc->userInput();
+
+		$nome = $v["nome"];
+		$email = $v["email"];
+		$senha = $v["senha"];
+		$tipo = $v["tipo"];
+		$estado = 1;
+		
 		$result = $sql->query("INSERT INTO pessoa(nome, email, senha, tipo, estado) 
 		VALUES(:NOME, :EMAIL, :SENHA, :TIPO, :ESTADO)", array(
 			":NOME"=>$nome,
 			":EMAIL"=>$email,
-			":SENHA"=>$phash,
+			":SENHA"=>$senha,
 			":TIPO"=>$tipo,
 			":ESTADO"=>$estado
 		));
 
 		if($tipo == 4){
-			header("Location: userIndex.php");
+			header("Location: /progweb-blog/view/userIndex.php");
+		}else{
+			echo "<script>alert('Usuário criado com sucesso!'); window.location = '../view/admGIndex.php';</script>";
+			exit();
 		}
 		
 	}
-
-	//insertUser($nome, $email, $phash, $tipo, $estado);
-
 
 	function selectUser(){
 		$sql = new sql();
@@ -57,11 +53,9 @@ require_once("../config.php");
 				":TIPO"=>$tipo,
 				":ID" => $cod
 			));
-			echo "alterado com sucesso";
+			echo "<script>alert('Alterado com sucesso!'); window.location = '../view/admGIndex.php';</script>";
+			exit();
 	}
-
-	//updateUser($nome, $email, $phash, $tipo, $cod);
-
 
      function deleteUser($cod, $email){
 		
@@ -72,49 +66,19 @@ require_once("../config.php");
 			":EMAIL"=>$email,
 			":ID"=>$cod
 		));
+
+		echo "<script>alert('Deletado com sucesso!'); window.location = '../view/admGIndex.php';</script>";
+		exit();
 	}
 	
-	deleteUser($cod, $email);
+}
 
-   
+/*$t = new userCRUD();
+$v = $t->insertUser();
+var_dump($v);
+  */ 
 	
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	//MYSQLI
-//////////////////////////////////////////////////////////////////////////////
-	// $sql = "INSERT INTO Usuarios(nome, email, senha) VALUE('$usuario', '$email', '$phash')";
-    
-   // $result = mysqli_query($link, $sql);
-
-    /*if($result){
-		header("location: display.php");
-		$_SESSION['email'] = $email;
-		$_SESSION['logado'] = true;
-    }else{
-    	die("Deu ruim em algo" . mysqli_error($result));
-	}
-	*/
 
 ?>
 

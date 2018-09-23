@@ -55,7 +55,7 @@
 
         <div id="menu1">
 
-            <form action="/progweb-blog/class/userCRUD.php" method="post">
+            <form action="/progweb-blog/controller/userCRUDController.php" method="post">
 
                  <table id="tabela1">
                  
@@ -67,8 +67,9 @@
                       </td>       
 
                       <td>  
+                          Tipo de Acesso <br>
                         <select name="tipo" id="escolha">
-                            <option value="0" selected="selected">Tipo de Acesso</option>
+                            <option value="1">Administrador Geral</option>
                             <option value="2">Administrador</option>
                             <option value="3">Redator</option>
                             <option value="4">Usuário</option>
@@ -76,7 +77,7 @@
 
                         <br>
                         <br>
-
+                        <input type="hidden" name="cut" value="true">
                         <input type="submit" name="submit" value="Criar" id="botao3"><br>
                       </td>              
                     </tr>
