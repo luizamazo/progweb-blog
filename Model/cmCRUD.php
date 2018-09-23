@@ -15,17 +15,19 @@ class cmCRUD{
 
 		$autor = $v["autor"];
 		$conteudo = $v["conteudo"];
+		$postID = $v["post_id"];
 		$estado = 1;
 
-		$result = $sql->query("INSERT INTO comentarios(autor_original, conteudo, estado) 
-		VALUES(:AUTOR_O, :CONTEUDO, :ESTADO)", array(
+		$result = $sql->query("INSERT INTO comentarios(autor_original, conteudo, estado, post_id) 
+		VALUES(:AUTOR_O, :CONTEUDO, :ESTADO, :POST_ID)", array(
 			":AUTOR_O"=>$autor,
 			":CONTEUDO"=>$conteudo,
 			":ESTADO"=>$estado,
+			":POST_ID"=>$postID
 	
 		));
 			header("Location: /progweb-blog/view/inicio.php");
-			//echo "POST INSERIDO";
+			//echo "Coment inserido";
 	}
 
 	public function selectComment($query, $param = array()){
@@ -128,7 +130,7 @@ class cmCRUD{
 	}
 
 	public function callSelectCM(){
-		$v = $this->selectPost("SELECT * FROM comentarios");
+		$v = $this->selectComment("SELECT * FROM comentarios");
 		return $v;
 	}
 }
