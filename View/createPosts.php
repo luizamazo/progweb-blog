@@ -34,7 +34,7 @@
 
     <div id="menu">
     <ul>
-        <li><a href="">OLÁ, <?php echo strtoupper($_SESSION['nome']);?> !</a></li>
+        <li><a href="">OLÁ, <?php echo strtoupper($_SESSION['nome']);?>!</a></li>
         <li><a href="inicio.php">INÍCIO</a></li>
        <?php 
             if($_SESSION['tipo'] == 1){ 

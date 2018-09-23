@@ -2,7 +2,8 @@
  
  require_once("../config.php");
  require_once("../class/auth.php");
- require_once("../class/userCRUD.php");
+ require_once("../model/userCRUD.php");
+ 
    
    //$aux = auth::checkUser();
    if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == 1){
@@ -30,7 +31,7 @@
 
     <div id="menu">
         <ul>
-            <li><a href="">OLÁ, <?php echo strtoupper($_SESSION['nome']);?> !</a></li>
+            <li><a href="">OLÁ, <?php echo strtoupper($_SESSION['nome']);?>!</a></li>
             <li><a href="inicio.php">INÍCIO</a></li>
             <li><a href="admGIndex.php">DASHBOARD</a></li>
             <li><a href=/progweb-blog/class/logout.php>SAIR</a></li>
@@ -71,18 +72,13 @@
                 
                     <?php 
 
-                        $results = selectUser();
+                        $obj = new userCRUD();
+                        $results = $obj->selectUser();
                         foreach($results as $res){
                             echo "<tr>";
                             foreach($res as $value){
                                 echo "<td>". $value . "</td>";
                             }
-                           
-                            /* echo "<td>";
-                            echo '<a href="admGUedit.php">Editar | </a>';
-                            echo '<a href="admGUdel.php">Excluir</a>';
-                            echo "</td>";
-                            */
 
                             echo "</tr>";
                         }
@@ -99,12 +95,12 @@
              <label id="subtitulo">Editar Usuário</label>
              <br>
                                   
-                <form action="/progweb-blog/class/userCRUD.php" method="post">
+                <form action="/progweb-blog/controller/userCRUDController.php" method="post">
                        
                   <table id="tabela">  
                     <tr>
                       <td>
-                        <input type="text" name="cod" placeholder="Código Identificador"><br>
+                        <input type="text" name="id" placeholder="Código Identificador"><br>
                       </td>
 
                       <td>
@@ -158,7 +154,7 @@
                   
                     <tr>     
                       <td>  
-                        <input type="text" name="cod" placeholder="Código Identificador" class="tam_input" ><br>
+                        <input type="text" name="id" placeholder="Código Identificador" class="tam_input" ><br>
                       </td>
                     </tr>
                     <tr>
