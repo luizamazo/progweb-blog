@@ -77,16 +77,15 @@ class cmCRUD{
 			header("Location: /progweb-blog/view/inicio.php");
 }
 
-    public function deleteComment(){
+    public function deleteComment($delID){
 		$sql = new sql();
 		$cc = new cmCRUDController();
 		$v = $cc->cmInput();
-		$cod = $v["id"];
 		$estado = 2;
 
 		$result = $sql->query("UPDATE posts SET estado = :ESTADO WHERE id = :ID", array(
 			":ESTADO"=>$estado,
-			":ID"=>$cod
+			":ID"=>$delID
 		));
 
 		  header("Location: /progweb-blog/view/inicio.php");

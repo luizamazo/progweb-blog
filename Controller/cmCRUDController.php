@@ -11,9 +11,9 @@ class cmCRUDController{
         $link = new sql();
         $conn = $link->createConn();
     
+        $v = array();
+
 	    if(isset($_POST['submit'])){
-        
-            $v = array();
     
            if(isset($_POST['conteudo'])){
                 $autor = $_SESSION['nome'];
@@ -21,7 +21,6 @@ class cmCRUDController{
                 $v["autor"] = $autor;  
                 $v["conteudo"] = $conteudo;
             }   
-            
            
             if(isset($_GET['id'])){
                 $v["post_id"] = $_GET['id'];
@@ -31,17 +30,22 @@ class cmCRUDController{
                 $v["cctkn"] = $_POST['cct'];
             }
 
-            if(isset($_POST['ect'])){
-                $v["ectkn"] = $_POST['ect'];
-            }
-
-            if(isset($_POST['dct'])){
-                $v["dctkn"] = $_POST['dct'];
-            }
-
-            return $v;
-
         }
+
+        if(isset($_GET['del'])){
+            //id do comentario q vai ser deletado
+            $v["del_id"] = $_GET['del'];
+        }
+
+        if(isset($_GET['ect'])){
+            $v["ectkn"] = $_GET['ect'];
+        }
+
+        if(isset($_GET['dct'])){
+            $v["dctkn"] = $_GET['dct'];
+        }
+
+        return $v;
     }
 
     public function __construct(){
@@ -52,7 +56,8 @@ class cmCRUDController{
     $obj = new cmCRUDController();
     $stmt = new cmCRUD();
     $v = $obj->cmInput();
-   
+    var_dump($v);
+
         if(isset($v["cctkn"])){
         $_SESSION['cctoken'] = $v["cctkn"];
       
@@ -71,7 +76,8 @@ class cmCRUDController{
         $_SESSION['dctoken'] = $v["dctkn"];
     
         if($_SESSION['dctoken'] == true){
-            $stmt->deleteComment();
+            $delID = $v["del_id"];
+            $stmt->deleteComment($delID);
             $_SESSION['dctoken'] = false;
         }
     }
