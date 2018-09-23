@@ -34,8 +34,8 @@
 
     <div id="menu">
     <ul>
-            <li>OLÁ, <?php echo strtoupper($_SESSION['nome']);?>!</li>
-            <li><a href="inicio.php">INÍCIO</a></li>
+        <li><a href="">OLÁ, <?php echo strtoupper($_SESSION['nome']);?> !</a></li>
+        <li><a href="inicio.php">INÍCIO</a></li>
        <?php 
             if($_SESSION['tipo'] == 1){ 
                echo '<li><a href="admGIndex.php">DASHBOARD</a></li>';
@@ -57,7 +57,7 @@
     <br>
     <br>
 
-
+    <div id="invisivel"><h2>...</h2></div>
     <div id="corpo_cposts">
         
         

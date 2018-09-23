@@ -30,9 +30,9 @@
 
     <div id="menu">
         <ul>
-            <li>OLÁ, <?php echo strtoupper($_SESSION['nome']);?>!</li>
+            <li><a href="">OLÁ, <?php echo strtoupper($_SESSION['nome']);?> !</a></li>
             <li><a href="inicio.php">INÍCIO</a></li>
-            <li><a href="userIndex.php">DASHBOARD</a></li>
+            <li><a href="userIndex.php" id="atual">DASHBOARD</a></li>
             <li><a href="/progweb-blog/class/logout.php">SAIR</a></li>
         </ul>
 
@@ -45,19 +45,19 @@
     <br>
     <br>
 
-
+    <div id="invisivel"><h2>...</h2></div>
     <div id="corpo_texto3">
         
       <div class="centro4">
 
-        <label id="donoconta">USER</label>
+        <label class="text1">USER</label>
         <br>
         <br>
 
         <div>
           <ul id="gerencia1">
             <li id="li1"><a href="/progweb-blog/View/inicio.php"id="link1">Ver Posts do Blog</a></li>
-            <li id="li1"><a href="/progweb-blog/View/userControl.php" id="link1">Gerenciar comentários</a></li>
+            <li id="li1"><a href="/progweb-blog/Controller/userController.php" id="link1">Gerenciar comentários</a></li>
           </ul>  
         </div>
              

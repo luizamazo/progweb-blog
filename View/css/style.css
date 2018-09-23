@@ -54,7 +54,10 @@ body{
 	size: 2;
 	border: 1px dashed red;
 }
-
+/*Espaço entre menu e quadro*/
+#invisivel{
+	visibility: hidden;
+}
 
 
 
@@ -70,7 +73,7 @@ body{
 	width: 70%;
 	height: 10%;
 	position: absolute;
-	left: 15%;
+	left: 18%;
 }
 
 ul {
@@ -154,7 +157,7 @@ hr{
 .text1{
 	/*font-family: cursive;*/
 	font-variant: none;
-	font-size: 30px;
+	font-size: 40px;
 	color: red;
 	
 }
@@ -234,7 +237,7 @@ hr{
 }
 
 th{
-	color: red;
+	color: rgb(0, 0, 0);
 	/*font-family: cursive;*/
 	font-size: 20px;
 	padding: 10px 20px;
@@ -423,25 +426,57 @@ td{
 	align-items: center;
 }
 
-#botao3{
-	background-color: black;
+.botao3{
+	color: black;
+	background-color:  #A9F5E1;
 	text-align: center;
 	margin-left: 6px;
-	color: white;
 	border-radius: 5px;
-	border: none;
 	text-decoration: none;
 	padding: 5px 40px 5px 40px;
 	display: inline-block;
+	width: 62%;
+	border-color: black;
 }
 
-
+.botao4{
+	color: black;
+	background-color:  #A9F5E1;
+	text-align: center;
+	margin-left: 6px;
+	border-radius: 5px;
+	font-family: Arial, sans-serif;
+	font-size: 13px;
+	text-decoration: none;
+	padding: 5px 40px 5px 40px;
+	display: inline-block;
+	width: 40%;
+	border-style: solid;
+    border-color: black;
+    border-width: 1px;
+}
+.botao5{
+	color: white;
+	background-color:  black;
+	text-align: center;
+	margin-left: 6px;
+	border-radius: 5px;
+	text-decoration: none;
+	padding: 5px 40px 5px 40px;
+	display: inline-block;
+	width: 62%;
+	border-color: black;
+}
 #tabela1{
 	text-align: center;
 	vertical-align: middle;
 	border-color: none;
 	width: 100%;
 	line-height: 25px;
+}
+.tam_input{
+	width: 100%;
+	margin: 5px;
 }
 
 

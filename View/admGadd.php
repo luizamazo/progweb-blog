@@ -29,7 +29,7 @@
 
     <div id="menu">
         <ul>
-            <li>OLÁ, <?php echo strtoupper($_SESSION['nome']);?>!</li>
+            <li><a href="">OLÁ, <?php echo strtoupper($_SESSION['nome']);?> !</a></li>
             <li><a href="inicio.php">INÍCIO</a></li>
             <li><a href="admGIndex.php">DASHBOARD</a></li>
             <li><a href=/progweb-blog/class/logout.php>SAIR</a></li>
@@ -44,12 +44,12 @@
     <br>
     <br>
 
-
+    <div id="invisivel"><h2>...</h2></div>
     <div id="corpo_texto5">
         
       <div class="centro6">
 
-        <label id="donoconta"> ADMIN G - Criar Novo Usuário</label>
+        <label class="text1"> Criar Novo Usuário</label>
         <br>
         <br>  
 
@@ -61,9 +61,9 @@
                  
                     <tr>     
                       <td> 
-                        <input type="text" name="nome" placeholder="Nome"><br>
-                        <input type="email" name="email" placeholder="Email"><br>
-                        <input type="password" name="senha" placeholder="Senha"><br>
+                        <input type="text" name="nome" placeholder="Nome" class="tam_input"><br>
+                        <input type="email" name="email" placeholder="Email" class="tam_input"><br>
+                        <input type="password" name="senha" placeholder="Senha" class="tam_input"><br>
                       </td>       
 
                       <td>  
@@ -78,7 +78,7 @@
                         <br>
                         <br>
                         <input type="hidden" name="cut" value="true">
-                        <input type="submit" name="submit" value="Criar" id="botao3"><br>
+                        <input type="submit" name="submit" value="Criar" id="botao5"><br>
                       </td>              
                     </tr>
                    
