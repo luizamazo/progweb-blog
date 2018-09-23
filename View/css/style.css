@@ -274,6 +274,7 @@ td{
 #subtitulo{
 	/*font-family: fantasy;*/
 	font-size: 20px;
+	font-weight: bold;
 }
 
 #botao1{
@@ -285,8 +286,9 @@ td{
 	text-decoration: none;
 	padding: 10px 65px;
 	display: inline-block;
+	margin: 5px;
+	width: 100%;
 }
-
 #botao2{
 	background-color: black;
 	text-align: center;
@@ -296,6 +298,7 @@ td{
 	text-decoration: none;
 	padding: 10px 35px;
 	display: inline-block;
+	width: 100%;
 }
 /*TELA CREATEPOSTS.PHP*/
 #corpo_cposts{
