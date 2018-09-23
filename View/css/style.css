@@ -483,5 +483,21 @@ td{
 	border-color: black;
 	font-size: 18px;
 }
+/*PÁGINA EDITAR COMENTÁRIO*/
 
-
+.corpo_edtComent{
+	background-color: #666666;
+	width: 40%;
+	height: 70%;
+	position: absolute;
+	left: 30%;
+}
+.centro_edtComent{
+	position: absolute;
+	top: 10%;
+	left: 13%;
+	background-color: white;
+	width: 65%;
+	height: 70%;
+	padding: 40px 40px 20px 40px;
+}
