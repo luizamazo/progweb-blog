@@ -99,7 +99,7 @@ include_once "../model/postCRUD.php";
                     if(isset($_SESSION['tipo'])){
                             if($_SESSION['tipo'] == 1 || $_SESSION['tipo'] == 2){
                     ?>
-                    <menu id="central">
+                    <menu>
                         <ul>
                             <li><a href='editPosts.php?id=<?php echo $post['id']; ?>' class="botao6" id="link1"> Editar Post</a></li>
                             <li><a href='delPosts.php?id=<?php echo $post['id'];?>&titulo=<?php echo $post['titulo'];?>' class="botao6" id="link1"> Deletar Post</a></li>
