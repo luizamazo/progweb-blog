@@ -42,41 +42,55 @@ class userCRUD{
 		return $result;
 	}
 
-	function updateUser($nome, $email, $phash, $tipo, $cod){
+	function editUser(){
 		
 		$sql = new sql();
+		$uc = new userCRUDController();
+		$v = $uc->userInput();
+
+		$nome = $v["nome"];
+		$email = $v["email"];
+		$senha = $v["senha"];
+		$tipo = $v["tipo"];
+		$cod = $v["id"];
+
 		$result = $sql->query("UPDATE pessoa SET nome = :NOME, email = :EMAIL, 
 		senha = :SENHA, tipo = :TIPO WHERE id = :ID", array(
 				":NOME"=>$nome,
 				":EMAIL"=>$email,
-				":SENHA"=>$phash,
+				":SENHA"=>$senha,
 				":TIPO"=>$tipo,
 				":ID" => $cod
 			));
-			echo "<script>alert('Alterado com sucesso!'); window.location = '../view/admGIndex.php';</script>";
+			echo "<script>alert('Alterado com sucesso!'); window.location = '../view/admGusercontrol.php';</script>";
 			exit();
 	}
 
-     function deleteUser($cod, $email){
+     function deleteUser(){
 		
 		$sql = new sql();
+		$uc = new userCRUDController();
+		$v = $uc->userInput();
+		$cod = $v["id"];
+		$email = $v["email"];
 		$estado = 2;
-		$result = $sql->query("UPDATE pessoa SET estado = :ESTADO WHERE id = :ID AND email = :EMAIL", array(
+		
+
+		$result = $sql->query("UPDATE pessoa SET estado = :ESTADO, email = :EMAIL WHERE id = :ID", array(
 			":ESTADO"=>$estado,
 			":EMAIL"=>$email,
 			":ID"=>$cod
 		));
 
-		echo "<script>alert('Deletado com sucesso!'); window.location = '../view/admGIndex.php';</script>";
+		echo "<script>alert('Exclusão virtual realizada com sucesso!'); window.location = '../view/admGusercontrol.php';</script>";
 		exit();
 	}
 	
 }
 
-/*$t = new userCRUD();
-$v = $t->insertUser();
-var_dump($v);
-  */ 
+//$t = new userCRUD();
+//$v = $t->deleteUser();
+//var_dump($v);
 	
 
 

@@ -72,18 +72,13 @@
                 
                     <?php 
 
-                        $results = selectUser();
+                        $obj = new userCRUD();
+                        $results = $obj->selectUser();
                         foreach($results as $res){
                             echo "<tr>";
                             foreach($res as $value){
                                 echo "<td>". $value . "</td>";
                             }
-                           
-                            /* echo "<td>";
-                            echo '<a href="admGUedit.php">Editar | </a>';
-                            echo '<a href="admGUdel.php">Excluir</a>';
-                            echo "</td>";
-                            */
 
                             echo "</tr>";
                         }
@@ -100,12 +95,12 @@
              <label id="subtitulo">Editar Usuário</label>
              <br>
                                   
-                <form action="/progweb-blog/class/userCRUD.php" method="post">
+                <form action="/progweb-blog/controller/userCRUDController.php" method="post">
                        
                   <table id="tabela">  
                     <tr>
                       <td>
-                        <input type="text" name="cod" placeholder="Código Identificador"><br>
+                        <input type="text" name="id" placeholder="Código Identificador"><br>
                       </td>
 
                       <td>
@@ -159,7 +154,7 @@
                   
                     <tr>     
                       <td>  
-                        <input type="text" name="cod" placeholder="Código Identificador" class="tam_input" ><br>
+                        <input type="text" name="id" placeholder="Código Identificador" class="tam_input" ><br>
                       </td>
                     </tr>
                     <tr>
@@ -169,12 +164,8 @@
                     </tr>
                     <tr>
                       <td>  
-<<<<<<< HEAD
-                        <input type="submit" name="submit" value="Salvar" id="botao1" id="link1"><br>
-=======
                         <input type="hidden" name="dut" value="true">
                         <input type="submit" name="submit" value="Salvar" id="botao1"><br>
->>>>>>> 4671d8b38d09726fe92556b2110bfb7302c1e72d
                       </td>                     
                     </tr>
                  
