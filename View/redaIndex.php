@@ -31,7 +31,7 @@
 
     <div id="menu">
         <ul>
-            <li><a href="">OLÁ, <?php echo strtoupper($_SESSION['nome']);?>!</a></li>
+            <li><a href="">OLÁ, <?php echo ucwords($_SESSION['nome']);?>!</a></li>
             <li><a href="inicio.php">INÍCIO</a></li>
             <li><a href="redaIndex.php" id="atual">DASHBOARD</a></li>
             <li><a href=/progweb-blog/class/logout.php>SAIR</a></li>
@@ -72,7 +72,7 @@
 
 <?php 
 }else{
-    echo "Você não está autorizado a acessar essa página";
+    echo "<script>alert('Você não está autorizado a ver essa página!'); window.location = '../view/inicio.php';</script>";
 }
 
 ?>

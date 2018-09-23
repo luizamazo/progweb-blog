@@ -1,6 +1,6 @@
 <?php 
 include_once "../model/postCRUD.php";
-
+include_once "../model/cmCRUD.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +30,7 @@ include_once "../model/postCRUD.php";
               if(!isset($_SESSION['logado'])){
                     echo '<li><a href="">OLÁ, ANÔNIMO!</a></li>';
                 }else{
-                    echo '<li><a href="">OLÁ, '. strtoupper($_SESSION['nome']) .'!</a></li>';
+                    echo '<li><a href="">OLÁ, '. ucwords($_SESSION['nome']) .'!</a></li>';
                 } 
             ?>
             
@@ -87,9 +87,9 @@ include_once "../model/postCRUD.php";
         ?>
                         <h2><?php echo $post['titulo']; ?></h2>
                         <p>
-                            <h5>Postado por <?php echo ucfirst($post['autor_original']); ?> | <?php echo $post['data_original']; 
+                            <h5>Postado por <?php echo ucwords($post['autor_original']); ?> | <?php echo $post['data_original']; 
                             if($edit == true){
-                                    echo "<br>Editado por: " . ucfirst($post['autor_editado']) . " | ". $post['data_editado'];
+                                    echo "<br>Editado por: " . ucwords($post['autor_editado']) . " | ". $post['data_editado'];
                                 }
                         ?> </h5>
                         </p>
@@ -108,29 +108,70 @@ include_once "../model/postCRUD.php";
                     </menu>
                     <?php 
                         } 
-                     }  if(isset($_SESSION['logado']) && $_SESSION['logado'] == true){
+                     }  
+                        if(isset($_SESSION['logado']) && $_SESSION['logado'] == true){
 
                      ?>
-                    <br><br><h3>Deixe seu comentário!</h3>
-                    <form action="/progweb-blog/controller/cmCRUDController.php?id=<?php echo $post['id'];?>" method="post" >
-                            Nome:
-                            <input type="text" name="nome">
-                            <br><br>
-                            Mensagem:
-                            <br><textarea name="conteudo" rows="5" cols="60"></textarea>
-                            <br><br>
-                            <input type="hidden" name="cctkn" value="true">
-                            <input type="submit" value="Enviar">
-                    </form>
+                            <br><br><h3>Deixe seu comentário!</h3>
+                            <form action="/progweb-blog/controller/cmCRUDController.php?id=<?php echo $post['id'];?>" method="post" >
+                                    Nome: <?php echo ucwords($_SESSION['nome']);?>
+                                    <br><br>
+                                    Mensagem:
+                                    <br><textarea name="conteudo" rows="5" cols="60"></textarea>
+                                    <br><br>
+                                    <input type="hidden" name="cct" value="true">
+                                    <input type="submit" name="submit" value="Enviar">
+                            </form>
                     <hr>       
                     <?php   
-                        }
+                        $objcm = new cmCRUD();
+                        $comentarios = $objcm->callSelectCM();
                         
-                    }
+                        foreach($comentarios as $com){
+                            $postId = $post["id"];
+                            $postidCM = $com["post_id"];
+                            var_dump($postId);
+                            var_dump($postidCM);
+                           // $check = $obj->checkDel($cod);
+                            //$edit = $obj->checkEdit($cod);
+                           // if($check == false){
+                                if($postId == $postidCM){ ?>
+                                    <p>
+                                    <h5>Comentado por <?php echo ucwords($com['autor_original']); ?> | <?php echo $com['data_original']; 
+                                    //if($edit == true){
+                                    //   echo "<br>Editado por: " . ucwords($post['autor_editado']) . " | ". $post['data_editado'];
+                                // } 
+                                    ?>
+                                    </h5>
+                                    </p>
+                                    <div><?php echo nl2br($com['conteudo']); ?></div>
+
+                    
+                    <?php    if(isset($_SESSION['tipo'])){
+                                    if($_SESSION['tipo'] == 1 || $_SESSION['tipo'] == 2){ 
+                    ?>
+                             <menu>
+                                <ul>
+                                    <li><a href='editComen.php?id=<?php echo $post['id']; ?>' class="botao6" id="link1"> Editar Comentário</a></li>
+                                    <li><a href='delComen.php?id=<?php echo $post['id'];?>' class="botao6" id="link1"> Deletar Comentário</a></li>
+                               
+                            <?php 
+                                } 
+                            ?>   
+                                  <li><a href='replyComen.php?id=<?php echo $com['id'];?>' class="botao6" id="link1"> Responder Comentário</a></li>      
+                                </ul>
+                            </menu>
+                            <hr>
+                            <?php  
+                            }  
+                        }
+                    //}
                 }
-           
-           
-            ?>
+            }
+                        
+        }
+    }       
+        ?>
         
         <div class="posts">
             
