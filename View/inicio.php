@@ -153,12 +153,11 @@ include_once "../model/cmCRUD.php";
                              <menu>
                                 <ul>
                                     <li><a href='editComen.php?id=<?php echo $post['id']; ?>' class="botao6" id="link1"> Editar Comentário</a></li>
-                                    <li><a href='delComen.php?id=<?php echo $post['id'];?>' class="botao6" id="link1"> Deletar Comentário</a></li>
-                               
+                                    <li><a href='/progweb-blog/controller/cmCRUDController.php?del=<?php echo $com['id'];?>&dct=true' class="botao6" id="link1"> Deletar Comentário</a></li>
                             <?php 
                                 } 
                             ?>   
-                                  <li><a href='replyComen.php?id=<?php echo $com['id'];?>' class="botao6" id="link1"> Responder Comentário</a></li>      
+                                  <li><a href='replyComen.php?idCM=<?php echo $com['id'];?>' class="botao6" id="link1"> Responder Comentário</a></li>      
                                 </ul>
                             </menu>
                             <hr>
