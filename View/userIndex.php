@@ -4,9 +4,7 @@
  require_once("../class/auth.php");
  require_once("../model/userCRUD.php");
    
-   //$aux = auth::checkUser();
-   if(isset($_SESSION['tipo']) && $_SESSION['logado'] == true){
-   //if(isset($_SESSION['tipo']) && $aux == "admG"){
+   if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == 4){
 ?>
 
 <!DOCTYPE html>

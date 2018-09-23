@@ -68,9 +68,7 @@ class userCRUDController{
 	$obj = new userCRUDController();
 	$stmt = new userCRUD();
 	$v = $obj->userInput();
-	var_dump($v);
-	//$porra = $stmt->insertUser();
-	//var_dump($porra);
+
 	if(isset($v["cutkn"])){
         $_SESSION['cutoken'] = $v["cutkn"];
        

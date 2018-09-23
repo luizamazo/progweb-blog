@@ -15,9 +15,14 @@ class userCRUD{
 		$nome = $v["nome"];
 		$email = $v["email"];
 		$senha = $v["senha"];
-		$tipo = $v["tipo"];
 		$estado = 1;
-		var_dump($v);
+
+		if(!isset($_SESSION['tipo'])){
+			$tipo = 4;
+		}else{
+			$tipo = $v["tipo"];
+		}
+
 		$result = $sql->query("INSERT INTO pessoa(nome, email, senha, tipo, estado) 
 		VALUES(:NOME, :EMAIL, :SENHA, :TIPO, :ESTADO)", array(
 			":NOME"=>$nome,
@@ -29,12 +34,12 @@ class userCRUD{
 
 		echo "INSERIDO COM SUCESSO";
 
-		if($tipo == 4){
-			header("Location: /progweb-blog/view/userIndex.php");
-		}else{
-			echo "<script>alert('Usuário criado com sucesso!'); window.location = '../view/admGIndex.php';</script>";
-			exit();
-		}
+		//if($tipo == 4){
+		//	header("Location: /progweb-blog/view/userIndex.php");
+		//}else{
+		//	echo "<script>alert('Usuário criado com sucesso!'); window.location = '../view/admGIndex.php';</script>";
+	
+		//}
 		
 	}
 
@@ -87,12 +92,11 @@ class userCRUD{
 		echo "<script>alert('Exclusão virtual realizada com sucesso!'); window.location = '../view/admGusercontrol.php';</script>";
 		exit();
 	}
-	
-//$t = new userCRUD();
-//$v = $t->deleteUser();
-//var_dump($v);
-	
 }
+
+//$t = new userCRUD();
+//$v = $t->insertUser();
+//var_dump($v);
 
 ?>
 

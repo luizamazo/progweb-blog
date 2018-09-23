@@ -55,7 +55,6 @@ include_once "../model/postCRUD.php";
                 }
               }
 
-              var_dump($_SESSION);
               if(!isset($_SESSION['logado'])){
                 echo '<li><a href="cadastro.html">CADASTRAR-SE</a></li>';
               }
