@@ -32,14 +32,15 @@ class userCRUD{
 			":ESTADO"=>$estado
 		));
 
-		echo "INSERIDO COM SUCESSO";
-
-		//if($tipo == 4){
-		//	header("Location: /progweb-blog/view/userIndex.php");
-		//}else{
-		//	echo "<script>alert('Usuário criado com sucesso!'); window.location = '../view/admGIndex.php';</script>";
+		if($tipo == 4){
+			$_SESSION['nome'] = $v["nome"];
+			$_SESSION['logado'] = true;
+			$_SESSION['tipo'] = 4;
+			header("Location: /progweb-blog/view/userIndex.php");
+		}else{
+			echo "<script>alert('Usuário criado com sucesso!'); window.location = '../view/admGIndex.php';</script>";
 	
-		//}
+		}
 		
 	}
 

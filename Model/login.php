@@ -35,7 +35,7 @@ class login{
 					$auth = new auth();
 					$auth->authIndex();
 				}else{
-					echo "Essa conta foi deletada!";
+					echo "<script>alert('Essa conta não existe mais!'); window.location = '../view/cadastro.html';</script>";
 				}
 		
 			}

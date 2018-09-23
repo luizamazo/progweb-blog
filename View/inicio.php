@@ -18,9 +18,9 @@ include_once "../model/postCRUD.php";
 <body>
 
     <div>
-        <label id="titulo">12 Horas de Terror</label>
+        <label id="titulo">12 Horas de Terror </label>
         <br>
-        <label>Um blog para os amantes do dark side.</label>
+        <label>Um blog para os amantes do dark side. <?php var_dump($_SESSION)?></label>
     </div>
 
     <br>

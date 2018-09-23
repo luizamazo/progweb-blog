@@ -4,7 +4,7 @@
  require_once("../class/auth.php");
  require_once("../model/userCRUD.php");
    
-   if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == 4){
+   if($_SESSION['logado'] == true){
 ?>
 
 <!DOCTYPE html>
