@@ -2,6 +2,7 @@
    
    require_once("../config.php");
    require_once "../class/auth.php";
+
      
      //$aux = auth::checkUser();
      if(isset($_SESSION['tipo']) && $_SESSION['tipo'] != 4){

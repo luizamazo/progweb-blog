@@ -25,7 +25,7 @@ class userCRUDController{
 			$v["tipo"] = $tipo;
 			
 			//$cod = $_POST['cod'];
-		}
+		
 
 		if(isset($_GET['id'])){
 			$v["id"] = $_GET['id'];
@@ -43,7 +43,8 @@ class userCRUDController{
 			$v["dutkn"] = $_POST['dut'];
 		}
 
-		return $v;
+			return $v;
+		}
 
 	}
 

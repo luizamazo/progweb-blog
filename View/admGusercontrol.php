@@ -2,7 +2,8 @@
  
  require_once("../config.php");
  require_once("../class/auth.php");
- require_once("../class/userCRUD.php");
+ require_once("../model/userCRUD.php");
+ 
    
    //$aux = auth::checkUser();
    if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == 1){
@@ -30,7 +31,7 @@
 
     <div id="menu">
         <ul>
-            <li><a href="">OLÁ, <?php echo strtoupper($_SESSION['nome']);?> !</a></li>
+            <li><a href="">OLÁ, <?php echo strtoupper($_SESSION['nome']);?>!</a></li>
             <li><a href="inicio.php">INÍCIO</a></li>
             <li><a href="admGIndex.php">DASHBOARD</a></li>
             <li><a href=/progweb-blog/class/logout.php>SAIR</a></li>

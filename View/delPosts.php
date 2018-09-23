@@ -37,7 +37,7 @@
 
     <div id="menu">
         <ul>
-            <li><a href="">OLÁ, <?php echo strtoupper($_SESSION['nome']);?> !</a></li>
+            <li><a href="">OLÁ, <?php echo strtoupper($_SESSION['nome']);?>!</a></li>
             <li><a href="inicio.php">INÍCIO</a></li>
             <?php 
                 if($_SESSION['tipo'] == 1){ 
@@ -63,7 +63,7 @@
         
         <div class="centro1">
 
-            <div class="text1">DESEJA MESMO DELETAR <?php echo $titulo; ?>? </div>
+            <div class="text1">DESEJA MESMO DELETAR "<?php echo $titulo; ?>"? </div>
             <br>    
             <?php  echo '<form action="/progweb-blog/controller/postCRUDController.php?id='. $cod . '" method="post">'; ?>
             
