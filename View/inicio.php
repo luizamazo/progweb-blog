@@ -173,19 +173,9 @@ include_once "../model/cmCRUD.php";
     }       
         ?>
         
-        <div class="posts">
-            
-            
-           
-
-        </div>
-        <div class="msg"></div>
-        <div class="posts"></div>
-        <div class="msg"></div>
-        <div class="posts"></div>
-        <div class="msg"></div>
+        
     </div>
-    <div id="fundo"></div>
+    
   
 
 </body>

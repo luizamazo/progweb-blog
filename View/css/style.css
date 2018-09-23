@@ -483,5 +483,41 @@ td{
 	border-color: black;
 	font-size: 18px;
 }
+/*PÁGINA EDITAR COMENTÁRIO*/
+
+.corpo_edtComent{
+		background-color: #666666;
+		width: 60%;
+		height: 100%;
+		position: absolute;
+		left: 20%;
+	}
+	.centro_cposts{
+		position: absolute;
+		top: 10%;
+		left: 13%;
+		background-color: white;
+		width: 65%;
+		height: 70%;
+		padding: 40px 40px 20px 40px;
+	}
+	#criar_cposts{
+		color: black;
+	}
+	#titulo_cposts{
+		width: 100%;
+	}
+	#conteudo_cposts{
+		width: 100%;
+		resize: none;
+	}
+	.submit{
+		width: 45%;
+		height: 40px;
+		color: black;
+		background-color:  #A9F5E1;
+		font-family: Courier New, monospace; 
+		font-weight: bold;
+	}
 
 
