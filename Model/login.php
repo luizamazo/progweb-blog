@@ -5,10 +5,7 @@ include_once "../class/auth.php";
 
 class login{
 	
-	
-	private $email;
-	private $senha;
-	private $phash;
+
 	
 	public function userLogin(){
 		
@@ -16,9 +13,9 @@ class login{
 			$conn = $link->createConn();
 
 			if(isset($_POST['email-input']) && isset($_POST['senha-input'])){
-				$this->email = $_POST['email-input'];
-				$this->senha = $_POST['senha-input'];
-				$this->phash = md5($senha);
+				$email = $_POST['email-input'];
+				$senha = $_POST['senha-input'];
+				$phash = md5($senha);
 				$sql = new sql();
 			$result = $sql->select("SELECT tipo, nome, estado FROM pessoa WHERE email = :EMAIL AND senha = :SENHA",
 			array(

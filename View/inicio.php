@@ -97,7 +97,7 @@ include_once "../model/postCRUD.php";
                     
                     <?php 
                     if(isset($_SESSION['tipo'])){
-                            if($_SESSION['tipo'] == 1 || $_SESSION['tipo'] == 2 || $_SESSION['tipo'] == 3){
+                            if($_SESSION['tipo'] == 1 || $_SESSION['tipo'] == 2){
                     ?>
                     <menu>
                         <ul>
@@ -105,9 +105,26 @@ include_once "../model/postCRUD.php";
                             <li><a href='delPosts.php?id=<?php echo $post['id'];?>&titulo=<?php echo $post['titulo'];?>' class="botao6" id="link1"> Deletar Post</a></li>
                         </ul>
                     </menu>
+                    <?php 
+                        } 
+                     }  if(isset($_SESSION['logado']) && $_SESSION['logado'] == true){
+
+                     ?>
+                    <br><br><h3>Deixe seu comentário!</h3>
+                    <form action="/progweb-blog/controller/cmCRUDController.php?id=<?php echo $post['id'];?>" method="post" >
+                            Nome:
+                            <input type="text" name="nome">
+                            <br><br>
+                            Mensagem:
+                            <br><textarea name="conteudo" rows="5" cols="60"></textarea>
+                            <br><br>
+                            <input type="hidden" name="cctkn" value="true">
+                            <input type="submit" value="Enviar">
+                    </form>
+                    <hr>       
                     <?php   
-                            }  
                         }
+                        
                     }
                 }
            
