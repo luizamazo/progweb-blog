@@ -30,15 +30,19 @@ class cmCRUDController{
                 $v["cctkn"] = $_POST['cct'];
             }
 
+            if(isset($_POST['ect'])){
+                $v["ectkn"] = $_POST['ect'];
+            }
+
+        }
+
+        if(isset($_GET['ed'])){
+            $v["ed_id"] = $_GET['ed'];
         }
 
         if(isset($_GET['del'])){
             //id do comentario q vai ser deletado
             $v["del_id"] = $_GET['del'];
-        }
-
-        if(isset($_GET['ect'])){
-            $v["ectkn"] = $_GET['ect'];
         }
 
         if(isset($_GET['dct'])){
@@ -57,6 +61,7 @@ class cmCRUDController{
     $stmt = new cmCRUD();
     $v = $obj->cmInput();
    
+    var_dump($v);
     echo "<hr>";
 
         if(isset($v["cctkn"])){
@@ -70,7 +75,8 @@ class cmCRUDController{
         $_SESSION['ectoken'] = $v["ectkn"];
     
         if($_SESSION['ectoken'] == true){
-            $stmt->editComment();
+            $edID = $v["ed_id"];
+            $stmt->editComment($edID);
             $_SESSION['ectoken'] = false;
         }
         }else if(isset($v["dctkn"])){

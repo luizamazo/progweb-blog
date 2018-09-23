@@ -55,22 +55,21 @@ class cmCRUD{
 	return $result;
 }	
 
-	public function editComment(){
+	public function editComment($edID){
 		
 		$sql = new sql();
 		$cc = new cmCRUDController();
 		$v = $cc->cmInput();
-	
+		var_dump($v);
+
 		$autor = $v["autor"];
 		$conteudo = $v["conteudo"];
-		$cod = $v["id"];
 		
-		$result = $sql->query("UPDATE posts SET autor_editado = :AUTOR_E, titulo = :TITULO, 
+		$result = $sql->query("UPDATE comentarios SET autor_editado = :AUTOR_E, 
 		conteudo = :CONTEUDO, editado = :EDITADO WHERE id = :ID", array(
 				":AUTOR_E"=>$autor,
-				":TITULO"=>$titulo,
 				":CONTEUDO"=>$conteudo,
-				":ID"=>$cod,
+				":ID"=>$edID,
 				":EDITADO"=>1
 			));
 

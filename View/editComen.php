@@ -4,10 +4,9 @@
    require_once "../class/auth.php";
 
      
-     //$aux = auth::checkUser();
      if(isset($_SESSION['tipo']) && $_SESSION['tipo'] != 4){
-     //if(isset($_SESSION['tipo']) && $aux == "admG"){
-        $cod = $_GET['id'];
+
+        $comID = $_GET['ed'];
 ?>
 
 <!DOCTYPE html>
@@ -68,16 +67,14 @@
            <br> 
            <br>
 
-           <?php  echo '<form action="/progweb-blog/controller/postCRUDController.php?id='. $cod . '" method="post">'; ?>
+           <?php  echo '<form action="/progweb-blog/controller/cmCRUDController.php?ed='. $comID . '" method="post">'; ?>
             
             
             <textarea name="conteudo" id="conteudo_cposts" cols="30" rows="10" placeholder="Insira aqui o novo comentário"></textarea><br><br>
-            <input type="hidden" name="id" value="<?php $cod; ?>">
-            <input type="hidden" name="ept" value="true">
+    
+            <input type="hidden" name="ect" value="true">
             <input type="submit" name="submit" value="Salvar" class="botao4" id="link1"><br>
             </form>
-                
-            <?php "chama o edit por objeto?" ?>
     
     </div>
     </div>

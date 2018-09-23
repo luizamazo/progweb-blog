@@ -25,7 +25,7 @@ class login{
 
 			
 			if($result == false){ //if(count($result)  > 0 ){
-				echo "Email ou senha incorretos";
+				echo "<script>alert('Email ou senha incorretos!'); window.location = '../view/login.html';</script>";
 			}else{
 				$estado = $result[0]["estado"];
 				if($estado != 2){
