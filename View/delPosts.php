@@ -37,7 +37,7 @@
 
     <div id="menu">
         <ul>
-            <li>OLÁ, <?php echo strtoupper($_SESSION['nome']);?> !</li>
+        <li><a href="">OLÁ, <?php echo strtoupper($_SESSION['nome']);?> !</a></li>
             <li><a href="inicio.php">INÍCIO</a></li>
             <?php 
                 if($_SESSION['tipo'] == 1){ 
@@ -58,19 +58,21 @@
     <br>
     <br>
 
-
+    <div id="invisivel"><h2>...</h2></div>
     <div id="corpo_texto1">
         
         <div class="centro1">
 
-            <div><h1> DESEJA MESMO DELETAR <?php echo $titulo; ?>? </h1></div>
-
+            <div class="text1">DESEJA MESMO DELETAR <?php echo $titulo; ?>? </div>
+            <br>    
             <?php  echo '<form action="/progweb-blog/controller/postCRUDController.php?id='. $cod . '" method="post">'; ?>
             
             <input type="hidden" name="id" value="<?php $cod; ?>">
             <input type="hidden" name="dpt" value="true">
-            <input type="submit" name="submit" value="Sim" id="botao3"><br>
-            <a href="/progweb-blog/view/inicio.php" id="botao3">Não</a>
+            <input type="submit" name="submit" value="Sim" class="botao3" id="link1">
+            <br>
+            <br>
+            <a href="/progweb-blog/view/inicio.php" class="botao4" id="link1">Não</a>
             </form>
 
     

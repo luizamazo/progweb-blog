@@ -426,19 +426,35 @@ td{
 	align-items: center;
 }
 
-#botao3{
-	background-color: black;
+.botao3{
+	color: black;
+	background-color:  #A9F5E1;
 	text-align: center;
 	margin-left: 6px;
-	color: white;
 	border-radius: 5px;
-	border: none;
 	text-decoration: none;
 	padding: 5px 40px 5px 40px;
 	display: inline-block;
+	width: 62%;
+	border-color: black;
 }
 
-
+.botao4{
+	color: black;
+	background-color:  #A9F5E1;
+	text-align: center;
+	margin-left: 6px;
+	border-radius: 5px;
+	font-family: Arial, sans-serif;
+	font-size: 13px;
+	text-decoration: none;
+	padding: 5px 40px 5px 40px;
+	display: inline-block;
+	width: 40%;
+	border-style: solid;
+    border-color: black;
+    border-width: 1px;
+}
 #tabela1{
 	text-align: center;
 	vertical-align: middle;
