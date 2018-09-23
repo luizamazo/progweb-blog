@@ -83,7 +83,8 @@ ul {
 }
 
 li {
-    float: left;
+	float: left;
+	list-style-type: none;
 }
 
 li a {
@@ -114,7 +115,19 @@ hr{
 	margin: 10px;
 	overflow-y: scroll;
 }
-
+.botao7{
+	color: white;
+	background-color:  black;
+	text-align: center;
+	margin-left: 6px;
+	border-radius: 5px;
+	text-decoration: none;
+	padding: 5px 40px 5px 40px;
+	display: inline-block;
+	width: 55%;
+	border-color: black;
+	font-size: 15px;
+}
 
 
 /* TELA LOGIN */
