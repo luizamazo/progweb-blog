@@ -34,13 +34,8 @@
 
     <div id="menu">
     <ul>
-<<<<<<< HEAD
         <li><a href="">OLÁ, <?php echo strtoupper($_SESSION['nome']);?> !</a></li>
         <li><a href="inicio.php">INÍCIO</a></li>
-=======
-            <li>OLÁ, <?php echo strtoupper($_SESSION['nome']);?>!</li>
-            <li><a href="inicio.php">INÍCIO</a></li>
->>>>>>> b584f1a2db7b4daea8b3e60d3f6d193c46ea71bf
        <?php 
             if($_SESSION['tipo'] == 1){ 
                echo '<li><a href="admGIndex.php">DASHBOARD</a></li>';

@@ -29,11 +29,7 @@
 
     <div id="menu">
         <ul>
-<<<<<<< HEAD
             <li><a href="">OLÁ, <?php echo strtoupper($_SESSION['nome']);?> !</a></li>
-=======
-            <li>OLÁ, <?php echo strtoupper($_SESSION['nome']);?>!</li>
->>>>>>> b584f1a2db7b4daea8b3e60d3f6d193c46ea71bf
             <li><a href="inicio.php">INÍCIO</a></li>
             <li><a href="admGIndex.php">DASHBOARD</a></li>
             <li><a href=/progweb-blog/class/logout.php>SAIR</a></li>
@@ -65,7 +61,7 @@
                  
                     <tr>     
                       <td> 
-                        <input type="text" name="nome" placeholder="Nome"><br>
+                        <input type="text" name="nome" placeholder="Nome" class="tam_imput"><br>
                         <input type="email" name="email" placeholder="Email"><br>
                         <input type="password" name="senha" placeholder="Senha"><br>
                       </td>       
@@ -81,7 +77,7 @@
                         <br>
                         <br>
 
-                        <input type="submit" name="submit" value="Criar" id="botao3"><br>
+                        <input type="submit" name="submit" value="Criar" class="botao5" id="link1"><br>
                       </td>              
                     </tr>
                    
