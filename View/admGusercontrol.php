@@ -159,18 +159,22 @@
                   
                     <tr>     
                       <td>  
-                        <input type="text" name="cod" placeholder="Código Identificador"><br>
+                        <input type="text" name="cod" placeholder="Código Identificador" class="tam_input" ><br>
                       </td>
                     </tr>
                     <tr>
                       <td>  
-                        <input type="text" name="email" placeholder="Email"><br>
+                        <input type="text" name="email" placeholder="Email" class="tam_input"><br>
                       </td>
                     </tr>
                     <tr>
                       <td>  
+<<<<<<< HEAD
+                        <input type="submit" name="submit" value="Salvar" id="botao1" id="link1"><br>
+=======
                         <input type="hidden" name="dut" value="true">
                         <input type="submit" name="submit" value="Salvar" id="botao1"><br>
+>>>>>>> 4671d8b38d09726fe92556b2110bfb7302c1e72d
                       </td>                     
                     </tr>
                  
