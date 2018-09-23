@@ -63,15 +63,14 @@
         
         <div class="centro1">
 
-            <div><h1> DESEJA MESMO DELETAR "" </h1></div>
+            <div><h1> DESEJA MESMO DELETAR <?php echo $titulo; ?>? </h1></div>
 
-
-            <form action="/progweb-blog/class/postCRUD.php" method="post">
+            <?php  echo '<form action="/progweb-blog/controller/postCRUDController.php?id='. $cod . '" method="post">'; ?>
             
-            <input type="text" name="titulo" placeholder="Novo Título"><br><br>
-            <textarea name="conteudo" id="conteudo" cols="30" rows="20" placeholder="Novo Conteúdo"></textarea><br><br>
             <input type="hidden" name="id" value="<?php $cod; ?>">
-            <input type="submit" name="submit" value="Salvar"><br>
+            <input type="hidden" name="dpt" value="true">
+            <input type="submit" name="submit" value="Sim" id="botao3"><br>
+            <a href="/progweb-blog/view/inicio.php" id="botao3">Não</a>
             </form>
 
     
