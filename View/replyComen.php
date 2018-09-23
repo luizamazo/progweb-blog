@@ -2,10 +2,12 @@
    
    require_once("../config.php");
    require_once "../class/auth.php";
+
      
      //$aux = auth::checkUser();
      if(isset($_SESSION['tipo']) && $_SESSION['tipo'] != 4){
      //if(isset($_SESSION['tipo']) && $aux == "admG"){
+        $cod = $_GET['id'];
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +19,7 @@
     
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     
-    <title>CRIAR POST</title>
+    <title>RESPONDER COMENTÁRIOS</title>
 
 </head>
 
@@ -33,22 +35,21 @@
     <br>
 
     <div id="menu">
-    <ul>
-        <li><a href="">OLÁ, <?php echo ucwords($_SESSION['nome']);?>!</a></li>
-        <li><a href="inicio.php">INÍCIO</a></li>
+        <ul>
+            <li><a href="">OLÁ, <?php echo ucwords($_SESSION['nome']);?>!</a></li>
+            <li><a href="inicio.php">INÍCIO</a></li>
        <?php 
             if($_SESSION['tipo'] == 1){ 
                echo '<li><a href="admGIndex.php">DASHBOARD</a></li>';
              }else if($_SESSION['tipo'] == 2){ 
                 echo '<li><a href="admIndex.php">DASHBOARD</a></li>';
-             }else if($_SESSION['tipo'] == 3){
-                echo '<li><a href="redaIndex.php">DASHBOARD</a></li>';
-             }
+             } 
         ?>
             <li><a href=/progweb-blog/class/logout.php>SAIR</a></li>
         </ul>
 
         <hr id="traco">
+        
     </div>
 
     <br>
@@ -57,23 +58,26 @@
     <br>
     <br>
 
-    <div id="invisivel"><h2>...</h2></div>
-    <div id="corpo_cposts">
+     <div id="invisivel"><h2>...</h2></div>
+     <div class="corpo_edtComent">
         
         
-        <div class="centro_cposts">          
+        <div class="centro_edtComent">
 
-            <label class="text1">EDITAR COMENTÁRIO</label>
-            <br> 
-            <br>
-            <form action="/progweb-blog/controller/postCRUDController.php" method="post">
+           <label class="text1">RESPONDER COMENTÁRIO</label>
+           <br> 
+           <br>
+
+           <?php  echo '<form action="/progweb-blog/controller/postCRUDController.php?id='. $cod . '" method="post">'; ?>
             
-            <input type="text" name="titulo" placeholder="Insira aqui o título do post" id="titulo_cposts"><br><br>
-            <textarea name="conteudo" id="conteudo_cposts" cols="30" rows="20" placeholder="Insira aqui o conteúdo do post!!!" ></textarea><br><br>
-            <input type="hidden" name="cpt" value="true">
-            <input type="submit" name="submit" value="Criar Post" class="botao4" id="link1"><br>
+            
+            <textarea name="conteudo" id="conteudo_cposts" cols="30" rows="10" placeholder="Insira aqui a resposta ao comentário"></textarea><br><br>
+            <input type="hidden" name="id" value="<?php $cod; ?>">
+            <input type="hidden" name="ept" value="true">
+            <input type="submit" name="submit" value="Salvar" class="botao4" id="link1"><br>
             </form>
-
+                
+            <?php "chama o edit por objeto?" ?>
     
     </div>
     </div>
