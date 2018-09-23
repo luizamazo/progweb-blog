@@ -114,22 +114,6 @@ hr{
 	margin: 10px;
 	overflow-y: scroll;
 }
-.posts{
-	height: 300px;
-	width: 60%;
-	background-color: white; 
-	margin: 10px;
-	float: left;
-
-}
-.msg{
-	height: 300px;
-	width: 35%;
-	float: left;
-	overflow-y: scroll;
-	background-color: white; 
-	margin: 10px;
-}
 
 
 
