@@ -17,7 +17,7 @@ class userCRUD{
 		$senha = $v["senha"];
 		$tipo = $v["tipo"];
 		$estado = 1;
-		
+		var_dump($v);
 		$result = $sql->query("INSERT INTO pessoa(nome, email, senha, tipo, estado) 
 		VALUES(:NOME, :EMAIL, :SENHA, :TIPO, :ESTADO)", array(
 			":NOME"=>$nome,
@@ -26,6 +26,8 @@ class userCRUD{
 			":TIPO"=>$tipo,
 			":ESTADO"=>$estado
 		));
+
+		echo "INSERIDO COM SUCESSO";
 
 		if($tipo == 4){
 			header("Location: /progweb-blog/view/userIndex.php");
@@ -86,13 +88,11 @@ class userCRUD{
 		exit();
 	}
 	
-}
-
 //$t = new userCRUD();
 //$v = $t->deleteUser();
 //var_dump($v);
 	
-
+}
 
 ?>
 

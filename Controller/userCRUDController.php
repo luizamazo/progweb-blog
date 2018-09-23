@@ -31,8 +31,7 @@ class userCRUDController{
 			}
 			
 			if(isset($_POST['tipo'])){
-				$tipo = $_POST['tipo'];
-				$v["tipo"] = $tipo;	
+				$v["tipo"] = $_POST['tipo'];	
 			}
 						
 			
@@ -45,8 +44,8 @@ class userCRUDController{
 			}
 			
 			if(isset($_POST['cut'])){
-				$v["cutkn"] = $_POST['cut'];
-			}
+                $v["cutkn"] = $_POST['cut'];
+            }
 
 			if(isset($_POST['eut'])){
 				$v["eutkn"] = $_POST['eut'];
@@ -70,10 +69,11 @@ class userCRUDController{
 	$stmt = new userCRUD();
 	$v = $obj->userInput();
 	var_dump($v);
-
+	//$porra = $stmt->insertUser();
+	//var_dump($porra);
 	if(isset($v["cutkn"])){
         $_SESSION['cutoken'] = $v["cutkn"];
-        
+       
         if($_SESSION['cutoken'] == true){
             $stmt->insertUser();
             $_SESSION['cutoken'] = false;
