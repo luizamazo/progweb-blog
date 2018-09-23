@@ -60,7 +60,6 @@ class postCRUDController{
         
         if($_SESSION['cptoken'] == true){
             $stmt->insertPost();
-            var_dump($GLOBALS['status']);
             $_SESSION['cptoken'] = false;
         }
     }else if(isset($v["eptkn"])){

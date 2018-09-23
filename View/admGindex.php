@@ -28,7 +28,11 @@
     </div>
 
     <br>
+<<<<<<< HEAD
     
+=======
+    <div><h2>OLÁ, <?php echo strtoupper($_SESSION['nome']);?>!</h2></div>
+>>>>>>> b584f1a2db7b4daea8b3e60d3f6d193c46ea71bf
     <div id="menu">
         <ul>
         <li><a href="">OLÁ, <?php echo strtoupper($_SESSION['nome']);?> !</a></li>

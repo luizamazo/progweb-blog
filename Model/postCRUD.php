@@ -93,7 +93,7 @@ class postCRUD{
 			":ID"=>$cod
 		));
 
-		header("Location: /progweb-blog/view/inicio.php");
+		  header("Location: /progweb-blog/view/inicio.php");
 	}
 
 	public function checkDel($cod){
@@ -138,11 +138,6 @@ class postCRUD{
 		return $v;
 	}
 }
-$edit = array("editado"=>true, "id"=> "41", "cuzinho"=>"ptnc");
-$stmt = new postCRUD();
-$cod = $edit["id"];
-$t = $stmt->checkEdit($cod);
-var_dump($t);
 
 
 ?>
