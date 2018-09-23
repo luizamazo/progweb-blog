@@ -95,9 +95,6 @@ class userCRUD{
 	}
 }
 
-//$t = new userCRUD();
-//$v = $t->insertUser();
-//var_dump($v);
 
 ?>
 

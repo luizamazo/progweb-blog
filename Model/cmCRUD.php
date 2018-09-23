@@ -79,11 +79,9 @@ class cmCRUD{
 
     public function deleteComment($delID){
 		$sql = new sql();
-		$cc = new cmCRUDController();
-		$v = $cc->cmInput();
 		$estado = 2;
-
-		$result = $sql->query("UPDATE posts SET estado = :ESTADO WHERE id = :ID", array(
+	
+		$result = $sql->query("UPDATE comentarios SET estado = :ESTADO WHERE id = :ID", array(
 			":ESTADO"=>$estado,
 			":ID"=>$delID
 		));
@@ -91,14 +89,12 @@ class cmCRUD{
 		  header("Location: /progweb-blog/view/inicio.php");
 	}
 
-	public function checkDelCM($cod){
+	public function checkDelCM($comID){
 		
 		$sql = new sql();
-		$cc = new cmCRUDController();
-		$v = $cc->cmInput();
-		$id = $cod;
+		$id = $comID;
 		
-		$t = $sql->select("SELECT estado FROM posts WHERE id = :ID", array(
+		$t = $sql->select("SELECT estado FROM comentarios WHERE id = :ID", array(
 			":ID"=>$id
 		));
 
@@ -107,16 +103,15 @@ class cmCRUD{
 		}else{
 			return false;
 		}
+		
 	}
 
-	public function checkEditCM($cod){
+	public function checkEditCM($comID){
 
 		$sql = new sql();
-		$cc = new cmCRUDController();
-		$v = $cc->cmInput();
-		$id = $cod;
+		$id = $comID;
 		
-		$t = $sql->select("SELECT editado FROM posts WHERE id = :ID", array(
+		$t = $sql->select("SELECT editado FROM comentarios WHERE id = :ID", array(
 			":ID"=>$id
 		));
 		//onde 1 é editado e 0 não editado
@@ -134,7 +129,10 @@ class cmCRUD{
 	}
 }
 
-
+/*$t = new cmCRUD();
+$v = $t->callSelectCM();
+var_dump($v[0]["autor_original"]);
+*/
 ?>
 
 

@@ -76,8 +76,6 @@
             <input type="hidden" name="ept" value="true">
             <input type="submit" name="submit" value="Salvar" class="botao4" id="link1"><br>
             </form>
-                
-            <?php "chama o edit por objeto?" ?>
     
     </div>
     </div>

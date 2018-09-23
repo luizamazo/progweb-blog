@@ -99,8 +99,6 @@ class postCRUD{
 	public function checkDel($cod){
 		
 		$sql = new sql();
-		$pc = new postCRUDController();
-		$v = $pc->postInput();
 		$id = $cod;
 		
 		$t = $sql->select("SELECT estado FROM posts WHERE id = :ID", array(
@@ -117,8 +115,6 @@ class postCRUD{
 	public function checkEdit($cod){
 
 		$sql = new sql();
-		$pc = new postCRUDController();
-		$v = $pc->postInput();
 		$id = $cod;
 		
 		$t = $sql->select("SELECT editado FROM posts WHERE id = :ID", array(
