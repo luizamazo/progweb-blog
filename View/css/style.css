@@ -187,6 +187,10 @@ hr{
 #novaconta:hover {
 	background-color: white;
 }
+.tam_input2{
+	width: 60%;
+	margin: 5px;
+}
 
 
 /* TELA CADASTRO */
@@ -481,7 +485,22 @@ td{
 	width: 100%;
 	margin: 5px;
 }
-
-
+.botao6{
+	color: white;
+	background-color:  black;
+	text-align: center;
+	margin-left: 6px;
+	border-radius: 5px;
+	text-decoration: none;
+	padding: 5px 40px 5px 40px;
+	display: inline-block;
+	width: 55%;
+	border-color: black;
+	font-size: 18px;
+}
+#central{
+	left: 0px;
+	width: 100%;
+}
 
 

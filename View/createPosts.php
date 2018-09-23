@@ -71,7 +71,7 @@
             <input type="text" name="titulo" placeholder="Insira aqui o título do post" id="titulo_cposts"><br><br>
             <textarea name="conteudo" id="conteudo_cposts" cols="30" rows="20" placeholder="Insira aqui o conteúdo do post!!!" ></textarea><br><br>
             <input type="hidden" name="cpt" value="true">
-            <input type="submit" name="submit" value="Criar Post" class="submit" id="link1"><br>
+            <input type="submit" name="submit" value="Criar Post" class="botao4" id="link1"><br>
             </form>
 
     

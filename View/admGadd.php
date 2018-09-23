@@ -78,7 +78,7 @@
                         <br>
                         <br>
                         <input type="hidden" name="cut" value="true">
-                        <input type="submit" name="submit" value="Criar" id="botao5"><br>
+                        <input type="submit" name="submit" value="Criar" class="botao5" id="link1"><br>
                       </td>              
                     </tr>
                    

@@ -73,7 +73,7 @@
             <textarea name="conteudo" id="conteudo_cposts" cols="30" rows="20" placeholder="Insira aqui o novo conteúdo"></textarea><br><br>
             <input type="hidden" name="id" value="<?php $cod; ?>">
             <input type="hidden" name="ept" value="true">
-            <input type="submit" name="submit" value="Salvar" class="submit" id="link1"><br>
+            <input type="submit" name="submit" value="Salvar" class="botao4" id="link1"><br>
             </form>
                 
             <?php "chama o edit por objeto?" ?>
