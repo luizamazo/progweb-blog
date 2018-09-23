@@ -28,10 +28,10 @@
     </div>
 
     <br>
-    <div><h2>OLÁ, <?php echo strtoupper($_SESSION['nome']);?> !</h2></div>
+    
     <div id="menu">
         <ul>
-           
+        <li><a href="">OLÁ, <?php echo strtoupper($_SESSION['nome']);?> !</a></li>
             <li><a href="inicio.php">INÍCIO</a></li>
             <li><a href="admGIndex.php" id="atual">DASHBOARD</a></li>
             <li><a href=/progweb-blog/class/logout.php>SAIR</a></li>

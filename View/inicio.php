@@ -60,7 +60,7 @@ include_once "../model/postCRUD.php";
             ?>
         </ul>
 
-        <hr>
+        <hr id="traco">
     </div>
 
     <br>

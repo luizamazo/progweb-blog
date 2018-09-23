@@ -54,7 +54,10 @@ body{
 	size: 2;
 	border: 1px dashed red;
 }
-
+/*Espaço entre menu e quadro*/
+#invisivel{
+	visibility: hidden;
+}
 
 
 
@@ -70,7 +73,7 @@ body{
 	width: 70%;
 	height: 10%;
 	position: absolute;
-	left: 15%;
+	left: 18%;
 }
 
 ul {
@@ -154,7 +157,7 @@ hr{
 .text1{
 	/*font-family: cursive;*/
 	font-variant: none;
-	font-size: 30px;
+	font-size: 40px;
 	color: red;
 	
 }
@@ -234,7 +237,7 @@ hr{
 }
 
 th{
-	color: red;
+	color: rgb(0, 0, 0);
 	/*font-family: cursive;*/
 	font-size: 20px;
 	padding: 10px 20px;
