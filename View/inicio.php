@@ -101,13 +101,8 @@ include_once "../model/postCRUD.php";
                     ?>
                     <menu>
                         <ul>
-<<<<<<< HEAD
                             <li><a href='editPosts.php?id=<?php echo $post['id']; ?>' class="botao6" id="link1"> Editar Post</a></li>
                             <li><a href='delPosts.php?id=<?php echo $post['id'];?>&titulo=<?php echo $post['titulo'];?>' class="botao6" id="link1"> Deletar Post</a></li>
-=======
-                            <li><a href='editPosts.php?id=<?php echo $post['id']; ?>' id="botao5"> Editar Post</a></li>
-                            <li><a href='delPosts.php?id=<?php echo $post['id'];?>&titulo=<?php echo $post['titulo'];?>' id="botao5"> Deletar Post</a></li>
->>>>>>> 62e4378338bcca8c219f4cb5b900862426ff1faf
                         </ul>
                     </menu>
                     <?php   
