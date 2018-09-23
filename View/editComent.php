@@ -59,19 +59,19 @@
     <br>
 
      <div id="invisivel"><h2>...</h2></div>
-     <div id="corpo_cposts">
+     <div class="corpo_edtComent">
         
         
-        <div class="centro_cposts">
+        <div class="centro_edtComent">
 
-           <label class="text1">EDITAR COMENTÁRIOS</label>
+           <label class="text1">EDITAR COMENTÁRIO</label>
            <br> 
            <br>
 
            <?php  echo '<form action="/progweb-blog/controller/postCRUDController.php?id='. $cod . '" method="post">'; ?>
             
             
-            <textarea name="conteudo" id="conteudo_cposts" cols="30" rows="20" placeholder="Insira aqui o novo conteúdo"></textarea><br><br>
+            <textarea name="conteudo" id="conteudo_cposts" cols="30" rows="10" placeholder="Insira aqui o novo comentário"></textarea><br><br>
             <input type="hidden" name="id" value="<?php $cod; ?>">
             <input type="hidden" name="ept" value="true">
             <input type="submit" name="submit" value="Salvar" class="botao4" id="link1"><br>
