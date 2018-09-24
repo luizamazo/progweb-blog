@@ -101,9 +101,9 @@ include_once "../model/cmCRUD.php";
                             if($_SESSION['tipo'] == 1 || $_SESSION['tipo'] == 2){
                     ?>
                     <menu>
-                        <ul>
-                            <li><a href='editPosts.php?id=<?php echo $post['id']; ?>' class="botao7" id="link1"> Editar Post</a></li>
-                            <li><a href='delPosts.php?id=<?php echo $post['id'];?>&titulo=<?php echo $post['titulo'];?>' class="botao7" id="link1"> Deletar Post</a></li>
+                        <ul class="menu_posts">
+                            <li><a href='editPosts.php?id=<?php echo $post['id']; ?>' class="botao8 " id="link1"> Editar Post</a></li>
+                            <li><a href='delPosts.php?id=<?php echo $post['id'];?>&titulo=<?php echo $post['titulo'];?>' class="botao8" id="link1"> Deletar Post</a></li>
                         </ul>
                     </menu>
                     <?php 
@@ -120,7 +120,7 @@ include_once "../model/cmCRUD.php";
                                     <br><textarea name="conteudo" rows="5" cols="60"></textarea>
                                     <br><br>
                                     <input type="hidden" name="cct" value="true">
-                                    <input type="submit" name="submit" value="Enviar">
+                                    <input type="submit" name="submit" value="Enviar" class="enviar" id="link1">
                             </form>
                             
                
@@ -158,8 +158,8 @@ include_once "../model/cmCRUD.php";
                                                     if($_SESSION['tipo'] == 4 && $_SESSION['nome'] == $com["autor_original"]){  ?>
                                         
                                             <menu>
-                                                <ul>
-                                                    <li><a href='/progweb-blog/view/editComen.php?ed=<?php echo $comID; ?>' class="botao7" id="link1"> Editar Comentário</a></li>
+                                                <ul class="menu_comen">
+                                                    <li ><a href='/progweb-blog/view/editComen.php?ed=<?php echo $comID; ?>' class="botao7" id="link1"> Editar Comentário</a></li>
                                                     <li><a href='/progweb-blog/controller/cmCRUDController.php?del=<?php echo $comID;?>&dct=true' class="botao7" id="link1"> Deletar Comentário</a></li>
                                                 </ul>
                                             </menu>

@@ -48,7 +48,7 @@
         
       <div class="centro4">
 
-        <label class="text1">USER</label>
+        <label class="text1">USUÁRIO</label>
         <br>
         <br>
 

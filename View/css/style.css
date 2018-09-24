@@ -67,7 +67,19 @@ body{
 	font-size: 80px;
 	
 }
-
+.enviar{
+	color: white;
+	background-color:  black;
+	text-align: center;
+	margin-left: 6px;
+	border-radius: 5px;
+	text-decoration: none;
+	padding: 5px 40px 5px 40px;
+	display: inline-block;
+	width: 20%;
+	border-color: black;
+	font-size: 15px;
+}
 
 #menu{
 	width: 70%;
@@ -127,6 +139,28 @@ hr{
 	width: 55%;
 	border-color: black;
 	font-size: 15px;
+}
+.botao8{
+	color: white;
+	background-color:  black;
+	text-align: center;
+	margin-left: 6px;
+	border-radius: 5px;
+	text-decoration: none;
+	padding: 5px 40px 5px 40px;
+	display: inline-block;
+	width: 45%;
+	border-color: black;
+	font-size: 15px;
+}
+.menu_comen{
+	padding-left: 20%;
+}
+.menu_posts{
+	padding-left: 25%;
+}
+.menu_adm{
+	padding-left: 28%;
 }
 
 
@@ -360,8 +394,12 @@ td{
 
 	overflow:auto;  /*barra de rolagem automática*/
 }
-
-
+#gerencia{
+	position: absolute;
+	left: 20%;
+	right: 20%;
+	align-items: center;
+}
 #gerencia1{
 	position: absolute;
 	left: 10%;
@@ -369,8 +407,25 @@ td{
 	align-items: center;
 
 }
-
-
+.tam_admG{
+	width: 50%;
+}
+#li2{
+	float: left;
+	border: 1px dashed red;
+	width: 32%;
+	padding: 5px 5px;
+}
+#li2 a{
+	display: block;
+	color: black;
+	background-color:  #A9F5E1;
+	text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    /*font-family: fantasy;*/
+	font-weight: bold;
+}
 #li1{
 	float: left;
 	border: 1px dashed red;
@@ -513,4 +568,23 @@ td{
 	width: 65%;
 	height: 70%;
 	padding: 40px 40px 20px 40px;
+}
+/*comenControl*/
+#corpo_ccontrol{
+	background-color: #666666;
+	width: 60%;
+	height: 80%;
+	position: absolute;
+	left: 22%;
+}
+.centrocontrol{
+	position: absolute;
+	top: 10%;
+	left: 6%;
+	background-color: white;
+	color: black;
+	width: 80%;
+	height: 70%;
+	padding: 40px 40px 20px 40px;
+	overflow-y: auto;
 }

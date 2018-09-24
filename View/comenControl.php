@@ -45,11 +45,11 @@
     <br>
 
     <div id="invisivel"><h2>...</h2></div>
-    <div id="corpo_texto3">
+    <div id="corpo_ccontrol">
+      
+      <div class="centrocontrol">
+        <label class="text1">COMENTÁRIOS DO USUÁRIO</label>
         
-      <div class="centro4">
-
-        <label class="text1">USER</label>
         <br>
         <br>
 

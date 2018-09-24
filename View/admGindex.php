@@ -54,13 +54,13 @@
         <label id="donoconta">ADMINISTRADOR GERAL</label>
         <br>
         <br>
-
+        <br>
+        <br>
         <div>
-          <ul id="gerencia1">
-            <li id="li1"><a href="/progweb-blog/View/admGadd.php" id="link1">Adicionar Usuários</a></li>
-            <li id="li1"><a href="/progweb-blog/View/createPosts.php" id="link1">Adicionar Novo Post</a></li>
-            <li id="li1"><a href="/progweb-blog/View/admGusercontrol.php" id="link1">Gerenciar Usuários</a></li>
-            <li id="li1"><a href="" id="link1">Listar Comentários</a></li>
+          <ul id="gerencia">
+            <li id="li2"><a href="/progweb-blog/View/admGadd.php" class="tam_admG" id="link1">Adicionar Usuários</a></li>
+            <li id="li2"><a href="/progweb-blog/View/createPosts.php" class="tam_admG" id="link1">Adicionar Novo Post</a></li>
+            <li id="li2"><a href="/progweb-blog/View/admGusercontrol.php" class="tam_admG" id="link1">Gerenciar Usuários</a></li>
           </ul>  
         </div>
              

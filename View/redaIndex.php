@@ -56,10 +56,9 @@
         <br>
 
         <div>
-          <ul id="gerencia1">
+          <ul id="gerencia1" class="menu_adm">
             <li id="li1"><a href="/progweb-blog/View/createPosts.php" id="link1">Adicionar Novo Post</a></li>
-            <li id="li1"><a href="/progweb-blog/view/comenControl.php" id="link1">Listar Comentários</a></li>
-        </ul>  
+          </ul>  
       </div>
              
       </div>
