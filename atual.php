@@ -89,8 +89,7 @@ include_once "../Model/cmCRUD.php";
         ?>
                     <br>
                     <br>
-                    <!-- DIV DE POSTS -->
-                    <div class="teste"> 
+                  
                         <hr>
                         <h2>
                         <?php echo $post['titulo']; ?></h2>
@@ -119,7 +118,7 @@ include_once "../Model/cmCRUD.php";
                                 <li><a href='delPosts.php?id=<?php echo $cod;?>&titulo=<?php echo $post['titulo'];?>' class="botao8" id="link1"> Deletar Post</a></li>
                             </ul>
                             </menu>
-                    <div> <!-- FIM DA DIV DE POSTS -->
+               
                     
                     <?php 
                         }  
@@ -186,6 +185,7 @@ include_once "../Model/cmCRUD.php";
                                         <!-- IMPRIME CONTEÚDO DO COMENTÁRIO -->
                                         <div><?php echo nl2br($comConteudo); ?></div>
                     <?php
+                                        //@ABRE IF = SE USUÁRIO AUTENTICADO, MOSTRAR AÇÕES
                                         if(isset($_SESSION['tipo'])){
                                            
                                            //@ABRE IF = SE FOR USUÁRIO, MOSTRA AÇÕES QUE É SÓ DO USUÁRIO
@@ -203,8 +203,12 @@ include_once "../Model/cmCRUD.php";
 
                                            //@ABRE IF = SE FOR USUÁRIO, ELE SÓ PODE RESPONDER COMENTÁRIOS DOS OUTROS
                                            if($_SESSION['tipo'] == 4 && $_SESSION['nome'] != $com["autor_original"]){ 
+                                        echo "<menu>";
+                                        echo   '<ul class="menu_comen">';
                                                echo '<li><a href="/progweb-blog/View/replyComen.php?postid=' . $postId . '&resp=' . $comID . '&user=' . $comUser .
                                                '&conte=' . $comConteudo . ' "class="botao7" id="link1">Responder Comentário</a></li>';
+                                        echo   "</ul>";
+                                        echo "</menu>";
                                            }//@ FECHA IF = USUÁRIO N RESPONDE SEUS PRÓPRIOS COMENTÁRIOS
                                            
                                            // @ABRE IF = SE FOR ADM OU REDATOR APARECE TODOS AS 3 AÇÕES PARA COMENTÁRIOS
@@ -237,12 +241,12 @@ include_once "../Model/cmCRUD.php";
                                                 <p>
                                                 <h5>Comentado por  
                     <?php                       
-                                                echo ucwords($resp["autor_original"]) . " em resposta a " . ucwords($com['autor_original']) . " | " . $resp["data_original"]; 
+                                                echo ucwords($resp["autor_original"]) . " em resposta a " . ucwords($resp['resp_user']) . " | " . $resp["data_original"]; 
                     ?>
                                                 
                     <?php                       //@ABRE IF = SE COMENTÁRIO FOI EDITADO
                                                 if($editCM == true){
-                                                    echo "<br>Editado por: " . ucwords($com['autor_editado']) . " | ". $com['data_editado']; 
+                                                    echo "<br>Editado por: " . ucwords($resp['autor_editado']) . " | ". $resp['data_editado']; 
                                                 }//@FECHA IF = SE COMENTÁRIO FOI EDITADO 
                     ?>
                                                 </h5>
@@ -250,23 +254,49 @@ include_once "../Model/cmCRUD.php";
 
                                                 <!-- IMPRIME CONTEÚDO DO COMENTÁRIO -->
                                                 <div><?php echo nl2br($respConteudo); ?> </div>
-
+                    <?php
+                                            //@ABRE IF = SE USUÁRIO AUTENTICADO, MOSTRAR AÇÕES
+                                            if(isset($_SESSION['tipo'])){
+                                           
+                                                //@ABRE IF = SE FOR USUÁRIO, MOSTRA AÇÕES QUE É SÓ DO USUÁRIO
+                                                if($_SESSION['tipo'] == 4 && $_SESSION['nome'] == $com["autor_original"]){  
+                    ?>      
+                                                <menu>
+                                                    <ul class="menu_comen">
+                                                        <li ><a href='/progweb-blog/View/editComen.php?ed=<?php echo $respID; ?>' class="botao7" id="link1"> Editar Comentário</a></li>
+                                                        <li><a href='/progweb-blog/Controller/cmCRUDController.php?del=<?php echo $respID;?>&dct=true' class="botao7" id="link1"> Deletar Comentário</a></li>
+                                                    </ul>
+                                                </menu>
+                                                <hr>
                                                 
-                    <?php                        //@ABRE IF = SE USUÁRIO AUTENTICADO, MOSTRAR AÇÕES
-                                                if(isset($_SESSION['tipo'])){ 
-                    ?>
+                    <?php                       }//@FECHA IF = SE FOR USUÁRIO, MOSTRA AÇÕES QUE É SÓ DO USUÁRIO
+
+                                                //@ABRE IF = SE FOR USUÁRIO, ELE SÓ PODE RESPONDER COMENTÁRIOS DOS OUTROS
+                                                if($_SESSION['tipo'] == 4 && $_SESSION['nome'] != $com["autor_original"]){
+                                            echo "<menu>";
+                                                echo '<ul class="menu_comen">'; 
+                                                    echo '<li><a href="/progweb-blog/View/replyComen.php?postid=' . $postId . '&resp=' . $comID . '&user=' . $resp["autor_original"] .
+                                                    '&conte=' . $respConteudo . ' "class="fix2" >Responder Comentário</a></li>'; 
+                                                echo "</ul>";
+                                            echo "</menu>";
+                                                }//@ FECHA IF = USUÁRIO N RESPONDE SEUS PRÓPRIOS COMENTÁRIOS
+                                                
+                                                // @ABRE IF = SE FOR ADM OU REDATOR APARECE TODOS AS 3 AÇÕES PARA COMENTÁRIOS
+                                                if($_SESSION['tipo'] == 1 || $_SESSION['tipo'] == 2 || $_SESSION['tipo'] == 3){ 
+                    ?>  
                                                     <menu>
-                                                        <ul class="menu_comen">
-                                                            <?php echo '<li><a href="/progweb-blog/View/replyComen.php?postid=' . $postId . '&resp=' . $comID . '&user=' . $comUser .
-                                                            '&conte=' . $respConteudo . ' "class="fix" >Responder Comentário</a></li>'; ?>
-                                                            <li ><a href='/progweb-blog/View/editComen.php?ed=<?php echo $respID; ?>' class="fix" > Editar Comentário</a></li>
-                                                            <li><a href='/progweb-blog/Controller/cmCRUDController.php?del=<?php echo $respID;?>&dct=true' class="fix" > Deletar Comentário</a></li>
-                                                        </ul>
-                                                    </menu>
-                    <?php                       }
-                    ?>
-                            
-                    <?php                   
+                                                                <ul class="menu_comen">
+                                                                    <?php echo '<li><a href="/progweb-blog/View/replyComen.php?postid=' . $postId . '&resp=' . $comID . '&user=' . $resp["autor_original"] .
+                                                                    '&conte=' . $respConteudo . ' "class="fix" >Responder Comentário</a></li>'; ?>
+                                                                    <li ><a href='/progweb-blog/View/editComen.php?ed=<?php echo $respID; ?>' class="fix" > Editar Comentário</a></li>
+                                                                    <li><a href='/progweb-blog/Controller/cmCRUDController.php?del=<?php echo $respID;?>&dct=true' class="fix" > Deletar Comentário</a></li>
+                                                                </ul>
+                                                        </menu>
+                    <?php
+                                            } //@FECHA IF = 3 AÇÕES PRA ADMS E REDATOR
+                                        }//@FECHA IF = USUARIO AUTENTICADO, MOSTRAR AÇÕES                             
+               
+                                    
                                             } //@FECHA IF = PRA IMPRIMIR LOGO ABAIXO DO COMENTÁRIO RESPONDIDO  
                                         }//@FECHA IF = IMPRIME RESPOSTAS        
                                   }//@FECHA IF = SE O ID DO POST ATUAL EQUIVALE AO ID DO POST EM QUE FOI FEITO O COMENTÁRIO
