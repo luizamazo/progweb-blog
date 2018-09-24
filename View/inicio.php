@@ -127,7 +127,8 @@ include_once "../model/cmCRUD.php";
 
                         <?php   
                         } if(!isset($_SESSION['tipo']) || isset($_SESSION['tipo'])){
-                            echo "<hr>";
+                            echo "<hr>
+                            <h3>Comentários</h3>";
     
                             $objcm = new cmCRUD();
                             $comentarios = $objcm->callSelectCM();
