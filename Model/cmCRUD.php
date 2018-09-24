@@ -20,10 +20,13 @@ class cmCRUD{
 
 		if(isset($v["resp_id"])){
 			$respID = $v["resp_id"];
+			$respUser = $v["resp_user"];
 		}
 		
-
-		if(!isset($respID)){
+		var_dump($v);
+		//se eh nulo quer dizer que eh novo e é pra somente inserir
+		if(!isset($v["resp_id"])){
+			
 			$result = $sql->query("INSERT INTO comentarios(autor_original, conteudo, estado, post_id) 
 			VALUES(:AUTOR_O, :CONTEUDO, :ESTADO, :POST_ID)", array(
 			":AUTOR_O"=>$autor,
@@ -33,15 +36,15 @@ class cmCRUD{
 		));
 		//se não for comentário novo ele é resposta então insere resposta id
 		}else{
-			$result = $sql->query("INSERT INTO comentarios(autor_original, conteudo, estado, post_id, resp_id) 
-			VALUES(:AUTOR_O, :CONTEUDO, :ESTADO, :POST_ID, :RESP_ID)", array(
-			":AUTOR_O"=>$autor,
-			":CONTEUDO"=>$conteudo,
-			":ESTADO"=>$estado,
-			":POST_ID"=>$postID,
-			":RESP_ID"=>$respID
-		));
-		
+			$result = $sql->query("INSERT INTO respostas(autor_original, conteudo, estado, post_id, resp_id, resp_user)
+			VALUES(:AUTOR_O, :CONTEUDO, :ESTADO, :POST_ID, :RESP_ID, :RESP_USER)", array(
+				":AUTOR_O"=>$autor,
+				":CONTEUDO"=>$conteudo,
+				":ESTADO"=>$estado,
+				":RESP_ID"=>$respID,
+				":RESP_USER"=>$respUser,
+				":POST_ID"=>$postID
+			));
 		}
 		
 		//header("Location: /progweb-blog/view/inicio.php");
@@ -82,13 +85,31 @@ class cmCRUD{
 		$autor = $v["autor"];
 		$conteudo = $v["conteudo"];
 		
-		$result = $sql->query("UPDATE comentarios SET autor_editado = :AUTOR_E, 
-		conteudo = :CONTEUDO, editado = :EDITADO WHERE id = :ID", array(
+		if(isset($v["resp_id"])){
+			$respID = $v["resp_id"];
+			$respUser = $v["resp_user"];
+		}
+		
+		if(!isset($v["resp_id"])){
+			$result = $sql->query("UPDATE comentarios SET autor_editado = :AUTOR_E, 
+			conteudo = :CONTEUDO, editado = :EDITADO WHERE id = :ID", array(
 				":AUTOR_E"=>$autor,
 				":CONTEUDO"=>$conteudo,
 				":ID"=>$edID,
 				":EDITADO"=>1
 			));
+		}else{
+			$result = $sql->query("UPDATE respostas SET autor_editado = :AUTOR_E, 
+			conteudo = :CONTEUDO, editado = :EDITADO, resp_id = :RESP_ID, resp_user = :RESP_USER WHERE id = :ID", array(
+				":AUTOR_E"=>$autor,
+				":CONTEUDO"=>$conteudo,
+				":ID"=>$edID,
+				":RESP_ID"=>$respID,
+				":RESP_USER"=>$respUser,
+				":EDITADO"=>1
+			));
+		}
+		
 
 			header("Location: /progweb-blog/view/inicio.php");
 }
@@ -144,12 +165,20 @@ class cmCRUD{
 		return $v;
 	}
 
+	public function callSelectR(){
+		$v = $this->selectComment("SELECT * FROM respostas");
+		return $v;
+	}
+
+	//pra listar os comentários do usuário logado
 	public function callCMUser(){
 		$v = $this->selectComment("SELECT * FROM comentarios WHERE autor_original = :AUTOR_O", array(
 			":AUTOR_O"=>$_SESSION['nome']
 		));
 		return $v;
 	}
+
+
 }
 
 /*$t = new cmCRUD();

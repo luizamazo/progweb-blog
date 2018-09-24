@@ -31,6 +31,10 @@ class cmCRUDController{
             }
 
         }
+        //nome do usuario do comentario
+        if(isset($_GET['user'])){
+            $v["resp_user"] = $_GET['user'];
+        }
         //id do post
         if(isset($_GET['id'])){
             $v["post_id"] = $_GET['id'];

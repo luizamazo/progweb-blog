@@ -89,11 +89,12 @@ include_once "../model/cmCRUD.php";
         ?>
                     <br>
                     <br>
-                  
-                        <hr>
+                    <!-- DIV DE POSTS -->
+                    <div class="teste"> 
+
                         <h2>
                         <?php echo $post['titulo']; ?></h2>
-                        <p><h5>Postado por <?php echo ucwords($post['autor_original']); echo " | " . $post['data_original']; 
+                        <p><h5>Postado por <?php echo ucwords($post['autor_original']); echo "|" . $post['data_original']; 
                             
                         //@ABRE IF = SE POST FOI EDITADO
                         if($edit == true){
@@ -118,7 +119,7 @@ include_once "../model/cmCRUD.php";
                                 <li><a href='delPosts.php?id=<?php echo $cod;?>&titulo=<?php echo $post['titulo'];?>' class="botao8" id="link1"> Deletar Post</a></li>
                             </ul>
                             </menu>
-               
+                    <div> <!-- FIM DA DIV DE POSTS -->
                     
                     <?php 
                         }  
@@ -144,9 +145,8 @@ include_once "../model/cmCRUD.php";
                         
                         //@ABRE IF = QUALQUER UM PODE VISUALIZAR COMENTÁRIOS FEITOS
                         if(!isset($_SESSION['tipo']) || isset($_SESSION['tipo'])){
-                            echo '<div class="h3coment"> 
-                                 <h3 >Comentários</h3>
-                                 </div>';
+                            echo "<hr>
+                            <h3>Comentários</h3>";
     
                             $objcm = new cmCRUD();
                             $comentarios = $objcm->callSelectCM();
@@ -166,66 +166,27 @@ include_once "../model/cmCRUD.php";
                                 //@ABRE IF = IMPRIME COMENTÁRIOS SÓ SE ESTIVEREM ATIVOS
                                 if($checkCM == false){
                                     //@ABRE IF = SE O ID DO POST ATUAL EQUIVALE AO ID DO POST EM QUE FOI FEITO O COMENTÁRIO
-                                
                                     if($postId == $postidCM){ 
-                    ?>             
-                                        <hr>
+                    ?>              
+                                    
+                                        <br><br>
                                         <p>
-                                        <h5>Comentado por 
-                    <?php               echo ucwords($com['autor_original']) . " | " . $com['data_original'];
+                                        <h4>Comentado por 
+                    <?php               echo ucwords($com['autor_original']) . "|" . $com['data_original'];
                 
                                         //@ABRE IF = SE COMENTÁRIO FOI EDITADO
                                         if($editCM == true){
                                             echo "<br>Editado por: " . ucwords($com['autor_editado']) . " | ". $com['data_editado']; 
                                         }//@FECHA IF = SE COMENTÁRIO FOI EDITADO 
                     ?>
-                                        </h5>
+                                        </h4>
                                         </p>
 
                                         <!-- IMPRIME CONTEÚDO DO COMENTÁRIO -->
                                         <div><?php echo nl2br($comConteudo); ?></div>
-                    <?php
-                                        //@ABRE IF = SE USUÁRIO AUTENTICADO, MOSTRAR AÇÕES
-                                        if(isset($_SESSION['tipo'])){
-                                           
-                                           //@ABRE IF = SE FOR USUÁRIO, MOSTRA AÇÕES QUE É SÓ DO USUÁRIO
-                                           if($_SESSION['tipo'] == 4 && $_SESSION['nome'] == $com["autor_original"]){  
-                   ?>      
-                                           <menu>
-                                               <ul class="menu_comen">
-                                                   <li ><a href='/progweb-blog/view/editComen.php?ed=<?php echo $comID; ?>' class="botao7" id="link1"> Editar Comentário</a></li>
-                                                   <li><a href='/progweb-blog/controller/cmCRUDController.php?del=<?php echo $comID;?>&dct=true' class="botao7" id="link1"> Deletar Comentário</a></li>
-                                               </ul>
-                                           </menu>
-                                           <hr>
-                                           
-                   <?php                   }//@FECHA IF = SE FOR USUÁRIO, MOSTRA AÇÕES QUE É SÓ DO USUÁRIO
-
-                                           //@ABRE IF = SE FOR USUÁRIO, ELE SÓ PODE RESPONDER COMENTÁRIOS DOS OUTROS
-                                           if($_SESSION['tipo'] == 4 && $_SESSION['nome'] != $com["autor_original"]){ 
-                                        echo "<menu>";
-                                        echo   '<ul class="menu_comen">';
-                                               echo '<li><a href="/progweb-blog/View/replyComen.php?postid=' . $postId . '&resp=' . $comID . '&user=' . $comUser .
-                                               '&conte=' . $comConteudo . ' "class="botao7" id="link1">Responder Comentário</a></li>';
-                                        echo   "</ul>";
-                                        echo "</menu>";
-                                           }//@ FECHA IF = USUÁRIO N RESPONDE SEUS PRÓPRIOS COMENTÁRIOS
-                                           
-                                           // @ABRE IF = SE FOR ADM OU REDATOR APARECE TODOS AS 3 AÇÕES PARA COMENTÁRIOS
-                                           if($_SESSION['tipo'] == 1 || $_SESSION['tipo'] == 2 || $_SESSION['tipo'] == 3){ 
-                   ?>  
-                                               <menu>
-                                                   <ul>
-                                                       <?php echo '<li><a href="/progweb-blog/View/replyComen.php?postid=' . $postId . '&resp=' . $comID . '&user=' . $comUser .
-                                                       '&conte=' . $comConteudo . ' "class="botao7" id="link1">Responder Comentário</a></li>'; ?>
-                                                       <li><a href='/progweb-blog/view/editComen.php?ed=<?php echo $comID; ?>' class="botao7" id="link1"> Editar Comentário</a></li>
-                                                       <li><a href='/progweb-blog/controller/cmCRUDController.php?del=<?php echo $comID;?>&dct=true' class="botao7" id="link1"> Deletar Comentário</a></li>
-                       <?php                            
-                                                    echo "</ul>";
-                                                echo "</menu>";
-                                            } //@FECHA IF = 3 AÇÕES PRA ADMS E REDATOR
-                                        }//@FECHA IF = USUARIO AUTENTICADO, MOSTRAR AÇÕES
-
+                                        
+                    <?php 
+                                        
                                         $resposta = $objcm->callSelectR();
                                         
                                         //IMPRIME RESPOSTAS 
@@ -239,66 +200,62 @@ include_once "../model/cmCRUD.php";
                                             if($postId == $postrespID && $respID == $comID){      
                     ?>
                                                 <p>
-                                                <h5>Comentado por  
+                                                <h4>Comentado por 
                     <?php                       
-                                                echo ucwords($resp["autor_original"]) . " em resposta a " . ucwords($resp['resp_user']) . " | " . $resp["data_original"]; 
+                                                echo ucwords($resp["autor_original"]) . "em resposta a " . ucwords($com['autor_original']) . $resp["data_original"]; 
                     ?>
                                                 
                     <?php                       //@ABRE IF = SE COMENTÁRIO FOI EDITADO
                                                 if($editCM == true){
-                                                    echo "<br>Editado por: " . ucwords($resp['autor_editado']) . " | ". $resp['data_editado']; 
+                                                    echo "<br>Editado por: " . ucwords($com['autor_editado']) . " | ". $com['data_editado']; 
                                                 }//@FECHA IF = SE COMENTÁRIO FOI EDITADO 
                     ?>
-                                                </h5>
+                                                </h4>
                                                 </p>
 
                                                 <!-- IMPRIME CONTEÚDO DO COMENTÁRIO -->
-                                                <div><?php echo nl2br($respConteudo); ?> </div>
-                    <?php
-                                            //@ABRE IF = SE USUÁRIO AUTENTICADO, MOSTRAR AÇÕES
-                                            if(isset($_SESSION['tipo'])){
+                                                <div><?php echo nl2br($respConteudo); ?></div>
+                            
+                    <?php                   
+                                            } //@FECHA IF = PARA DE CHECAR SE É UMA RESPOSTA  
+                                        }//@FECHA IF = IMPRIME RESPOSTAS        
+                                        //@ABRE IF = SE USUÁRIO AUTENTICADO, MOSTRAR AÇÕES
+                                        if(isset($_SESSION['tipo'])){
                                            
-                                                //@ABRE IF = SE FOR USUÁRIO, MOSTRA AÇÕES QUE É SÓ DO USUÁRIO
-                                                if($_SESSION['tipo'] == 4 && $_SESSION['nome'] == $com["autor_original"]){  
+                                            //@ABRE IF = SE FOR USUÁRIO, MOSTRA AÇÕES QUE É SÓ DO USUÁRIO
+                                            if($_SESSION['tipo'] == 4 && $_SESSION['nome'] == $com["autor_original"]){  
                     ?>      
-                                                <menu>
-                                                    <ul class="menu_comen">
-                                                        <li ><a href='/progweb-blog/view/editComen.php?ed=<?php echo $respID; ?>' class="botao7" id="link1"> Editar Comentário</a></li>
-                                                        <li><a href='/progweb-blog/controller/cmCRUDController.php?del=<?php echo $respID;?>&dct=true' class="botao7" id="link1"> Deletar Comentário</a></li>
-                                                    </ul>
-                                                </menu>
-                                                <hr>
-                                                
-                    <?php                       }//@FECHA IF = SE FOR USUÁRIO, MOSTRA AÇÕES QUE É SÓ DO USUÁRIO
+                                            <menu>
+                                                <ul class="menu_comen">
+                                                    <li ><a href='/progweb-blog/view/editComen.php?ed=<?php echo $comID; ?>' class="botao7" id="link1"> Editar Comentário</a></li>
+                                                    <li><a href='/progweb-blog/controller/cmCRUDController.php?del=<?php echo $comID;?>&dct=true' class="botao7" id="link1"> Deletar Comentário</a></li>
+                                                </ul>
+                                            </menu>
+                                            <hr>
+                                            
+                    <?php                   }//@FECHA IF = SE FOR USUÁRIO, MOSTRA AÇÕES QUE É SÓ DO USUÁRIO
 
-                                                //@ABRE IF = SE FOR USUÁRIO, ELE SÓ PODE RESPONDER COMENTÁRIOS DOS OUTROS
-                                                if($_SESSION['tipo'] == 4 && $_SESSION['nome'] != $com["autor_original"]){
-                                            echo "<menu>";
-                                                echo '<ul class="menu_comen">'; 
-                                                    echo '<li><a href="/progweb-blog/View/replyComen.php?postid=' . $postId . '&resp=' . $comID . '&user=' . $resp["autor_original"] .
-                                                    '&conte=' . $respConteudo . ' "class="fix2" >Responder Comentário</a></li>'; 
+                                            //@ABRE IF = SE FOR USUÁRIO, ELE SÓ PODE RESPONDER COMENTÁRIOS DOS OUTROS
+                                            if($_SESSION['tipo'] == 4 && $_SESSION['nome'] != $com["autor_original"]){ 
+                                                echo '<li><a href="/progweb-blog/View/replyComen.php?postid=' . $postId . '&resp=' . $comID . '&user=' . $comUser .
+                                                '&conte=' . $comConteudo . ' "class="botao7" id="link1">Responder Comentários</a></li>';
+                                            }//@ FECHA IF = USUÁRIO N RESPONDE SEUS PRÓPRIOS COMENTÁRIOS
+                                            
+                                            // @ABRE IF = SE FOR ADM OU REDATOR APARECE TODOS AS 3 AÇÕES PARA COMENTÁRIOS
+                                            if($_SESSION['tipo'] == 1 || $_SESSION['tipo'] == 2 || $_SESSION['tipo'] == 3){ 
+                    ?>  
+                                                <menu>
+                                                    <ul>
+                                                        <li><a href='/progweb-blog/view/editComen.php?ed=<?php echo $comID; ?>' class="botao7" id="link1"> Editar Comentário</a></li>
+                                                        <li><a href='/progweb-blog/controller/cmCRUDController.php?del=<?php echo $comID;?>&dct=true' class="botao7" id="link1"> Deletar Comentário</a></li>
+                        <?php                            echo '<li><a href="/progweb-blog/View/replyComen.php?postid=' . $postId . '&resp=' . $comID . '&user=' . $comUser .
+                                                        '&conte=' . $comConteudo . ' "class="botao7" id="link1">Responder Comentários</a></li>';
                                                 echo "</ul>";
                                             echo "</menu>";
-                                                }//@ FECHA IF = USUÁRIO N RESPONDE SEUS PRÓPRIOS COMENTÁRIOS
-                                                
-                                                // @ABRE IF = SE FOR ADM OU REDATOR APARECE TODOS AS 3 AÇÕES PARA COMENTÁRIOS
-                                                if($_SESSION['tipo'] == 1 || $_SESSION['tipo'] == 2 || $_SESSION['tipo'] == 3){ 
-                    ?>  
-                                                    <menu>
-                                                                <ul class="menu_comen">
-                                                                    <?php echo '<li><a href="/progweb-blog/View/replyComen.php?postid=' . $postId . '&resp=' . $comID . '&user=' . $resp["autor_original"] .
-                                                                    '&conte=' . $respConteudo . ' "class="fix" >Responder Comentário</a></li>'; ?>
-                                                                    <li ><a href='/progweb-blog/view/editComen.php?ed=<?php echo $respID; ?>' class="fix" > Editar Comentário</a></li>
-                                                                    <li><a href='/progweb-blog/controller/cmCRUDController.php?del=<?php echo $respID;?>&dct=true' class="fix" > Deletar Comentário</a></li>
-                                                                </ul>
-                                                        </menu>
-                    <?php
+
                                             } //@FECHA IF = 3 AÇÕES PRA ADMS E REDATOR
-                                        }//@FECHA IF = USUARIO AUTENTICADO, MOSTRAR AÇÕES                             
-               
+                                        }//@FECHA IF = USUARIO AUTENTICADO, MOSTRAR AÇÕES
                                     
-                                            } //@FECHA IF = PRA IMPRIMIR LOGO ABAIXO DO COMENTÁRIO RESPONDIDO  
-                                        }//@FECHA IF = IMPRIME RESPOSTAS        
                                   }//@FECHA IF = SE O ID DO POST ATUAL EQUIVALE AO ID DO POST EM QUE FOI FEITO O COMENTÁRIO
                             }//@END IF = SÓ IMPRIME COMENTÁRIOS ATIVOS
                          }//FECHA FOREACH PRA IMPRIMIR COMENTÁRIOS
