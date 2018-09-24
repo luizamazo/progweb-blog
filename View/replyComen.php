@@ -73,7 +73,7 @@
              
          <?php  echo '<form action="/progweb-blog/Controller/cmCRUDController.php?id='.$postID.'&user='. $comUser . '&resp='. $respID . '" method="post">'; ?>
             
-            <textarea name="conteudo" id="conteudo_cposts" cols="30" rows="20" placeholder="Insira aqui a sua resposta"></textarea><br><br>
+            <textarea name="conteudo" id="conteudo_cposts" cols="30" rows="20" required placeholder="Insira aqui a sua resposta"></textarea><br><br>
             <input type="hidden" name="cct" value="true">
             <input type="submit" name="submit" value="Salvar" class="botao4" id="link1"><br>
             </form>

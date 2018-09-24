@@ -100,21 +100,21 @@
                   <table id="tabela">  
                     <tr>
                       <td>
-                        <input type="text" name="id" placeholder="Código Identificador"><br>
+                        <input type="text" name="id" required placeholder="Código Identificador"><br>
                       </td>
 
                       <td>
-                        <input type="text" name="nome" placeholder="Novo Nome"><br>  
+                        <input type="text" name="nome" required placeholder="Novo Nome"><br>  
                       </td>
                     </tr>
 
                     <tr>
                       <td>
-                        <input type="email" name="email" placeholder="Novo Email"><br>
+                        <input type="email" name="email" required placeholder="Novo Email"><br>
                       </td>
 
                       <td>
-                        <input type="password" name="senha" placeholder="Nova Senha"><br>  
+                        <input type="password" name="senha" required placeholder="Nova Senha"><br>  
                       </td>
                     </tr>
                     
@@ -154,12 +154,12 @@
                   
                     <tr>     
                       <td>  
-                        <input type="text" name="id" placeholder="Código Identificador" class="tam_input" ><br>
+                        <input type="text" name="id" required placeholder="Código Identificador" class="tam_input" ><br>
                       </td>
                     </tr>
                     <tr>
                       <td>  
-                        <input type="text" name="email" placeholder="Email" class="tam_input"><br>
+                        <input type="text" name="email" required placeholder="Email" class="tam_input"><br>
                       </td>
                     </tr>
                     <tr>

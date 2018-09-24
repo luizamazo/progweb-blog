@@ -68,8 +68,8 @@
 
            <?php  echo '<form action="/progweb-blog/Controller/postCRUDController.php?id='. $cod . '" method="post">'; ?>
             
-            <input type="text" name="titulo" id="titulo_cposts" placeholder="Insira aqui o novo título"><br><br>
-            <textarea name="conteudo" id="conteudo_cposts" cols="30" rows="20" placeholder="Insira aqui o novo conteúdo"></textarea><br><br>
+            <input type="text" name="titulo" id="titulo_cposts" required placeholder="Insira aqui o novo título"><br><br>
+            <textarea name="conteudo" id="conteudo_cposts" cols="30" rows="20" required placeholder="Insira aqui o novo conteúdo"></textarea><br><br>
             <input type="hidden" name="id" value="<?php $cod; ?>">
             <input type="hidden" name="ept" value="true">
             <input type="submit" name="submit" value="Salvar" class="botao4" id="link1"><br>

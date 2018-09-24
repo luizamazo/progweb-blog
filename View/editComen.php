@@ -70,7 +70,7 @@
            <?php  echo '<form action="/progweb-blog/Controller/cmCRUDController.php?ed='. $comID . '" method="post">'; ?>
             
             
-            <textarea name="conteudo" id="conteudo_cposts" cols="30" rows="10" placeholder="Insira aqui o novo comentário"></textarea><br><br>
+            <textarea name="conteudo" id="conteudo_cposts" cols="30" rows="10" required placeholder="Insira aqui o novo comentário"></textarea><br><br>
     
             <input type="hidden" name="ect" value="true">
             <input type="submit" name="submit" value="Salvar" class="botao4" id="link1"><br>

@@ -61,9 +61,9 @@
                  
                     <tr>     
                       <td> 
-                        <input type="text" name="nome" placeholder="Nome" class="tam_input"><br>
-                        <input type="email" name="email" placeholder="Email" class="tam_input"><br>
-                        <input type="password" name="senha" placeholder="Senha" class="tam_input"><br>
+                        <input type="text" name="nome" required placeholder="Nome" class="tam_input"><br>
+                        <input type="email" name="email" required placeholder="Email" class="tam_input"><br>
+                        <input type="password" name="senha" required placeholder="Senha" class="tam_input"><br>
                       </td>       
 
                       <td>  

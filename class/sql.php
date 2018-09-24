@@ -18,7 +18,7 @@ class sql extends PDO{
     }
 
     //quando quero setar só um paramaetro
-    //key: placeholder; value: variável contendo valor pra dar o bind
+    //key: required placeholder; value: variável contendo valor pra dar o bind
     public function setParam($stmt, $key, $value){
         $stmt->bindParam($key, $value);
     }
