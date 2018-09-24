@@ -60,7 +60,6 @@ class cmCRUD{
 		$sql = new sql();
 		$cc = new cmCRUDController();
 		$v = $cc->cmInput();
-		var_dump($v);
 
 		$autor = $v["autor"];
 		$conteudo = $v["conteudo"];
@@ -124,6 +123,13 @@ class cmCRUD{
 
 	public function callSelectCM(){
 		$v = $this->selectComment("SELECT * FROM comentarios");
+		return $v;
+	}
+
+	public function callCMUser(){
+		$v = $this->selectComment("SELECT * FROM comentarios WHERE autor_original = :AUTOR_O", array(
+			":AUTOR_O"=>$_SESSION['nome']
+		));
 		return $v;
 	}
 }

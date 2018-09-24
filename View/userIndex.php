@@ -55,7 +55,7 @@
         <div>
           <ul id="gerencia1">
             <li id="li1"><a href="/progweb-blog/View/inicio.php"id="link1">Ver Posts do Blog</a></li>
-            <li id="li1"><a href="/progweb-blog/Controller/userController.php" id="link1">Gerenciar comentários</a></li>
+            <li id="li1"><a href="/progweb-blog/view/comenControl.php" id="link1">Listar comentários</a></li>
           </ul>  
         </div>
              

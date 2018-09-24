@@ -2,7 +2,8 @@
  
  require_once("../config.php");
  require_once("../class/auth.php");
- require_once("../model/userCRUD.php");
+ require_once("../model/postCRUD.php");
+ require_once("../model/cmCRUD.php");
    
    if($_SESSION['logado'] == true){
 ?>
@@ -60,7 +61,50 @@
             $objc = new cmCRUD();
             $vp = $objp->callSelectP();
             $vc = $objc->callSelectCM();
+            $uc = $objc->callCMUser();
 
+         foreach($vp as $post){
+
+            $check = $objp->checkDel($post["id"]);
+            $edit = $objp->checkEdit($post["id"]); 
+       
+             foreach($uc as $com){
+                
+                $checkCM = $objc->checkDelCM($com["id"]);
+                $editCM = $objc->checkEditCM($com["id"]);
+                
+                if($post["id"] == $com["post_id"]){ 
+                     if($checkCM == false){ ?>
+                            <hr>
+                            <h2><?php echo $post['titulo']; ?></h2>
+                            
+                        <p>
+                        <h5>    Postado por <?php echo ucwords($post['autor_original']); ?> | <?php echo $post['data_original']; 
+                                if($edit == true){
+                                        echo "<br>Editado por: " . ucwords($post['autor_editado']) . " | ". $post['data_editado'];
+                                    }?>
+                        </h5>
+                            </p>
+                            <div><?php echo nl2br($post['conteudo']); ?></div>
+                        <hr>
+                        <p>
+                        <h4> Comentado por 
+                            <?php 
+                                echo ucwords($com['autor_original']); 
+                            ?> | 
+                            <?php 
+                                echo $com['data_original']; 
+                                if($editCM == true){
+                                echo "<br>Editado por: " . ucwords($com['autor_editado']) . " | ". $com['data_editado']; } 
+                            ?>
+                        </h4>
+                        </p>
+                            <div><?php echo nl2br($com['conteudo']); ?></div>
+                    <?php
+                        }
+                    }
+                } 
+            }
             ?>
           </ul>  
         </div>

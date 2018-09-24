@@ -61,8 +61,8 @@ class cmCRUDController{
     $stmt = new cmCRUD();
     $v = $obj->cmInput();
    
-    var_dump($v);
-    echo "<hr>";
+
+    
 
         if(isset($v["cctkn"])){
         $_SESSION['cctoken'] = $v["cctkn"];
