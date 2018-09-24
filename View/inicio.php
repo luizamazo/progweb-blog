@@ -10,7 +10,7 @@ include_once "../model/cmCRUD.php";
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
     <link rel="stylesheet" type="text/css" href="./css/style.css">
-	<title>Início</title>
+  <title>Início</title>
 
 </head>
 
@@ -61,20 +61,23 @@ include_once "../model/cmCRUD.php";
             ?>
         </ul>
 
-        <hr id="traco">
+        
     </div>
 
     <br>
     <br>
     <br>
     <br>
+    <hr id="traco1">
     <br>
 
-    
-    <div><h2>POSTAGENS</h2></div>
-    <div id="caixa_inicio">
-        
-        <?php  
+
+    <main>
+
+    <h2>POSTAGENS</h2>
+    <br>
+
+    <?php  
             $obj = new postCRUD();
             $posts = $obj->callSelectP();
                 foreach($posts as $post){
@@ -110,7 +113,20 @@ include_once "../model/cmCRUD.php";
                     <?php 
                         } 
                      }  
-                        if(isset($_SESSION['logado']) && $_SESSION['logado'] == true){
+
+        
+        
+
+
+
+<br><br>
+
+
+    <section>                                    
+        <br>
+        <br>
+        
+        if(isset($_SESSION['logado']) && $_SESSION['logado'] == true){
 
                      ?>
                             <br><br><h3>Deixe seu comentário!</h3>
@@ -123,10 +139,22 @@ include_once "../model/cmCRUD.php";
                                     <input type="hidden" name="cct" value="true">
                                     <input type="submit" name="submit" value="Enviar" class="enviar" id="link1">
                             </form>
-                            
-               
 
-                        <?php   
+        <br>
+        <br>
+                    
+
+    </section>
+
+
+<input id="toggle" type="checkbox" >
+<label id="labela" for="toggle"><h3>Comentários</h3></label>
+<div id="expand">
+    <section>
+                            <hr>
+
+
+                           <?php   
                         } if(!isset($_SESSION['tipo']) || isset($_SESSION['tipo'])){
                             echo "<hr>
                             <h3>Comentários</h3>";
@@ -200,10 +228,20 @@ include_once "../model/cmCRUD.php";
             }
     } 
 }  ?>
-        </div>
-        
-    </div>
-    
+
+
+
+        <hr>
+
+    </section>
+
+
+
+</div>
+
+ 
+
+</main>
   
 
 </body>
