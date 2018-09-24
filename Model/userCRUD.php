@@ -2,7 +2,7 @@
 
 require_once("../config.php");
 include_once "../class/sql.php";
-include_once "../controller/userCRUDController.php";
+include_once "../Controller/userCRUDController.php";
 
 class userCRUD{
 
@@ -36,9 +36,9 @@ class userCRUD{
 			$_SESSION['nome'] = $v["nome"];
 			$_SESSION['logado'] = true;
 			$_SESSION['tipo'] = 4;
-			header("Location: /progweb-blog/view/userIndex.php");
+			header("Location: /progweb-blog/View/userIndex.php");
 		}else{
-			echo "<script>alert('Usuário criado com sucesso!'); window.location = '../view/admGIndex.php';</script>";
+			echo "<script>alert('Usuário criado com sucesso!'); window.location = '../View/admGIndex.php';</script>";
 	
 		}
 		
@@ -70,7 +70,7 @@ class userCRUD{
 				":TIPO"=>$tipo,
 				":ID" => $cod
 			));
-			echo "<script>alert('Alterado com sucesso!'); window.location = '../view/admGusercontrol.php';</script>";
+			echo "<script>alert('Alterado com sucesso!'); window.location = '../View/admGusercontrol.php';</script>";
 			exit();
 	}
 
@@ -90,7 +90,7 @@ class userCRUD{
 			":ID"=>$cod
 		));
 
-		echo "<script>alert('Exclusão virtual realizada com sucesso!'); window.location = '../view/admGusercontrol.php';</script>";
+		echo "<script>alert('Exclusão virtual realizada com sucesso!'); window.location = '../View/admGusercontrol.php';</script>";
 		exit();
 	}
 }

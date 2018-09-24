@@ -2,7 +2,7 @@
 
 require_once("../config.php");
 include_once "../class/sql.php";
-include_once "../model/userCRUD.php";
+include_once "../Model/userCRUD.php";
 
 class userCRUDController{
 

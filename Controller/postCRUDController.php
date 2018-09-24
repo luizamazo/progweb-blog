@@ -2,7 +2,8 @@
 
 require_once("../config.php");
 include_once "../class/sql.php";
-include_once "../model/postCRUD.php";
+include_once "../Model/postCRUD.php";
+include_once "../Model/cmCRUD.php";
 
 class postCRUDController{
 
@@ -10,7 +11,7 @@ class postCRUDController{
         $link = new sql();
         $conn = $link->createConn();
         
-    
+        
 	    if(isset($_POST['submit'])){
         
             $v = array();
@@ -53,6 +54,7 @@ class postCRUDController{
  
     $obj = new postCRUDController();
     $stmt = new postCRUD();
+    $objc = new cmCRUD();
     $v = $obj->postInput();
   
     if(isset($v["cptkn"])){
@@ -73,8 +75,9 @@ class postCRUDController{
         $_SESSION['dptoken'] = $v["dptkn"];
        
         if($_SESSION['dptoken'] == true){
-            $stmt->deletePost();
-            $_SESSION['dptoken'] = false;
+           $v = $objc->linkdelCMPost();
+           $stmt->deletePost();
+           $_SESSION['dptoken'] = false;
         }
     }
     

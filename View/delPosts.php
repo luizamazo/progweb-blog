@@ -65,13 +65,13 @@
 
             <div class="text1">DESEJA MESMO DELETAR "<?php echo $titulo; ?>"? </div>
             <br>    
-            <?php  echo '<form action="/progweb-blog/controller/postCRUDController.php?id='. $cod . '" method="post">'; ?>
+            <?php  echo '<form action="/progweb-blog/Controller/postCRUDController.php?id='. $cod . '" method="post">'; ?>
         
             <input type="hidden" name="dpt" value="true">
             <input type="submit" name="submit" value="Sim" class="botao3" id="link1">
             <br>
             <br>
-            <a href="/progweb-blog/view/inicio.php" class="botao4" id="link1">Não</a>
+            <a href="/progweb-blog/View/inicio.php" class="botao4" id="link1">Não</a>
             </form>
 
     
@@ -84,7 +84,7 @@
 
 <?php 
 }else{
-    echo "<script>alert('Você não está autorizado a ver essa página!'); window.location = '../view/inicio.php';</script>";
+    echo "<script>alert('Você não está autorizado a ver essa página!'); window.location = '../View/inicio.php';</script>";
 }
 
 ?>

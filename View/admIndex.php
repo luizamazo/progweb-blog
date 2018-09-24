@@ -2,7 +2,7 @@
  
  require_once("../config.php");
  require_once("../class/auth.php");
- require_once("../model/userCRUD.php");
+ require_once("../Model/userCRUD.php");
    
    //$aux = auth::checkUser();
    if(isset($_SESSION['tipo']) && $_SESSION['tipo'] != 3 && $_SESSION['tipo'] != 4){
@@ -56,7 +56,7 @@
 
         <div>
           <ul id="gerencia1" class="menu_adm">
-             <li id="li1"><a href="/progweb-blog/view/createPosts.php" id="link1">Adicionar Novo Post</a></li>
+             <li id="li1"><a href="/progweb-blog/View/createPosts.php" id="link1">Adicionar Novo Post</a></li>
           </ul>  
       </div>
              
@@ -69,7 +69,7 @@
 
 <?php 
 }else{
-    echo "<script>alert('Você não está autorizado a ver essa página!'); window.location = '../view/inicio.php';</script>";
+    echo "<script>alert('Você não está autorizado a ver essa página!'); window.location = '../View/inicio.php';</script>";
 }
 
 ?>

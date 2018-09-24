@@ -3,7 +3,7 @@
 require_once("../config.php");
 	
 include_once "../class/sql.php";
-include_once "../controller/postCRUDController.php";
+include_once "../Controller/postCRUDController.php";
 	
 class postCRUD{
 	
@@ -27,7 +27,7 @@ class postCRUD{
 			":ESTADO"=>$estado,
 	
 		));
-			header("Location: /progweb-blog/view/inicio.php");
+			header("Location: /progweb-blog/View/inicio.php");
 			//echo "POST INSERIDO";
 	}
 
@@ -78,7 +78,7 @@ class postCRUD{
 				":EDITADO"=>1
 			));
 
-			header("Location: /progweb-blog/view/inicio.php");
+			header("Location: /progweb-blog/View/inicio.php");
 }
 
     public function deletePost(){
@@ -93,7 +93,7 @@ class postCRUD{
 			":ID"=>$cod
 		));
 
-		  header("Location: /progweb-blog/view/inicio.php");
+		  header("Location: /progweb-blog/View/inicio.php");
 	}
 
 	public function checkDel($cod){

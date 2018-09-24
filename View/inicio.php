@@ -1,6 +1,6 @@
 <?php 
-include_once "../model/postCRUD.php";
-include_once "../model/cmCRUD.php";
+include_once "../Model/postCRUD.php";
+include_once "../Model/cmCRUD.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -129,7 +129,7 @@ include_once "../model/cmCRUD.php";
                     ?>
 
                         <br><br><h3>Deixe seu comentário!</h3>
-                        <form action="/progweb-blog/controller/cmCRUDController.php?id=<?php echo $post['id'];?>" method="post" >
+                        <form action="/progweb-blog/Controller/cmCRUDController.php?id=<?php echo $post['id'];?>" method="post" >
                             Nome: <?php echo ucwords($_SESSION['nome']);?>
                             <br><br>
                             Mensagem:
@@ -193,8 +193,8 @@ include_once "../model/cmCRUD.php";
                    ?>      
                                            <menu>
                                                <ul class="menu_comen">
-                                                   <li ><a href='/progweb-blog/view/editComen.php?ed=<?php echo $comID; ?>' class="botao7" id="link1"> Editar Comentário</a></li>
-                                                   <li><a href='/progweb-blog/controller/cmCRUDController.php?del=<?php echo $comID;?>&dct=true' class="botao7" id="link1"> Deletar Comentário</a></li>
+                                                   <li ><a href='/progweb-blog/View/editComen.php?ed=<?php echo $comID; ?>' class="botao7" id="link1"> Editar Comentário</a></li>
+                                                   <li><a href='/progweb-blog/Controller/cmCRUDController.php?del=<?php echo $comID;?>&dct=true' class="botao7" id="link1"> Deletar Comentário</a></li>
                                                </ul>
                                            </menu>
                                            <hr>
@@ -218,8 +218,8 @@ include_once "../model/cmCRUD.php";
                                                    <ul>
                                                        <?php echo '<li><a href="/progweb-blog/View/replyComen.php?postid=' . $postId . '&resp=' . $comID . '&user=' . $comUser .
                                                        '&conte=' . $comConteudo . ' "class="botao7" id="link1">Responder Comentário</a></li>'; ?>
-                                                       <li><a href='/progweb-blog/view/editComen.php?ed=<?php echo $comID; ?>' class="botao7" id="link1"> Editar Comentário</a></li>
-                                                       <li><a href='/progweb-blog/controller/cmCRUDController.php?del=<?php echo $comID;?>&dct=true' class="botao7" id="link1"> Deletar Comentário</a></li>
+                                                       <li><a href='/progweb-blog/View/editComen.php?ed=<?php echo $comID; ?>' class="botao7" id="link1"> Editar Comentário</a></li>
+                                                       <li><a href='/progweb-blog/Controller/cmCRUDController.php?del=<?php echo $comID;?>&dct=true' class="botao7" id="link1"> Deletar Comentário</a></li>
                        <?php                            
                                                     echo "</ul>";
                                                 echo "</menu>";
@@ -263,8 +263,8 @@ include_once "../model/cmCRUD.php";
                     ?>      
                                                 <menu>
                                                     <ul class="menu_comen">
-                                                        <li ><a href='/progweb-blog/view/editComen.php?ed=<?php echo $respID; ?>' class="botao7" id="link1"> Editar Comentário</a></li>
-                                                        <li><a href='/progweb-blog/controller/cmCRUDController.php?del=<?php echo $respID;?>&dct=true' class="botao7" id="link1"> Deletar Comentário</a></li>
+                                                        <li ><a href='/progweb-blog/View/editComen.php?ed=<?php echo $respID; ?>' class="botao7" id="link1"> Editar Comentário</a></li>
+                                                        <li><a href='/progweb-blog/Controller/cmCRUDController.php?del=<?php echo $respID;?>&dct=true' class="botao7" id="link1"> Deletar Comentário</a></li>
                                                     </ul>
                                                 </menu>
                                                 <hr>
@@ -288,8 +288,8 @@ include_once "../model/cmCRUD.php";
                                                                 <ul class="menu_comen">
                                                                     <?php echo '<li><a href="/progweb-blog/View/replyComen.php?postid=' . $postId . '&resp=' . $comID . '&user=' . $resp["autor_original"] .
                                                                     '&conte=' . $respConteudo . ' "class="fix" >Responder Comentário</a></li>'; ?>
-                                                                    <li ><a href='/progweb-blog/view/editComen.php?ed=<?php echo $respID; ?>' class="fix" > Editar Comentário</a></li>
-                                                                    <li><a href='/progweb-blog/controller/cmCRUDController.php?del=<?php echo $respID;?>&dct=true' class="fix" > Deletar Comentário</a></li>
+                                                                    <li ><a href='/progweb-blog/View/editComen.php?ed=<?php echo $respID; ?>' class="fix" > Editar Comentário</a></li>
+                                                                    <li><a href='/progweb-blog/Controller/cmCRUDController.php?del=<?php echo $respID;?>&dct=true' class="fix" > Deletar Comentário</a></li>
                                                                 </ul>
                                                         </menu>
                     <?php

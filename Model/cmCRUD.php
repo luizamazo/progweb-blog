@@ -3,7 +3,7 @@
 require_once("../config.php");
 	
 include_once "../class/sql.php";
-include_once "../controller/cmCRUDController.php";
+include_once "../Controller/cmCRUDController.php";
 	
 class cmCRUD{
 	
@@ -47,7 +47,7 @@ class cmCRUD{
 			));
 		}
 		
-		//header("Location: /progweb-blog/view/inicio.php");
+		header("Location: /progweb-blog/View/inicio.php");
 			//echo "Coment inserido";
 	}
 
@@ -111,7 +111,7 @@ class cmCRUD{
 		}
 		
 
-			header("Location: /progweb-blog/view/inicio.php");
+			header("Location: /progweb-blog/View/inicio.php");
 }
 
     public function deleteComment($delID){
@@ -123,7 +123,7 @@ class cmCRUD{
 			":ID"=>$delID
 		));
 
-		  header("Location: /progweb-blog/view/inicio.php");
+		  header("Location: /progweb-blog/View/inicio.php");
 	}
 
 	public function checkDelCM($comID){
@@ -160,6 +160,24 @@ class cmCRUD{
 
 	}
 
+	public function linkdelCMPost(){
+		
+		$sql = new sql();
+		$pc = new postCRUDController();
+		$v = $pc->postInput();
+		$postID = $v["id"];
+
+		$result = $sql->select("SELECT id FROM comentarios WHERE post_id = :POST_ID", array(
+			":POST_ID"=>$postID
+		));
+		foreach($result as $res){
+			$delID= $res["id"];
+			$this->deleteComment($delID);
+		}
+		
+
+	}
+
 	public function callSelectCM(){
 		$v = $this->selectComment("SELECT * FROM comentarios");
 		return $v;
@@ -182,7 +200,7 @@ class cmCRUD{
 }
 
 /*$t = new cmCRUD();
-$v = $t->callSelectCM();
+$v = $t->linkdelCMPost();
 var_dump($v[0]["autor_original"]);
 */
 ?>

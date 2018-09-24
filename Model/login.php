@@ -25,7 +25,7 @@ class login{
 
 			
 			if($result == false){ //if(count($result)  > 0 ){
-				echo "<script>alert('Email ou senha incorretos!'); window.location = '../view/login.html';</script>";
+				echo "<script>alert('Email ou senha incorretos!'); window.location = '../View/login.html';</script>";
 			}else{
 				$estado = $result[0]["estado"];
 				if($estado != 2){
@@ -35,7 +35,7 @@ class login{
 					$auth = new auth();
 					$auth->authIndex();
 				}else{
-					echo "<script>alert('Essa conta não existe mais!'); window.location = '../view/cadastro.html';</script>";
+					echo "<script>alert('Essa conta não existe mais!'); window.location = '../View/cadastro.html';</script>";
 				}
 		
 			}

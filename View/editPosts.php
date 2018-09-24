@@ -66,7 +66,7 @@
            <br> 
            <br>
 
-           <?php  echo '<form action="/progweb-blog/controller/postCRUDController.php?id='. $cod . '" method="post">'; ?>
+           <?php  echo '<form action="/progweb-blog/Controller/postCRUDController.php?id='. $cod . '" method="post">'; ?>
             
             <input type="text" name="titulo" id="titulo_cposts" placeholder="Insira aqui o novo título"><br><br>
             <textarea name="conteudo" id="conteudo_cposts" cols="30" rows="20" placeholder="Insira aqui o novo conteúdo"></textarea><br><br>
@@ -84,7 +84,7 @@
 
 <?php 
 }else{
-    echo "<script>alert('Você não está autorizado a ver essa página!'); window.location = '../view/inicio.php';</script>";
+    echo "<script>alert('Você não está autorizado a ver essa página!'); window.location = '../View/inicio.php';</script>";
 }
 
 ?>

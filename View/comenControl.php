@@ -2,8 +2,8 @@
  
  require_once("../config.php");
  require_once("../class/auth.php");
- require_once("../model/postCRUD.php");
- require_once("../model/cmCRUD.php");
+ require_once("../Model/postCRUD.php");
+ require_once("../Model/cmCRUD.php");
    
    if($_SESSION['logado'] == true){
 ?>
@@ -117,6 +117,6 @@
 
 <?php 
 }else{
-    echo "<script>alert('Você não está autorizado a ver essa página!'); window.location = '../view/inicio.php';</script>";
+    echo "<script>alert('Você não está autorizado a ver essa página!'); window.location = '../View/inicio.php';</script>";
 }
 ?>

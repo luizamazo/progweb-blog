@@ -2,7 +2,7 @@
 
 require_once("../config.php");
 include_once "../class/sql.php";
-include_once "../model/cmCRUD.php";
+include_once "../Model/cmCRUD.php";
 
 class cmCRUDController{
 

@@ -66,7 +66,7 @@
             <label class="text1">CRIAR NOVO POST</label>
             <br> 
             <br>
-            <form action="/progweb-blog/controller/postCRUDController.php" method="post">
+            <form action="/progweb-blog/Controller/postCRUDController.php" method="post">
             
             <input type="text" name="titulo" placeholder="Insira aqui o título do post" id="titulo_cposts"><br><br>
             <textarea name="conteudo" id="conteudo_cposts" cols="30" rows="20" placeholder="Insira aqui o conteúdo do post!!!" ></textarea><br><br>
@@ -84,7 +84,7 @@
 
 <?php 
 }else{
-    echo "<script>alert('Você não está autorizado a ver essa página!'); window.location = '../view/inicio.php';</script>";
+    echo "<script>alert('Você não está autorizado a ver essa página!'); window.location = '../View/inicio.php';</script>";
 }
 
 ?>

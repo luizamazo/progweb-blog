@@ -2,7 +2,7 @@
  
  require_once("../config.php");
  require_once("../class/auth.php");
- require_once("../model/userCRUD.php");
+ require_once("../Model/userCRUD.php");
    
    //$aux = auth::checkUser();
    if(isset($_SESSION['tipo']) && $_SESSION['tipo'] != 4){
@@ -71,7 +71,7 @@
 
 <?php 
 }else{
-    echo "<script>alert('Você não está autorizado a ver essa página!'); window.location = '../view/inicio.php';</script>";
+    echo "<script>alert('Você não está autorizado a ver essa página!'); window.location = '../View/inicio.php';</script>";
 }
 
 ?>

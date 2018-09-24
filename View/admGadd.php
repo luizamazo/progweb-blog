@@ -55,7 +55,7 @@
 
         <div id="menu1">
 
-            <form action="/progweb-blog/controller/userCRUDController.php" method="post">
+            <form action="/progweb-blog/Controller/userCRUDController.php" method="post">
 
                  <table id="tabela1">
                  
@@ -92,7 +92,7 @@
 
 <?php 
 }else{
-    echo "<script>alert('Você não está autorizado a ver essa página!'); window.location = '../view/inicio.php';</script>";
+    echo "<script>alert('Você não está autorizado a ver essa página!'); window.location = '../View/inicio.php';</script>";
 }
 
 ?>

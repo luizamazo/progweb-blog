@@ -2,7 +2,7 @@
  
  require_once("../config.php");
  require_once("../class/auth.php");
- require_once("../model/userCRUD.php");
+ require_once("../Model/userCRUD.php");
  
    
    //$aux = auth::checkUser();
@@ -95,7 +95,7 @@
              <label id="subtitulo">Editar Usuário</label>
              <br>
                                   
-                <form action="/progweb-blog/controller/userCRUDController.php" method="post">
+                <form action="/progweb-blog/Controller/userCRUDController.php" method="post">
                        
                   <table id="tabela">  
                     <tr>
@@ -148,7 +148,7 @@
             <label id="subtitulo">Excluir Usuário</label>
             <br>
                  
-            <form action="/progweb-blog/controller/userCRUDController.php" method="post">
+            <form action="/progweb-blog/Controller/userCRUDController.php" method="post">
              
                 <table align="center">
                   
@@ -184,7 +184,7 @@
 
 <?php 
 }else{
-  echo "<script>alert('Você não está autorizado a ver essa página!'); window.location = '../view/inicio.php';</script>";
+  echo "<script>alert('Você não está autorizado a ver essa página!'); window.location = '../View/inicio.php';</script>";
 }
 
 ?>

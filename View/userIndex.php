@@ -2,7 +2,7 @@
  
  require_once("../config.php");
  require_once("../class/auth.php");
- require_once("../model/userCRUD.php");
+ require_once("../Model/userCRUD.php");
    
    if($_SESSION['logado'] == true){
 ?>
@@ -55,7 +55,7 @@
         <div>
           <ul id="gerencia1">
             <li id="li1"><a href="/progweb-blog/View/inicio.php"id="link1">Ver Posts do Blog</a></li>
-            <li id="li1"><a href="/progweb-blog/view/comenControl.php" id="link1">Listar comentários</a></li>
+            <li id="li1"><a href="/progweb-blog/View/comenControl.php" id="link1">Listar comentários</a></li>
           </ul>  
         </div>
              
@@ -67,6 +67,6 @@
 
 <?php 
 }else{
-    echo "<script>alert('Você não está autorizado a ver essa página!'); window.location = '../view/inicio.php';</script>";
+    echo "<script>alert('Você não está autorizado a ver essa página!'); window.location = '../View/inicio.php';</script>";
 }
 ?>
