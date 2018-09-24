@@ -20,7 +20,7 @@ include_once "../model/cmCRUD.php";
     <div>
         <label id="titulo">12 Horas de Terror </label>
         <br>
-        <label>Um blog para os amantes do dark side.</label>
+        <label>Um blog para os amantes do dark side. <?php var_dump($_SESSION)?></label>
     </div>
 
     <br>
@@ -128,22 +128,21 @@ include_once "../model/cmCRUD.php";
                         $comentarios = $objcm->callSelectCM();
                         
                         foreach($comentarios as $com){
-                            
                             $postId = $post["id"];
                             $postidCM = $com["post_id"];
-                            $comID = $com["id"];
-                        
-                            $checkCM = $objcm->checkDelCM($comID);
-                            $editCM = $objcm->checkEditCM($comID);
-                             if($checkCM == false){
+                            var_dump($postId);
+                            var_dump($postidCM);
+                           // $check = $obj->checkDel($cod);
+                            //$edit = $obj->checkEdit($cod);
+                           // if($check == false){
                                 if($postId == $postidCM){ ?>
                                     <p>
-                                    <h4>Comentado por <?php echo ucwords($com['autor_original']); ?> | <?php echo $com['data_original']; 
-                                    if($editCM == true){
-                                       echo "<br>Editado por: " . ucwords($com['autor_editado']) . " | ". $com['data_editado'];
-                                 } 
+                                    <h5>Comentado por <?php echo ucwords($com['autor_original']); ?> | <?php echo $com['data_original']; 
+                                    //if($edit == true){
+                                    //   echo "<br>Editado por: " . ucwords($post['autor_editado']) . " | ". $post['data_editado'];
+                                // } 
                                     ?>
-                                    </h4>
+                                    </h5>
                                     </p>
                                     <div><?php echo nl2br($com['conteudo']); ?></div>
 
@@ -151,21 +150,23 @@ include_once "../model/cmCRUD.php";
                     <?php    if(isset($_SESSION['tipo'])){
                                     if($_SESSION['tipo'] == 1 || $_SESSION['tipo'] == 2){ 
                     ?>
+                             <br><br><br>
                              <menu>
                                 <ul>
-                                    <li><a href='editComen.php?id=<?php echo $post['id']; ?>' class="botao6" id="link1"> Editar Comentário</a></li>
-                                    <li><a href='/progweb-blog/controller/cmCRUDController.php?del=<?php echo $comID;?>&dct=true' class="botao6" id="link1"> Deletar Comentário</a></li>
+                                    <li><a href='editComen.php?id=<?php echo $post['id']; ?>' class="botao7" id="link1"> Editar Comentário</a></li>
+                                    <li><a href='/progweb-blog/controller/cmCRUDController.php?del=<?php echo $com['id'];?>&dct=true' class="botao7" id="link1"> Deletar Comentário</a></li>
                             <?php 
                                 } 
                             ?>   
-                                  <li><a href='replyComen.php?idCM=<?php echo $com['id'];?>' class="botao6" id="link1"> Responder Comentário</a></li>      
+                                  <li><a href='replyComen.php?idCM=<?php echo $com['id'];?>' class="botao7" id="link1"> Responder Comentário</a></li>      
                                 </ul>
                             </menu>
+                            <br><br><br><br>
                             <hr>
                             <?php  
                             }  
                         }
-                    }
+                    //}
                 }
             }
                         
@@ -173,8 +174,8 @@ include_once "../model/cmCRUD.php";
     }       
         ?>
         
-
-        </div>
+        
+    </div>
     
   
 
