@@ -60,7 +60,7 @@
             <li id="li1"><a href="/progweb-blog/View/admGadd.php" id="link1">Adicionar Usuários</a></li>
             <li id="li1"><a href="/progweb-blog/View/createPosts.php" id="link1">Adicionar Novo Post</a></li>
             <li id="li1"><a href="/progweb-blog/View/admGusercontrol.php" id="link1">Gerenciar Usuários</a></li>
-            <li id="li1"><a href="" id="link1">Gerenciar Comentários</a></li>
+            <li id="li1"><a href="" id="link1">Listar Comentários</a></li>
           </ul>  
         </div>
              

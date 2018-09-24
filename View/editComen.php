@@ -4,7 +4,7 @@
    require_once "../class/auth.php";
 
      
-     if(isset($_SESSION['tipo']) && $_SESSION['tipo'] != 4){
+     if(isset($_SESSION['tipo'])){
 
         $comID = $_GET['ed'];
 ?>
@@ -18,7 +18,7 @@
     
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     
-    <title>EDITAR COMENTÁRIOS</title>
+    <title>EDITAR COMENTÁRIO</title>
 
 </head>
 
