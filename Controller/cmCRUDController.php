@@ -21,10 +21,6 @@ class cmCRUDController{
                 $v["autor"] = $autor;  
                 $v["conteudo"] = $conteudo;
             }   
-           
-            if(isset($_GET['id'])){
-                $v["post_id"] = $_GET['id'];
-            }
              
             if(isset($_POST['cct'])){
                 $v["cctkn"] = $_POST['cct'];
@@ -35,7 +31,16 @@ class cmCRUDController{
             }
 
         }
+        //id do post
+        if(isset($_GET['id'])){
+            $v["post_id"] = $_GET['id'];
+        }
 
+        //id do comentario que será respondido
+        if(isset($_GET['resp'])){
+            $v["resp_id"] = $_GET['resp'];
+        }
+        //id do comentario a ser editado
         if(isset($_GET['ed'])){
             $v["ed_id"] = $_GET['ed'];
         }
@@ -60,9 +65,6 @@ class cmCRUDController{
     $obj = new cmCRUDController();
     $stmt = new cmCRUD();
     $v = $obj->cmInput();
-   
-
-    
 
         if(isset($v["cctkn"])){
         $_SESSION['cctoken'] = $v["cctkn"];

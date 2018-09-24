@@ -192,7 +192,6 @@ hr{
 	color: red;
 	
 }
-
 			
 #botao{
 	background-color: black;
@@ -312,6 +311,10 @@ td{
 	font-size: 20px;
 	font-weight: bold;
 }
+
+li {
+	list-style: none;
+  }
 
 #botao1{
 	background-color: black;

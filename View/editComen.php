@@ -67,7 +67,7 @@
            <br> 
            <br>
 
-           <?php  echo '<form action="/progweb-blog/controller/cmCRUDController.php?ed='. $comID . '" method="post">'; ?>
+           <?php  echo '<form action="/progweb-blog/Controller/cmCRUDController.php?ed='. $comID . '" method="post">'; ?>
             
             
             <textarea name="conteudo" id="conteudo_cposts" cols="30" rows="10" placeholder="Insira aqui o novo comentário"></textarea><br><br>

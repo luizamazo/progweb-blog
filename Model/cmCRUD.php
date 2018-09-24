@@ -18,15 +18,33 @@ class cmCRUD{
 		$postID = $v["post_id"];
 		$estado = 1;
 
-		$result = $sql->query("INSERT INTO comentarios(autor_original, conteudo, estado, post_id) 
-		VALUES(:AUTOR_O, :CONTEUDO, :ESTADO, :POST_ID)", array(
+		if(isset($v["resp_id"])){
+			$respID = $v["resp_id"];
+		}
+		
+
+		if(!isset($respID)){
+			$result = $sql->query("INSERT INTO comentarios(autor_original, conteudo, estado, post_id) 
+			VALUES(:AUTOR_O, :CONTEUDO, :ESTADO, :POST_ID)", array(
 			":AUTOR_O"=>$autor,
 			":CONTEUDO"=>$conteudo,
 			":ESTADO"=>$estado,
 			":POST_ID"=>$postID
-	
 		));
-			header("Location: /progweb-blog/view/inicio.php");
+		//se não for comentário novo ele é resposta então insere resposta id
+		}else{
+			$result = $sql->query("INSERT INTO comentarios(autor_original, conteudo, estado, post_id, resp_id) 
+			VALUES(:AUTOR_O, :CONTEUDO, :ESTADO, :POST_ID, :RESP_ID)", array(
+			":AUTOR_O"=>$autor,
+			":CONTEUDO"=>$conteudo,
+			":ESTADO"=>$estado,
+			":POST_ID"=>$postID,
+			":RESP_ID"=>$respID
+		));
+		
+		}
+		
+		//header("Location: /progweb-blog/view/inicio.php");
 			//echo "Coment inserido";
 	}
 

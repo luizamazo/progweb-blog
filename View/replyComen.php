@@ -4,10 +4,13 @@
    require_once "../class/auth.php";
 
      
-     //$aux = auth::checkUser();
-     if(isset($_SESSION['tipo']) && $_SESSION['tipo'] != 4){
-     //if(isset($_SESSION['tipo']) && $aux == "admG"){
-        $cod = $_GET['id'];
+     
+     if(isset($_SESSION['tipo']) && $_SESSION['logado'] == true){
+        
+        $postID = $_GET['postid'];
+        $respID = $_GET['resp'];
+        $comConteudo = $_GET['conte'];
+        $comUser = $_GET['user'];
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +22,7 @@
     
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     
-    <title>RESPONDER COMENTÁRIOS</title>
+    <title>RESPONDER COMENTÁRIO</title>
 
 </head>
 
@@ -64,21 +67,18 @@
         
         <div class="centro_edtComent">
 
-           <label class="text1">RESPONDER COMENTÁRIO</label>
-           <br> 
-           <br>
+           <label class="text1">EM RESPOSTA A</label>
 
-           <?php  echo '<form action="/progweb-blog/controller/postCRUDController.php?id='. $cod . '" method="post">'; ?>
+         <div style="color: red;"><h5><?php echo $comUser;?>:"<?php echo $comConteudo; ?>"</h5></div>
+             
+         <?php  echo '<form action="/progweb-blog/Controller/cmCRUDController.php?id='.$postID.'&resp='. $respID . '" method="post">'; ?>
             
-            
-            <textarea name="conteudo" id="conteudo_cposts" cols="30" rows="10" placeholder="Insira aqui a resposta ao comentário"></textarea><br><br>
-            <input type="hidden" name="id" value="<?php $cod; ?>">
-            <input type="hidden" name="ept" value="true">
+            <textarea name="conteudo" id="conteudo_cposts" cols="30" rows="20" placeholder="Insira aqui a sua resposta"></textarea><br><br>
+            <input type="hidden" name="cct" value="true">
             <input type="submit" name="submit" value="Salvar" class="botao4" id="link1"><br>
             </form>
-                
-            <?php "chama o edit por objeto?" ?>
-    
+      
+            
     </div>
     </div>
 

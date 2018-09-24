@@ -77,7 +77,7 @@ class postCRUDController{
             $_SESSION['dptoken'] = false;
         }
     }
- 
+    
    /* public function callInsert(){
 
         if(method_exists($this, 'insertPost')){
@@ -95,3 +95,4 @@ class postCRUDController{
     }*/
     
 ?>
+

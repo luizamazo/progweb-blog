@@ -84,7 +84,8 @@ include_once "../model/cmCRUD.php";
                     $edit = $obj->checkEdit($cod);
 
                     if($check == false){
-        ?>              
+        ?>              <br>
+                        <br>
                         <h2><?php echo $post['titulo']; ?></h2>
                         <p>
                             <h5>Postado por <?php echo ucwords($post['autor_original']); ?> | <?php echo $post['data_original']; 
@@ -102,8 +103,8 @@ include_once "../model/cmCRUD.php";
                     ?>
                     <menu>
                         <ul class="menu_posts">
-                            <li><a href='editPosts.php?id=<?php echo $post['id']; ?>' class="botao8 " id="link1"> Editar Post</a></li>
-                            <li><a href='delPosts.php?id=<?php echo $post['id'];?>&titulo=<?php echo $post['titulo'];?>' class="botao8" id="link1"> Deletar Post</a></li>
+                            <li><a href='editPosts.php?id=<?php echo $cod; ?>' class="botao8 " id="link1"> Editar Post</a></li>
+                            <li><a href='delPosts.php?id=<?php echo $cod;?>&titulo=<?php echo $post['titulo'];?>' class="botao8" id="link1"> Deletar Post</a></li>
                         </ul>
                     </menu>
                     <?php 
@@ -138,11 +139,15 @@ include_once "../model/cmCRUD.php";
                                 $postId = $post["id"];
                                 $postidCM = $com["post_id"];
                                 $comID = $com["id"];
+                                $comConteudo = $com["conteudo"];
+                                $comUser = $com["autor_original"];
                             
                                 $checkCM = $objcm->checkDelCM($comID);
                                 $editCM = $objcm->checkEditCM($comID);
                                 if($checkCM == false){
                                     if($postId == $postidCM){ ?>
+                                        <br>
+                                        <br>
                                         <p>
                                         <h4>Comentado por <?php echo ucwords($com['autor_original']); ?> | <?php echo $com['data_original']; 
                                         if($editCM == true){
@@ -150,13 +155,14 @@ include_once "../model/cmCRUD.php";
                                         ?>
                                         </h4>
                                         </p>
-                                        <div><?php echo nl2br($com['conteudo']); ?></div>
+                                        <div><?php echo nl2br($comConteudo); ?></div>
                                         <?php if(!isset($_SESSION['logado'])){  echo "<hr>"; } ?>
                                     
                         
                                     <?php if(isset($_SESSION['tipo'])){
                                         
-                                                    if($_SESSION['tipo'] == 4 && $_SESSION['nome'] == $com["autor_original"]){  ?>
+                                            if($_SESSION['tipo'] == 4 && $_SESSION['nome'] == $com["autor_original"]){  
+                                    ?>
                                         
                                             <menu>
                                                 <ul class="menu_comen">
@@ -166,13 +172,20 @@ include_once "../model/cmCRUD.php";
                                             </menu>
                                             <hr>
                                             
-                                            <?php }else if($_SESSION['tipo'] == 1 || $_SESSION['tipo'] == 2 || $_SESSION['tipo'] == 3){ ?>  
+                                            <?php }if($_SESSION['tipo'] == 4 && $_SESSION['nome'] != $com["autor_original"]){ ?>
+                                                <li><a href='/progweb-blog/View/replyComen.php?postid=<?php echo $post["id"];?>
+                                                    &resp=<?php echo $comID ?>&user=<?php echo $comUser; ?>&conte=<?php echo $comConteudo ?>' 
+                                                    class="botao7" id="link1"> Responder Comentário</a></li>  
+                                            <?php }
+                                            
+                                            if($_SESSION['tipo'] == 1 || $_SESSION['tipo'] == 2 || $_SESSION['tipo'] == 3){ ?>  
                                             
                                                 <menu>
                                                 <ul>
                                                     <li><a href='/progweb-blog/view/editComen.php?ed=<?php echo $comID; ?>' class="botao7" id="link1"> Editar Comentário</a></li>
                                                     <li><a href='/progweb-blog/controller/cmCRUDController.php?del=<?php echo $comID;?>&dct=true' class="botao7" id="link1"> Deletar Comentário</a></li>
-                                                    <li><a href='replyComen.php?idCM=<?php echo $com['id'];?>' class="botao7" id="link1"> Responder Comentário</a></li>  
+                                                    <li><a href='/progweb-blog/View/replyComen.php?postid=<?php echo $post["id"];?>'
+                                                    class="botao7" id="link1"> Responder Comentário</a></li>  
                                                 </ul>
                                             </menu> 
                                             

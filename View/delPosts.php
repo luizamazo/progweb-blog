@@ -66,8 +66,7 @@
             <div class="text1">DESEJA MESMO DELETAR "<?php echo $titulo; ?>"? </div>
             <br>    
             <?php  echo '<form action="/progweb-blog/controller/postCRUDController.php?id='. $cod . '" method="post">'; ?>
-            
-            <input type="hidden" name="id" value="<?php $cod; ?>">
+        
             <input type="hidden" name="dpt" value="true">
             <input type="submit" name="submit" value="Sim" class="botao3" id="link1">
             <br>
