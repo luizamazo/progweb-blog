@@ -146,7 +146,7 @@ include_once "../Model/cmCRUD.php";
 <input id="toggle" type="checkbox" class="input" >
 <label id="labela" for="toggle"><h3>Comentários</h3></label>
 <div id="expand">
-    <section> <?php
+    <section> <?php         if(isset($_SESSION)){
                               echo '<div class="h3coment"> 
                               <h3 >Comentários</h3>
                               </div>';
@@ -217,16 +217,16 @@ include_once "../Model/cmCRUD.php";
                                                // @ABRE IF = SE FOR ADM OU REDATOR APARECE TODOS AS 3 AÇÕES PARA COMENTÁRIOS
                                            if($_SESSION['tipo'] == 1 || $_SESSION['tipo'] == 2 || $_SESSION['tipo'] == 3){ 
                                             ?>  
-                                                                        <menu>
-                                                                            <ul>
-                                                                                <?php echo '<li><a href="/progweb-blog/View/replyComen.php?postid=' . $postId . '&resp=' . $comID . '&user=' . $comUser .
-                                                                                '&conte=' . $comConteudo . ' "class="botao7" id="link1">Responder Comentário</a></li>'; ?>
-                                                                                <li><a href='/progweb-blog/View/editComen.php?ed=<?php echo $comID; ?>' class="botao7" id="link1"> Editar Comentário</a></li>
-                                                                                <li><a href='/progweb-blog/Controller/cmCRUDController.php?del=<?php echo $comID;?>&dct=true' class="botao7" id="link1"> Deletar Comentário</a></li>
-                                                <?php                            
-                                                                             echo "</ul>";
-                                                                         echo "</menu>";
-                                                                     } //@FECHA IF = 3 AÇÕES PRA ADMS E REDATOR
+                                                <menu>
+                                                    <ul>
+                                                        <?php echo '<li><a href="/progweb-blog/View/replyComen.php?postid=' . $postId . '&resp=' . $comID . '&user=' . $comUser .
+                                                        '&conte=' . $comConteudo . ' "class="botao7" id="link1">Responder Comentário</a></li>'; ?>
+                                                        <li><a href='/progweb-blog/View/editComen.php?ed=<?php echo $comID; ?>' class="botao7" id="link1"> Editar Comentário</a></li>
+                                                        <li><a href='/progweb-blog/Controller/cmCRUDController.php?del=<?php echo $comID;?>&dct=true' class="botao7" id="link1"> Deletar Comentário</a></li>
+                    <?php                            
+                                                    echo "</ul>";
+                                                echo "</menu>";
+                                            } //@FECHA IF = 3 AÇÕES PRA ADMS E REDATOR
                                         }//@FECHA IF = USUARIO AUTENTICADO, MOSTRAR AÇÕES
                                         $resposta = $objcm->callSelectR();
                                         
@@ -271,6 +271,15 @@ include_once "../Model/cmCRUD.php";
                                                 <hr>
                                                 
                     <?php                       }//@FECHA IF = SE FOR USUÁRIO, MOSTRA AÇÕES QUE É SÓ DO USUÁRIO
+                                                //@ABRE IF = SE FOR USUÁRIO, ELE SÓ PODE RESPONDER COMENTÁRIOS DOS OUTROS
+                                                if($_SESSION['tipo'] == 4 && $_SESSION['nome'] != $com["autor_original"]){
+                                                    echo "<menu>";
+                                                        echo '<ul class="menu_comen">'; 
+                                                            echo '<li><a href="/progweb-blog/View/replyComen.php?postid=' . $postId . '&resp=' . $comID . '&user=' . $resp["autor_original"] .
+                                                            '&conte=' . $respConteudo . ' "class="fix2" >Responder Comentário</a></li>'; 
+                                                        echo "</ul>";
+                                                    echo "</menu>";
+                                                        }//@ FECHA IF = USUÁRIO N RESPONDE SEUS PRÓPRIOS COMENTÁRIOS
                                                  // @ABRE IF = SE FOR ADM OU REDATOR APARECE TODOS AS 3 AÇÕES PARA COMENTÁRIOS
                                                  if($_SESSION['tipo'] == 1 || $_SESSION['tipo'] == 2 || $_SESSION['tipo'] == 3){ 
                                                     ?>  
@@ -285,18 +294,20 @@ include_once "../Model/cmCRUD.php";
                                                     <?php
                                                     } //@FECHA IF = 3 AÇÕES PRA ADMS E REDATOR
                                                 }//@FECHA IF = USUARIO AUTENTICADO, MOSTRAR AÇÕES     
-                                            }//IF POSTID
-                                        }//FOREACH
+                                            }//IF POSTID = POST RESP
+                                        }//FOREACH PRA RESPOSTAS
 
-                                    }
-                                }
-                            }
-echo" </section>      
-        </div>";
-                        }
+                                    }//postid = postid cm
+                                }//checa se coment ativo
+
+                            }//@FOREACH COMENTARIOS
+echo" </section>     
+        </div>";         }
+                       
+                        }//@FECHA IF = SE POSTS ESTÃO ATIVOS 
                         
-                    }
-                                    ?>
+                    }//FECHA FOREACH PARA IMPRIMIR POSTS    
+                ?>
 
         </div>
     

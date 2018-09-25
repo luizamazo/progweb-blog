@@ -684,7 +684,7 @@ main {
 
 #expand {
   height: 0px;
-  overflow: hidden;
+  overflow: auto; 
   transition: height 0.5s;
   background-color: white;
   color: black;
