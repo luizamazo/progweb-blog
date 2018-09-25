@@ -89,7 +89,6 @@
 
 	</body>
 </html>
-
 <?php 
 }else{
     echo "<script>alert('Você não está autorizado a ver essa página!'); window.location = '../View/inicio.php';</script>";
