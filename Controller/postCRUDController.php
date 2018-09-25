@@ -57,6 +57,7 @@ class postCRUDController{
     $objc = new cmCRUD();
     $v = $obj->postInput();
   
+    //validação dos tokens pra chamada de funções do model
     if(isset($v["cptkn"])){
         $_SESSION['cptoken'] = $v["cptkn"];
         

@@ -31,26 +31,30 @@ class cmCRUDController{
             }
 
         }
-        //nome do usuario do comentario
-        if(isset($_GET['user'])){
-            $v["resp_user"] = $_GET['user'];
-        }
+    
         //id do post
         if(isset($_GET['id'])){
             $v["post_id"] = $_GET['id'];
         }
-
+        
+        //nome do usuario do comentario
+        if(isset($_GET['user'])){
+            $v["resp_user"] = $_GET['user'];
+        }
+        
         //id do comentario que será respondido
         if(isset($_GET['resp'])){
             $v["resp_id"] = $_GET['resp'];
         }
+        
         //id do comentario a ser editado
         if(isset($_GET['ed'])){
             $v["ed_id"] = $_GET['ed'];
         }
-
+        
+        //id do comentario q vai ser deletado
         if(isset($_GET['del'])){
-            //id do comentario q vai ser deletado
+            
             $v["del_id"] = $_GET['del'];
         }
 
@@ -70,6 +74,8 @@ class cmCRUDController{
     $stmt = new cmCRUD();
     $v = $obj->cmInput();
 
+        //tokens pras chamadas das funções do model
+        
         if(isset($v["cctkn"])){
         $_SESSION['cctoken'] = $v["cctkn"];
       

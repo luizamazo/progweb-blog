@@ -33,37 +33,5 @@ class auth{
                 }
             }
         }
-/* function checkUser(){
-            $aux = $_SESSION['tipo'];
-            global $admG;
-            global $adm;
-            global $reda;
-            global $usu;
-
-            foreach($aux as $tipo){
-                foreach($tipo as $value){
-                    if($value == 1){
-                        $admG = "";
-                        return $admG = "admG";
-                    }else if($value == 2){
-                        $adm = "";
-                        return $adm = "adm";
-                    }else if($value == 3){
-                        $reda = "";
-                        return $reda = "reda";
-                    }else if($value == 4){
-                        $usu = "";
-                        return $usu = "usu";
-                    }
-                    
-                }
-            }
-        }
-
-
-
-$auth = new auth();
-
-*/
 
 ?>

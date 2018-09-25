@@ -23,7 +23,6 @@ class cmCRUD{
 			$respUser = $v["resp_user"];
 		}
 		
-		var_dump($v);
 		//se eh nulo quer dizer que eh novo e é pra somente inserir
 		if(!isset($v["resp_id"])){
 			
@@ -48,7 +47,7 @@ class cmCRUD{
 		}
 		
 		header("Location: /progweb-blog/View/inicio.php");
-			//echo "Coment inserido";
+			//echo "Comment inserido";
 	}
 
 	public function selectComment($query, $param = array()){
@@ -56,6 +55,7 @@ class cmCRUD{
 		$sql = new sql();
 		$result = $sql->select($query, $param);
 		
+		//converte as datas originais e editadas pro formato e retorna pro vetor
 		foreach($result as $key => $res){	
 			foreach($res as $chave => $re){
 			if($chave == "data_original"){
@@ -85,11 +85,13 @@ class cmCRUD{
 		$autor = $v["autor"];
 		$conteudo = $v["conteudo"];
 		
+		//se for resposta recebe o nome do usuário que vai ser respondido 
 		if(isset($v["resp_id"])){
 			$respID = $v["resp_id"];
 			$respUser = $v["resp_user"];
 		}
 		
+		//se não for resposta, edita o comentário normal
 		if(!isset($v["resp_id"])){
 			$result = $sql->query("UPDATE comentarios SET autor_editado = :AUTOR_E, 
 			conteudo = :CONTEUDO, editado = :EDITADO WHERE id = :ID", array(
@@ -98,6 +100,7 @@ class cmCRUD{
 				":ID"=>$edID,
 				":EDITADO"=>1
 			));
+		//se for resposta edita no bd certo
 		}else{
 			$result = $sql->query("UPDATE respostas SET autor_editado = :AUTOR_E, 
 			conteudo = :CONTEUDO, editado = :EDITADO, resp_id = :RESP_ID, resp_user = :RESP_USER WHERE id = :ID", array(
@@ -117,7 +120,7 @@ class cmCRUD{
     public function deleteComment($delID){
 		$sql = new sql();
 		$estado = 2;
-	
+		//alteração da flag pra ficar desativado
 		$result = $sql->query("UPDATE comentarios SET estado = :ESTADO WHERE id = :ID", array(
 			":ESTADO"=>$estado,
 			":ID"=>$delID
@@ -130,7 +133,7 @@ class cmCRUD{
 		
 		$sql = new sql();
 		$id = $comID;
-		
+		//função pra checar se o comentário tá ativado ou desativado
 		$t = $sql->select("SELECT estado FROM comentarios WHERE id = :ID", array(
 			":ID"=>$id
 		));
@@ -147,7 +150,7 @@ class cmCRUD{
 
 		$sql = new sql();
 		$id = $comID;
-		
+		//função pra checar se o comentário foi editado ou não
 		$t = $sql->select("SELECT editado FROM comentarios WHERE id = :ID", array(
 			":ID"=>$id
 		));
@@ -166,7 +169,7 @@ class cmCRUD{
 		$pc = new postCRUDController();
 		$v = $pc->postInput();
 		$postID = $v["id"];
-
+		//função pra deletar o comentário assim que um post for deletado, pra não aparecer na lista do usuário mesmo quando o post foi desativado
 		$result = $sql->select("SELECT id FROM comentarios WHERE post_id = :POST_ID", array(
 			":POST_ID"=>$postID
 		));
@@ -178,11 +181,12 @@ class cmCRUD{
 
 	}
 
+	//selecionar dos coments
 	public function callSelectCM(){
 		$v = $this->selectComment("SELECT * FROM comentarios");
 		return $v;
 	}
-
+	//selecionar das respostas
 	public function callSelectR(){
 		$v = $this->selectComment("SELECT * FROM respostas");
 		return $v;

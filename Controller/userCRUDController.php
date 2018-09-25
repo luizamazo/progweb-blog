@@ -69,6 +69,7 @@ class userCRUDController{
 	$stmt = new userCRUD();
 	$v = $obj->userInput();
 
+	//tokens de chamadas de model
 	if(isset($v["cutkn"])){
         $_SESSION['cutoken'] = $v["cutkn"];
        

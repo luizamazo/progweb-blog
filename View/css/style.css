@@ -628,3 +628,73 @@ color: white;
 	 border-color: #8B0000;
 	 font-size: 15px;
 	}
+
+	/* TELA INICIAL COLLAPSE */
+
+#traco1{
+	size: 2;
+	border: 1px dashed red;
+	width: 60%;
+	left: 20%;
+	margin-top: 10px;
+}
+
+main {
+
+  	padding: 10px 0;
+  	box-shadow: 0 3px 5px rgba(0,0,0,0.3);
+  	background-color: #666666;
+	width: 60%;
+	position: absolute;
+	left: 20%;
+	margin-top: 10px;
+}
+
+.input {
+  display: none;
+  visibility: hidden;
+}
+
+#labela {
+  display: block;
+  padding: 10px;
+  text-align: right;
+  border-bottom: 1px solid #CCC;
+  color: white;  
+  
+}
+
+#labela:hover {
+  color: red;
+  font-weight: bold;
+}
+
+#labela::before {
+  font-family: fantasy;
+  font-weight: bold;
+  font-size: 15px;
+  color: black;
+  vertical-align: text-top;
+  display: inline-block;
+  width: 20px;
+  height: 100%;
+  margin-right: 3px;
+  visibility: hidden;
+}
+
+#expand {
+  height: 0px;
+  overflow: hidden;
+  transition: height 0.5s;
+  background-color: white;
+  color: black;
+}
+
+section {
+  padding: 0 20px;
+}
+
+#toggle:checked ~ #expand {
+  height: 100%;
+}
+
